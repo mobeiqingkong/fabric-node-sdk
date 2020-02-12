@@ -136,7 +136,7 @@ Channel对象还负责验证交易提议响应中的背书签名。在使用peer
 
 | 名称    | 类型                                                         | 描述                                                         |
 | :------ | :----------------------------------------------------------- | ------------------------------------------------------------ |
-| target  | string\|[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html) | 可选的。用于发出请求的peer。                                 |
+| target  | string&#124;[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html) | 可选的。用于发出请求的peer。                                 |
 | timeout | Number                                                       | 可选的。一个数字，表示等待响应之前等待超时（以毫秒为单位）的毫秒数。这将覆盖[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)实例的默认超时和配置设置中的全局超时 |
 
 返回结果
@@ -437,7 +437,7 @@ Channel对象还负责验证交易提议响应中的背书签名。在使用peer
 
 | 名称 | 类型                                                         | 描述                                                         |
 | :--- | :----------------------------------------------------------- | ------------------------------------------------------------ |
-| peer | [Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)\|string | 可选。peer实例或者已分配给该通道的peer名称。如果未提供，则ChannelEventHub必须与“target”peer连接。 |
+| peer | [Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)&#124;string | 可选。peer实例或者已分配给该通道的peer名称。如果未提供，则ChannelEventHub必须与“target”peer连接。 |
 
 返回结果
 

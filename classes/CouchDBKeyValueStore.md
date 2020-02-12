@@ -36,7 +36,7 @@ constructor
 
 覆写(Overrides:):
 
-- [module:api.KeyValueStore#getValue](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.KeyValueStore.html#getValue)
+- [module:api.KeyValueStore#getValue](
 
 返回结果
 

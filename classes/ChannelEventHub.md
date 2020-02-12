@@ -47,7 +47,7 @@
 
 | 名称            | 类型                                                         | 描述                                                         |
 | :-------------- | :----------------------------------------------------------- | ------------------------------------------------------------ |
-| options         | [ConnectOptions](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ConnectOptions)\|boolean | 可选。如果类型为布尔值，则将假定如何连接以接收完整(true)或已过滤(false)块。 |
+| options         | [ConnectOptions](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ConnectOptions)&#124;boolean | 可选。如果类型为布尔值，则将假定如何连接以接收完整(true)或已过滤(false)块。 |
 | connectCallback | function                                                     | 可选。该回调将报告与peer的连接完成，或报告与对等方连接期间遇到的任何错误。发生错误时，此ChannelEventHub将关闭(disconnected)。回调函数应采用两个参数作为(error, value)。 |
 
 #### disconnect()
@@ -133,7 +133,7 @@
 | 名称         | 类型                                                         | 描述                                                         |
 | :----------- | :----------------------------------------------------------- | ------------------------------------------------------------ |
 | chaincode_id | string                                                       | 链码的ID Id of the chaincode of interest                     |
-| event_name   | string\|RegExp                                               | 链码事件或正则表达式的确切名称，它将与目标链码的调用stub.SetEvent(name, payload)的名称相匹配 |
+| event_name   | string&#124;RegExp                                           | 链码事件或正则表达式的确切名称，它将与目标链码的调用stub.SetEvent(name, payload)的名称相匹配 |
 | onEvent      | function                                                     | 匹配事件的回调函数。不使用"as_array"时将使用四个参数调用它。<br/>- ChaincodeEvent-链码产生的链码事件，<br/>- {Long}-包含此链码事件的块号<br/>- {string}-包含此chaincode事件的交易ID<br/>- {string}-包含此chaincode事件的交易的交易状态<br/>当使用"as_array: true"选项时，事件对象数组的一个参数将具有上述值，可以在以下示例中使用。 |
 | onError      | function                                                     | 关闭此ChannelEventHub时将通知的可选回调函数。关闭原因可能是网络连接错误，"disconnect()"方法的调用，或者fabric服务在此ChannelEventHub结束连接引起的。由于重播并请求endBlock为"newest"，则由于接收到最后一个块而关闭ChannelEventHub时，也会调用此回调。 |
 | options      | [RegistrationOpts](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#RegistrationOpts) | 注册选项允许开始和结束程序段号，自动注销并自动断开连接。链码事件侦听器也可以使用“ as_array”选项来表明，找到的所有与此定义匹配的链码事件都将作为数组发送到回调，或者分别为每个回调调用回调。 |

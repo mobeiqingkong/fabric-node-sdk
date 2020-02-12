@@ -2,7 +2,7 @@
 
 ### AffiliationService
 
-这是从属关系的实现，该服务使用Fabric CA客户端 [FabricCAClient](https://hyperledger.github.io/fabric-sdk-node/release-1.4/FabricCAClient.html)与Fabric CA服务器进行通信。 
+这是从属关系的实现，该服务使用Fabric CA客户端 [FabricCAClient](FabricCAClient.md)与Fabric CA服务器进行通信。 
 
 #### new AffiliationService()
 

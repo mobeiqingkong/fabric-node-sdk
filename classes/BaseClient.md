@@ -2,7 +2,7 @@
 
 ### BaseClient
 
-使用CryptoSuite签名和哈希的客户端的基类。它还包含用于构造 [CryptoKeyStore](https://hyperledger.github.io/fabric-sdk-node/release-1.4/CryptoKeyStore.html), [CryptoSuite](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.CryptoSuite.html) and [KeyValueStore](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.KeyValueStore.html) 的新实例的实用程序方法。 
+使用CryptoSuite签名和哈希的客户端的基类。它还包含用于构造 [CryptoKeyStore](CryptoKeyStore.md), [CryptoSuite](module-api.CryptoSuite.md) and [KeyValueStore](module-api.KeyValueStore.md) 的新实例的实用程序方法。 
 
 #### new BaseClient()
 
@@ -10,7 +10,7 @@
 
 ####  &lt;static&gt; addConfigFile(path)
 
-将文件添加到属于分层配置的配置设置文件列表的顶部 。这些文件将覆盖默认设置，并被环境，命令行参数和以编程方式设置为配置设置的设置覆盖。分层配置设置的搜索顺序：请参阅 [BaseClient.getConfigSetting](https://hyperledger.github.io/fabric-sdk-node/release-1.4/BaseClient.html#.getConfigSetting) 
+将文件添加到属于分层配置的配置设置文件列表的顶部 。这些文件将覆盖默认设置，并被环境，命令行参数和以编程方式设置为配置设置的设置覆盖。分层配置设置的搜索顺序：请参阅 [BaseClient.getConfigSetting](BaseClient.md#getConfigSetting) 
 
 - 参数
 
