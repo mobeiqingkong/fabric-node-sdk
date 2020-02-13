@@ -75,3 +75,5 @@ constructor
 覆写(Overrides:):
 
 - [module:api.EndorsementHandler#initialize](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.EndorsementHandler.html#initialize)
+
+***

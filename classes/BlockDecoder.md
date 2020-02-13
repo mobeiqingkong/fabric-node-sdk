@@ -61,3 +61,5 @@
   - 类型
 
     [ProcessedTransaction](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ProcessedTransaction) 
+
+***

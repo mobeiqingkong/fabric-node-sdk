@@ -17,3 +17,5 @@
 | mspId       | string |                           |
 | certificate | string | 包含PEM格式的公钥的证书。 |
 | privateKey  | string | PEM格式的私钥。           |
+
+***

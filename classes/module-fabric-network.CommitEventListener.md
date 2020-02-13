@@ -14,3 +14,5 @@
 | transactionId | string                                                       | 正在监听的交易ID                                             |
 | eventCallback | function                                                     | 提交事务时调用事件回调。它具有签名（err，transactionId，status，blockNumber） |
 | options       | module:fabric-network.Network~ListenerOptions                |                                                              |
+
+***

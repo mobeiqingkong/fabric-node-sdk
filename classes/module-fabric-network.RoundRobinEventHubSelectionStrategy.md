@@ -34,5 +34,5 @@ Constructor.
 
   [Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)
 
-
+***
 

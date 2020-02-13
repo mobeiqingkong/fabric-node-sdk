@@ -72,3 +72,5 @@ constructor
   - 类型
 
     Promise
+
+***

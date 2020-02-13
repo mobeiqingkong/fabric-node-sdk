@@ -153,3 +153,5 @@
 覆写(Overrides:):
 
 - [module:api.CryptoSuite#verify](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.CryptoSuite.html#verify)
+
+***

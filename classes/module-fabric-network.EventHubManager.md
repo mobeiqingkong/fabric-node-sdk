@@ -93,3 +93,5 @@ Constructor
 | 名称 | 类型                                                         | 描述     |
 | ---- | ------------------------------------------------------------ | -------- |
 | peer | [Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html) | peer实例 |
+
+***

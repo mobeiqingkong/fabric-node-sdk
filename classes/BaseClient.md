@@ -203,3 +203,5 @@
 | 名称        | 类型                                                         | 描述             |
 | ----------- | ------------------------------------------------------------ | ---------------- |
 | cryptoSuite | [module:api.CryptoSuite](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.CryptoSuite.html) | CryptoSuite 对象 |
+
+***

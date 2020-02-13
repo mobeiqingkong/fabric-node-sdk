@@ -37,3 +37,4 @@
 | basePath  | string | 可选   | 将存储检查点的目录           |
 | maxLength | number | 可选   | 检查指针中可以包含的最大块数 |
 
+***

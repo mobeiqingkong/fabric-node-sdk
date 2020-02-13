@@ -18,3 +18,5 @@
 | :----- | :----------------------------------------------------------- | ------------------------------------------------------------ |
 | msps   | Array.&lt;[MSP](https://hyperledger.github.io/fabric-sdk-node/release-1.4/MSP.html)&gt; | 成员服务提供者对象数组，代表要构建的背书策略的参与者         |
 | policy | [Policy](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#Policy) | 策略规范。它具有两个高级属性：身份(identities)和策略(policy)。有关详细信息，请参见[Policy](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#Policy)的类型定义。 |
+
+***
