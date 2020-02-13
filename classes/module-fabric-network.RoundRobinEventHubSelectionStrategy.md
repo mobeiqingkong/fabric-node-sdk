@@ -10,9 +10,9 @@ Constructor.
 
 - 参数
 
-| 名称  | 类型                                                         | 描述                     |
-| ----- | ------------------------------------------------------------ | ------------------------ |
-| peers | Array&lt;[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)&gt; | 该策略可以选择的peer列表 |
+| 名称  | 类型                                                                                     | 描述                       |
+| ----- | ---------------------------------------------------------------------------------------- | -------------------------- |
+| peers | Array&lt;[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)&gt; | 该策略可以选择的 peer 列表 |
 
 实现:
 
@@ -22,7 +22,7 @@ Constructor.
 
 #### getNextPeer()
 
-获取peer列表中的下一个peer
+获取 peer 列表中的下一个 peer
 
 实现:
 
@@ -34,5 +34,4 @@ Constructor.
 
   [Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)
 
-***
-
+---

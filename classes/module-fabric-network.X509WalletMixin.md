@@ -8,14 +8,14 @@
 
 #### &lt;static&gt; createIdentity(mspId, certificate, privateKey)
 
-使用X509凭据创建一个身份对象。
+使用 X509 凭据创建一个身份对象。
 
 - 参数
 
-| 名称        | 类型   | 描述                      |
-| ----------- | ------ | ------------------------- |
-| mspId       | string |                           |
-| certificate | string | 包含PEM格式的公钥的证书。 |
-| privateKey  | string | PEM格式的私钥。           |
+| 名称        | 类型   | 描述                        |
+| ----------- | ------ | --------------------------- |
+| mspId       | string |                             |
+| certificate | string | 包含 PEM 格式的公钥的证书。 |
+| privateKey  | string | PEM 格式的私钥。            |
 
-***
+---

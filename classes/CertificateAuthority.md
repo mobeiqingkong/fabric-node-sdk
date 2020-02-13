@@ -1,12 +1,21 @@
+<!--
+ * @Author: LongZhiQiu
+ * @Date: 2020-02-06 22:45:23
+ * @Version: Do not edit
+ * @Description: file content
+ * @LastEditors: LongZhiQiu
+ * @LastEditTime: 2020-02-13 18:02:44
+ * @Auditor: LongZhiQiu
+ -->
 # CertificateAuthority
 
 ## CertificateAuthority
 
- CertificateAuthority类表示在连接配置文件中定义的证书颁发机构配置 。 当从 [Client#getCertificateAuthority](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#getCertificateAuthority)  方法返回此类时，此类将作为FabricCAServices实例包装FabricCAClientImpl fabric-ca-client实现。此类具有与  [FabricCAServices](https://hyperledger.github.io/fabric-sdk-node/release-1.4/FabricCAServices.html) 相同的所有方法，因此可以直接使用此类，也可以使用此类的  [CertificateAuthority#getFabricCAServices](https://hyperledger.github.io/fabric-sdk-node/release-1.4/CertificateAuthority.html#getFabricCAServices) 方法来获取实际的FabricCAServices实例。 
+CertificateAuthority 类表示在连接配置文件中定义的证书颁发机构配置 。 当从 [Client#getCertificateAuthority](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#getCertificateAuthority) 方法返回此类时，此类将作为 FabricCAServices 实例包装 FabricCAClientImpl fabric-ca-client 实现。此类具有与 [FabricCAServices](https://hyperledger.github.io/fabric-sdk-node/release-1.4/FabricCAServices.html) 相同的所有方法，因此可以直接使用此类，也可以使用此类的 [CertificateAuthority#getFabricCAServices](https://hyperledger.github.io/fabric-sdk-node/release-1.4/CertificateAuthority.html#getFabricCAServices) 方法来获取实际的 FabricCAServices 实例。
 
 #### new CertificateAuthority(name)
 
- 构造一个CertificateAuthority对象 
+构造一个 CertificateAuthority 对象
 
 - 参数
 
@@ -16,17 +25,17 @@
 
 - 返回结果
 
-  -  此CertificateAuthority的网址 
+  - 此 CertificateAuthority 的网址
+
+  - 类型
+
+    string
+
+  - 此 CertificateAuthority 的网址
 
     - 类型
 
-      string
-
-  - 此CertificateAuthority的网址 
-
-    - 类型
-
-       [CertificateAuthority](https://hyperledger.github.io/fabric-sdk-node/release-1.4/CertificateAuthority.html) 
+      [CertificateAuthority](https://hyperledger.github.io/fabric-sdk-node/release-1.4/CertificateAuthority.html)
 
 ### Methods
 
@@ -40,55 +49,55 @@
 
 #### getCaName()
 
- 获取要在请求中使用的此CertificateAuthority的名称 
+获取要在请求中使用的此 CertificateAuthority 的名称
 
 - 返回结果
 
-  -  此CertificateAuthority的ca名称 
-
-    - 类型
-
-      string
-
-#### getConnectionOptions()
-
- 获取此CertificateAuthority的连接选项 
-
-返回结果
-
--   此CertificateAuthority的连接选项 
-
-  - 类型
-
-    object
-
-#### getFabricCAServices()
-
- 获取FabricCAServices的实现 ( implementation )
-
-返回结果
-
--  [FabricCAServices](https://hyperledger.github.io/fabric-sdk-node/release-1.4/FabricCAServices.html) 
-
-#### getName()
-
- 获取此CertificateAuthority的名称 
-
-返回结果
-
--  此CertificateAuthority的名称 
+  - 此 CertificateAuthority 的 ca 名称
 
   - 类型
 
     string
 
-#### getRegistrar()
+#### getConnectionOptions()
 
- 获取此CertificateAuthority的注册商 
+获取此 CertificateAuthority 的连接选项
 
 返回结果
 
-- 此CertificateAuthority的注册商 
+- 此 CertificateAuthority 的连接选项
+
+- 类型
+
+  object
+
+#### getFabricCAServices()
+
+获取 FabricCAServices 的实现 ( implementation )
+
+返回结果
+
+- [FabricCAServices](https://hyperledger.github.io/fabric-sdk-node/release-1.4/FabricCAServices.html)
+
+#### getName()
+
+获取此 CertificateAuthority 的名称
+
+返回结果
+
+- 此 CertificateAuthority 的名称
+
+- 类型
+
+  string
+
+#### getRegistrar()
+
+获取此 CertificateAuthority 的注册商
+
+返回结果
+
+- 此 CertificateAuthority 的注册商
 
   - 类型
 
@@ -96,23 +105,23 @@
 
 #### getTlsCACerts()
 
- 获取此CertificateAuthority的TLS CA证书 
+获取此 CertificateAuthority 的 TLS CA 证书
 
 返回结果
 
--  此CertificateAuthority的TLS CA Cert PEM字符串 
+- 此 CertificateAuthority 的 TLS CA Cert PEM 字符串
 
-  - 类型
+- 类型
 
-    string
+  string
 
 #### getUrl()
 
- 获取此CertificateAuthority的URL 
+获取此 CertificateAuthority 的 URL
 
 返回结果
 
-- 此CertificateAuthority的URL 
+- 此 CertificateAuthority 的 URL
 
   - 类型
 
@@ -120,7 +129,7 @@
 
 #### newAffiliationService()
 
-见  [FabricCAServices#newAffiliationService](https://hyperledger.github.io/fabric-sdk-node/release-1.4/FabricCAServices.html#newAffiliationService) 
+见 [FabricCAServices#newAffiliationService](https://hyperledger.github.io/fabric-sdk-node/release-1.4/FabricCAServices.html#newAffiliationService)
 
 #### newCertificateService()
 
@@ -144,16 +153,16 @@
 
 #### setFabricCAServices(ca_services)
 
-设置FabricCAServices实现 
+设置 FabricCAServices 实现
 
 - 参数
 
-| 名称        | 类型                                                         | 描述                                                         |
-| ----------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 名称        | 类型                                                                                                | 描述                                                                                                |
+| ----------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | ca_services | [FabricCAServices](https://hyperledger.github.io/fabric-sdk-node/release-1.4/FabricCAServices.html) | [FabricCAServices](https://hyperledger.github.io/fabric-sdk-node/release-1.4/FabricCAServices.html) |
 
 #### toString()
 
- 返回此对象的可打印表示形式 
+返回此对象的可打印表示形式
 
-***
+---

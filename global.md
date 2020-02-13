@@ -414,7 +414,7 @@ chaincode_spec
 | fcn             | string                                                       | 可选。在目标链码中调用stub.GetFunctionAndParameters()时要返回的函数名称。默认为“invoke” |
 | args            | Array.&lt;string&gt;                                               | 特定于链码的“ Invoke”方法的字符串参数数组                    |
 | request_timeout | integer                                                      | 用于此请求的超时值                                           |
-| txId            | [ TransactionID](https://hyperledger.github.io/fabric-sdk-node/release-1.4/TransactionID.html) | 可选。用于查询的交易ID。                                   |
+| txId            | [TransactionID](https://hyperledger.github.io/fabric-sdk-node/release-1.4/TransactionID.html) | 可选。用于查询的交易ID。                                   |
 
 #### ChaincodeQueryResponse
 
@@ -1666,7 +1666,7 @@ rule
 
 "Transaction" 将具有以下对象结构。
 
-```javascript
+```
 actions {array}
 	header -- {SignatureHeader}
 	payload
@@ -1783,4 +1783,4 @@ actions {array}
 | cryptoContent   | [CryptoContent](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#CryptoContent) | 私钥和证书                                      |
 | skipPersistence | boolean                                                      | 是否将此新用户对象保存到持久性(persistence)中。 |
 
-*** 
+***

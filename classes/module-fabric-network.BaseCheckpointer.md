@@ -22,7 +22,7 @@ The constructor
 
 返回结果
 
-- 对象参数具有键blockNumber：字符串和值[module:fabric-network.BaseCheckpointer~Checkpoint](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.BaseCheckpointer.html#~Checkpoint)
+- 对象参数具有键 blockNumber：字符串和值[module:fabric-network.BaseCheckpointer~Checkpoint](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.BaseCheckpointer.html#~Checkpoint)
 
   - 类型
 
@@ -46,13 +46,13 @@ The constructor
 
 | 名称          | 类型   | 描述               |
 | ------------- | ------ | ------------------ |
-| transactionId | String | 交易ID             |
+| transactionId | String | 交易 ID            |
 | blockNumber   | Number | 块号               |
 | expectedTotal | Number | 此块中预期的事件数 |
 
 #### setChaincodeId(chaincodeId)
 
-设置链码ID以将侦听器分组在一起
+设置链码 ID 以将侦听器分组在一起
 
 - 参数
 

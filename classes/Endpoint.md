@@ -1,8 +1,18 @@
+<!--
+ * @Author: LongZhiQiu
+ * @Date: 2020-02-06 22:45:23
+ * @Version: Do not edit
+ * @Description: file content
+ * @LastEditors: LongZhiQiu
+ * @LastEditTime: 2020-02-13 18:10:00
+ * @Auditor: LongZhiQiu
+ -->
+
 # Endpoint
 
 ## Endpoint
 
-Endpoint类代表一个远程grpc或grpcs目标
+Endpoint 类代表一个远程 grpc 或 grpcs 目标
 
 #### new Endpoint(url, pem, clientKey, clientCert)
 
@@ -19,14 +29,14 @@ Endpoint类代表一个远程grpc或grpcs目标
 
 #### isTLS()
 
-确定此端点是否使用TLS。
+确定此端点是否使用 TLS。
 
 返回结果
 
-- 如果此端点使用TLS，则为true，否则为false。
+- 如果此端点使用 TLS，则为 true，否则为 false。
 
   - 类型
 
     boolean
 
-***
+---

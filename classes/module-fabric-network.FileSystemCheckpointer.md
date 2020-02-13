@@ -8,11 +8,11 @@
 
 - 参数
 
-| 名称         | 类型                                                         | 必要性 | 描述                                                         |
-| ------------ | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
-| channelName  | string                                                       |        | 网络                                                         |
-| listenerName | string                                                       |        | 侦听器的名称是检查点 The name of the listener being checkpointer |
-| options      | [module:fabric-network.FileSystemCheckpointer~FileSystemCheckpointerOptions](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.FileSystemCheckpointer.html#~FileSystemCheckpointerOptions) | 可选   |                                                              |
+| 名称         | 类型                                                                                                                                                                                                                     | 必要性 | 描述                                                             |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------ | ---------------------------------------------------------------- |
+| channelName  | string                                                                                                                                                                                                                   |        | 网络                                                             |
+| listenerName | string                                                                                                                                                                                                                   |        | 侦听器的名称是检查点 The name of the listener being checkpointer |
+| options      | [module:fabric-network.FileSystemCheckpointer~FileSystemCheckpointerOptions](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.FileSystemCheckpointer.html#~FileSystemCheckpointerOptions) | 可选   |                                                                  |
 
 ### 扩展
 
@@ -37,4 +37,4 @@
 | basePath  | string | 可选   | 将存储检查点的目录           |
 | maxLength | number | 可选   | 检查指针中可以包含的最大块数 |
 
-***
+---

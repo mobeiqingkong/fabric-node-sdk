@@ -2,7 +2,7 @@
 
 ## CouchDBKeyValueStore
 
-这是[KeyValueStore](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.KeyValueStore.html) API的示例数据库实现。它使用本地或远程CouchDB数据库实例存储密钥。
+这是[KeyValueStore](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.KeyValueStore.html) API 的示例数据库实现。它使用本地或远程 CouchDB 数据库实例存储密钥。
 
 #### new CouchDBKeyValueStore(options)
 
@@ -10,9 +10,9 @@ constructor
 
 - 参数
 
-| 名称    | 类型                                                         | 描述                        |
-| :------ | :----------------------------------------------------------- | --------------------------- |
-| options | [CouchDBOpts](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#CouchDBOpts) | 用于连接到CouchDB实例的设置 |
+| 名称    | 类型                                                                                             | 描述                          |
+| :------ | :----------------------------------------------------------------------------------------------- | ----------------------------- |
+| options | [CouchDBOpts](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#CouchDBOpts) | 用于连接到 CouchDB 实例的设置 |
 
 ### 扩展
 
@@ -22,13 +22,13 @@ constructor
 
 #### getValue(name)
 
-获取与name关联的值。
+获取与 name 关联的值。
 
 - 参数
 
-| 名称 | 类型   | 描述    |
-| :--- | :----- | ------- |
-| name | string | key名称 |
+| 名称 | 类型   | 描述     |
+| :--- | :----- | -------- |
+| name | string | key 名称 |
 
 继承自(Inherited From)：
 
@@ -40,7 +40,7 @@ constructor
 
 返回结果
 
-- key对应的值的Promise。如果存储中不存在该值，则在不拒绝promise的情况下返回null。
+- key 对应的值的 Promise。如果存储中不存在该值，则在不拒绝 promise 的情况下返回 null。
 
   - 类型
 
@@ -48,14 +48,14 @@ constructor
 
 #### setValue(name, value)
 
-设置与name关联的值。
+设置与 name 关联的值。
 
 - 参数
 
-| 名称  | 类型   | 描述            |
-| :---- | :----- | --------------- |
-| name  | string | 要保存的key名称 |
-| value | string | 保存的value     |
+| 名称  | 类型   | 描述              |
+| :---- | :----- | ----------------- |
+| name  | string | 要保存的 key 名称 |
+| value | string | 保存的 value      |
 
 继承自(Inherited From)：
 
@@ -67,10 +67,10 @@ constructor
 
 返回结果
 
-- 成功写入操作后"value"对象的Promise。
+- 成功写入操作后"value"对象的 Promise。
 
   - 类型
 
     Promise
 
-***
+---

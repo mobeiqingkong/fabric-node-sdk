@@ -4,7 +4,7 @@
 
 #### new ECDSA_KEY()
 
-此模块为ECDSA实现 [module:api.Key](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.Key.html) 接口。
+此模块为 ECDSA 实现 [module:api.Key](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.Key.html) 接口。
 
 ### 扩展
 
@@ -46,7 +46,7 @@
 
 #### isPrivate()
 
-如果此密钥是非对称私钥，则返回true，否则返回false。
+如果此密钥是非对称私钥，则返回 true，否则返回 false。
 
 继承自(Inherited From)：
 
@@ -62,7 +62,7 @@
 
 #### isSymmetric()
 
-如果此密钥是对称密钥，则返回true；如果此密钥是非对称密钥，则返回false。
+如果此密钥是对称密钥，则返回 true；如果此密钥是非对称密钥，则返回 false。
 
 继承自(Inherited From)：
 
@@ -78,7 +78,7 @@
 
 #### toBytes()
 
-如果允许此操作，则将该键转换为其PEM表示形式。
+如果允许此操作，则将该键转换为其 PEM 表示形式。
 
 继承自(Inherited From)：
 
@@ -86,10 +86,10 @@
 
 返回结果
 
-- 密钥的PEM字符串表示形式
+- 密钥的 PEM 字符串表示形式
 
   - 类型
 
     string
 
-***
+---

@@ -2,7 +2,7 @@
 
 ## FileKeyValueStore
 
-这是[KeyValueStore](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.KeyValueStore.html)  API的默认实现。它使用文件来存储键值。
+这是[KeyValueStore](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.KeyValueStore.html) API 的默认实现。它使用文件来存储键值。
 
 #### new FileKeyValueStore(options)
 
@@ -10,21 +10,21 @@ constructor
 
 - 参数
 
-| 名称    | 类型   | 描述                                        |
-| ------- | ------ | ------------------------------------------- |
-| options | Object | 包含单个属性路径，该路径指向store的顶级目录 |
+| 名称    | 类型   | 描述                                          |
+| ------- | ------ | --------------------------------------------- |
+| options | Object | 包含单个属性路径，该路径指向 store 的顶级目录 |
 
 ### Methods
 
 #### getValue(name)
 
-获取与name关联的值。
+获取与 name 关联的值。
 
 - 参数
 
-| 名称 | 类型   | 描述      |
-| ---- | ------ | --------- |
-| name | string | key的名称 |
+| 名称 | 类型   | 描述       |
+| ---- | ------ | ---------- |
+| name | string | key 的名称 |
 
 继承自(Inherited From)：
 
@@ -36,7 +36,7 @@ constructor
 
 返回结果
 
-- 与密钥对应的value的Promise。如果存储中不存在该值，则在不拒绝promise的情况下返回null。
+- 与密钥对应的 value 的 Promise。如果存储中不存在该值，则在不拒绝 promise 的情况下返回 null。
 
   - 类型
 
@@ -44,14 +44,14 @@ constructor
 
 #### setValue(name, value)
 
-设置与name关联的value。
+设置与 name 关联的 value。
 
 - 参数
 
-| 名称  | 类型   | 描述        |
-| ----- | ------ | ----------- |
-| name  | string | key的名称   |
-| value | string | 保存的value |
+| 名称  | 类型   | 描述         |
+| ----- | ------ | ------------ |
+| name  | string | key 的名称   |
+| value | string | 保存的 value |
 
 继承自(Inherited From)：
 
@@ -63,7 +63,7 @@ constructor
 
 返回结果
 
-- 成功写入操作后“value”对象的Promise。
+- 成功写入操作后“value”对象的 Promise。
 
   - 类型
 

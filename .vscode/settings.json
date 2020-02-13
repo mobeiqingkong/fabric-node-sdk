@@ -2,4 +2,46 @@
     "editor.codeActionsOnSave": {
         "source.fixAll": false
     },
+    "fileheader.configObj": {
+        "createFileTime": true,
+        "language": {
+            "languagetest": {
+                "head": "/$$",
+                "middle": " $ @",
+                "end": " $/"
+            }
+        },
+        "autoAdd": false,
+        "autoAddLine": 100,
+        "autoAlready": true,
+        "annotationStr": {
+            "head": "/*",
+            "middle": " * @",
+            "end": " */",
+            "use": false
+        },
+        "headInsertLine": {
+            "php": 2
+        },
+        "beforeAnnotation": {},
+        "afterAnnotation": {},
+        "specialOptions": {},
+        "switch": {
+            "newlineAddAnnotation": true
+        },
+        "prohibitAutoAdd": [
+            "json"
+        ],
+        "moveCursor": true,
+        "dateFormat": "YYYY-MM-DD HH:mm:ss",
+        "atSymbol": "@",
+        "atSymbolObj": {},
+        "colon": ": ",
+        "colonObj": {},
+        "filePathColon": "路径分隔符替换",
+        "showErrorMessage": false,
+        "wideSame": false,
+        "wideNum": 13,
+        "CheckFileChange": false
+    }
 }

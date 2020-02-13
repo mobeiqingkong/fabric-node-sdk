@@ -10,4 +10,4 @@
 
 - [module:fabric-network.FabricError](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.FabricError.html)
 
-***
+---
