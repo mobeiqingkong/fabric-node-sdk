@@ -294,7 +294,7 @@ var tx_id = block.data.data[0].payload.header.channel_header.tx_id;
 
 | 名称             | 类型                                                                                                                | 描述                                                                                                                                                                                                                                                                                            |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| targets          | Array.&lt;[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)&gt;&#124;Array.&lt;string&gt; | 可选。将安装链码的[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)对象或 peer 名称的数组。如果排除在外，则将使用在公共连接配置文件中定义的分配给该客户组织的同级。如果包括“ channelNames”属性，则目标 peer 将基于通道中定义的 peer。                                 |
+| targets          | Array.&lt;[Peer](./Peer.md&gt;&#124;Array.&lt;string&gt; | 可选。将安装链码的[Peer](./Peer.md对象或 peer 名称的数组。如果排除在外，则将使用在公共连接配置文件中定义的分配给该客户组织的同级。如果包括“ channelNames”属性，则目标 peer 将基于通道中定义的 peer。                                 |
 | chaincodePath    | string                                                                                                              | 必要。链码源代码位置的路径。如果 chaincode 类型为 golang，则此路径为标准软件包名称，例如'mycompany.com/myproject/mypackage/mychaincode'                                                                                                                                                         |
 | metadataPath     | string                                                                                                              | 可选。包含元数据描述符的顶级目录的路径。                                                                                                                                                                                                                                                        |
 | chaincodeId      | string                                                                                                              | 必要。链码名称                                                                                                                                                                                                                                                                                  |
@@ -302,7 +302,7 @@ var tx_id = block.data.data[0].payload.header.channel_header.tx_id;
 | chaincodePackage | Array.&lt;byte&gt;                                                                                                  | 选的。链码源的归档内容的字节数组。归档文件必须具有一个“ src”文件夹，其中包含与“ chaincodePath”字段相对应的子文件夹。例如，如果 chaincodePath 为“mycompany.com/myproject/mypackage/mychaincode”，则归档文件必须包含链目录源代码所在的文件夹“src/mycompany.com/myproject/mypackage/mychaincode”。 |
 | chaincodeType    | string                                                                                                              | 可选。链码的类型。 “ golang”，“ car”，“ node”或“ java”之一。默认值为“ golang”。                                                                                                                                                                                                                 |
 | channelNames     | Array.&lt;string&gt;&#124;string                                                                                    | 可选。没有提供目标时，将在加载的公共连接配置文件中搜索合适的目标 peer。将选择在此属性命名的通道中以及在此客户的组织中定义且在命名通道上具有背书或链码查询角色的同级。                                                                                                                           |
-| txId             | [TransactionID](https://hyperledger.github.io/fabric-sdk-node/release-1.4/TransactionID.html)                       | 可选。此请求的 TransactionID 对象。                                                                                                                                                                                                                                                             |
+| txId             | [TransactionID](./TransactionID.md                       | 可选。此请求的 TransactionID 对象。                                                                                                                                                                                                                                                             |
 
 #### ChaincodeInstantiateUpgradeRequest
 
@@ -312,12 +312,12 @@ var tx_id = block.data.data[0].payload.header.channel_header.tx_id;
 
 | 名称               | 类型                                                                                                                                                                                     | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| targets            | Array.[[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)](<[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)>)\|Array.&lt;string&gt; | 可选。将安装链码的[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)对象或 peer 名称的数组。如果排除在外，则将使用在公共连接配置文件中定义的分配给该客户组织的同级。如果包括“ channelNames”属性，则目标 peer 将基于通道中定义的 Peer。                                                                                                                                                                                                                 |
+| targets            | Array.[[Peer](./Peer.md](<[Peer](./Peer.md>)&#124;Array.&lt;string&gt; | 可选。将安装链码的[Peer](./Peer.md对象或 peer 名称的数组。如果排除在外，则将使用在公共连接配置文件中定义的分配给该客户组织的同级。如果包括“ channelNames”属性，则目标 peer 将基于通道中定义的 Peer。                                                                                                                                                                                                                 |
 | chaincodeType      | string                                                                                                                                                                                   | 可选。链码的类型。 “ golang”，“ car”，“ node”或“ java”之一。默认值为“ golang”。                                                                                                                                                                                                                                                                                                                                                                                                 |
 | chaincodeId        | string                                                                                                                                                                                   | 必要。链码名称                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | chaincodeVersion   | string                                                                                                                                                                                   | 必要。链码的版本字符串，例如“ v1”                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| txId               | [TransactionID](https://hyperledger.github.io/fabric-sdk-node/release-1.4/TransactionID.html)                                                                                            | 可选。此请求的 TransactionID 对象。                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| collections-config | string                                                                                                                                                                                   | 可选。集合配置的路径。可以在本[教程(tutorial)](https://hyperledger.github.io/fabric-sdk-node/release-1.4/tutorial-private-data.html)中找到更多详细信息                                                                                                                                                                                                                                                                                                                          |
+| txId               | [TransactionID](./TransactionID.md                                                                                            | 可选。此请求的 TransactionID 对象。                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| collections-config | string                                                                                                                                                                                   | 可选。集合配置的路径。可以在本[教程(tutorial)](./tutorial-private-data.md中找到更多详细信息                                                                                                                                                                                                                                                                                                                          |
 | transientMap       | object                                                                                                                                                                                   | 可选。带有 String 属性名称和 Buffer 属性值的对象，可以由链码使用，但不能保存在分类帐中。可以使用此技术将诸如用于加密的密码信息的数据传递到链码。应将要保留在私有数据存储区（集合）中的数据传递给 transientMap 中的链码。                                                                                                                                                                                                                                                        |
 | fcn                | string                                                                                                                                                                                   | 可选。在目标链码中调用 stub.GetFunctionAndParameters()时要返回的函数名称。默认为'init';如果要不传入任何函数名，请显式传入 fcn，其值为 null 或”（空字符串）                                                                                                                                                                                                                                                                                                                      |
 | args               | Array.&lt;string&gt;                                                                                                                                                                     | 可选。传递给 fcn 值所标识的函数的字符串参数数组。                                                                                                                                                                                                                                                                                                                                                                                                                               |
@@ -391,20 +391,20 @@ chaincode_spec
 
 | 名称               | 类型                                                                                                                                                                                     | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| targets            | Array.[[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)](<[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)>)\|Array.&lt;string&gt; | 可选。背书 peer 对象或 peer 名称作为请求目标的数组。如果省略此参数，则目标列表将包括分配给该通道实例的 peer，它们具有背书角色。                                                                                                                                                                                                                                                                                                                  |
+| targets            | Array.[[Peer](./Peer.md](<[Peer](./Peer.md>)&#124;Array.&lt;string&gt; | 可选。背书 peer 对象或 peer 名称作为请求目标的数组。如果省略此参数，则目标列表将包括分配给该通道实例的 peer，它们具有背书角色。                                                                                                                                                                                                                                                                                                                  |
 | chaincodeId        | string                                                                                                                                                                                   | 必要。用于处理交易建议的链码的 ID                                                                                                                                                                                                                                                                                                                                                                                                                |
-| endorsement_hint   | DiscoveryChaincodeIntereset                                                                                                                                                              | 可选。 [DiscoveryChaincodeInterest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#DiscoveryChaincodeInterest)对象的一个，发现服务将使用该对象来计算适当的背书计划。仅当背书将由可调用其他链码的链码执行背书，或者背书应仅由一个或多个集合中的 peer 进行背书时，才需要该参数。                                                                                                                                            |
-| txId               | [TransactionID](https://hyperledger.github.io/fabric-sdk-node/release-1.4/TransactionID.html)                                                                                            | 可选。具有交易 ID 和随机数的 TransactionID 对象。 [sendTransactionProposal](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#sendTransactionProposal)需要 txId，[generateUnsignedProposal](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#generateUnsignedProposal)是可选的                                                                                                                        |
+| endorsement_hint   | DiscoveryChaincodeIntereset                                                                                                                                                              | 可选。 [DiscoveryChaincodeInterest](#DiscoveryChaincodeInterest)对象的一个，发现服务将使用该对象来计算适当的背书计划。仅当背书将由可调用其他链码的链码执行背书，或者背书应仅由一个或多个集合中的 peer 进行背书时，才需要该参数。                                                                                                                                            |
+| txId               | [TransactionID](./TransactionID.md                                                                                            | 可选。具有交易 ID 和随机数的 TransactionID 对象。 [sendTransactionProposal](./Channel.html#sendTransactionProposal)需要 txId，[generateUnsignedProposal](./Channel.html#generateUnsignedProposal)是可选的                                                                                                                        |
 | transientMap       | object                                                                                                                                                                                   | 可选。带有 String 属性名称和 Buffer 属性值的对象，可以由链码使用，但不能保存在分类帐中。可以使用此技术将诸如用于加密的密码信息的数据传递到链码。应将要保留在私有数据存储区（集合）中的数据传递给 transientMap 中的链码。                                                                                                                                                                                                                         |
 | fcn                | string                                                                                                                                                                                   | 可选。在目标链码中调用 stub.GetFunctionAndParameters()时要返回的函数名称。默认为'invoke'。                                                                                                                                                                                                                                                                                                                                                       |
 | args               | Array.&lt;string&gt;                                                                                                                                                                     | 可选。传递给 fcn 值所标识的函数的字符串参数数组。                                                                                                                                                                                                                                                                                                                                                                                                |
-| required           | Array.&lt;string&gt;                                                                                                                                                                     | 可选。字符串数组，表示背书所需的 peer 的名称。这些将是发送提案的唯一 peer。该列表仅适用于使用发现服务的背书。此属性由 DiscoveryEndorsementHandler 使用。                                                                                                                                                                                                                                                                                         |
-| ignore             | Array.&lt;string&gt;                                                                                                                                                                     | 可选。字符串数组，表示背书应忽略的 peer 的名称。该列表仅适用于使用发现服务的背书。此属性由[DiscoveryEndorsementHandler](https://hyperledger.github.io/fabric-sdk-node/release-1.4/DiscoveryEndorsementHandler.html)使用。                                                                                                                                                                                                                        |
-| preferred          | Array.&lt;string&gt;                                                                                                                                                                     | 可选。字符串数组，代表应该由背书赋予优先级的 peer 的名称。优先级意味着当背书计划在组中有更多 peer，然后需要满足背书策略时，将首先选择这些 peer 进行背书。该列表仅适用于使用发现服务的认可。此属性由[DiscoveryEndorsementHandler](https://hyperledger.github.io/fabric-sdk-node/release-1.4/DiscoveryEndorsementHandler.html)使用。                                                                                                               |
-| requiredOrgs       | Array.&lt;string&gt;                                                                                                                                                                     | 可选。字符串数组，表示背书所需的组织的 MSP ID。仅向这些组织中的 peer 发送提议。该列表仅适用于使用发现服务的背书。此属性由[DiscoveryEndorsementHandler](https://hyperledger.github.io/fabric-sdk-node/release-1.4/DiscoveryEndorsementHandler.html)使用。                                                                                                                                                                                         |
-| ignoreOrgs         | Array.&lt;string&gt;                                                                                                                                                                     | 可选。字符串数组，表示背书的组织应忽略的 MSP ID 的名称。在将组织中的 peer 添加到优先级列表之前，可以使用可选属性 preferredHeightGap 考虑其分类帐高度。该列表仅适用于使用发现服务的背书。此属性由[DiscoveryEndorsementHandler](https://hyperledger.github.io/fabric-sdk-node/release-1.4/DiscoveryEndorsementHandler.html)使用。                                                                                                                  |
-| preferredOrgs      | Array.&lt;string&gt;                                                                                                                                                                     | 可选。一组字符串，代表应由背书赋予优先级的组织的 MSP ID 的名称。在将组织中的 peer 添加到优先级列表之前，可以使用可选属性 preferredHeightGap 考虑其分类帐高度。该列表仅适用于使用发现服务的背书。此属性由[DiscoveryEndorsementHandler](https://hyperledger.github.io/fabric-sdk-node/release-1.4/DiscoveryEndorsementHandler.html)使用。                                                                                                          |
-| preferredHeightGap | Number                                                                                                                                                                                   | 可选。一个整数，表示一个 peer 的区块高度的最大差值和在背书计划内的一组 peer 中找到的最高区块高度，该整数允许成为首选 peer。如果 peer 的块高度比最高块高度小一个值大于此值，则不会给它一个优先级。没有默认值，如果未提供此值，则在添加到首选列表时将不考虑 peer 的块高。该列表仅适用于使用发现服务的背书。此属性由[DiscoveryEndorsementHandler](https://hyperledger.github.io/fabric-sdk-node/release-1.4/DiscoveryEndorsementHandler.html)使用。 |
+| required           | Array.&lt;string&gt;                                                                                                                                                                     | 可选。字符串数组，表示背书所需的 peer 的名称。这些将是发送提案的唯一 peer。该列表仅适用于使用发现服务的背书。此属性由[DiscoveryEndorsementHandler](./DiscoveryEndorsementHandler.md使用。                                                                                                                                                                                                                                                                                         |
+| ignore             | Array.&lt;string&gt;                                                                                                                                                                     | 可选。字符串数组，表示背书应忽略的 peer 的名称。该列表仅适用于使用发现服务的背书。此属性由[DiscoveryEndorsementHandler](./DiscoveryEndorsementHandler.md使用。                                                                                                                                                                                                                        |
+| preferred          | Array.&lt;string&gt;                                                                                                                                                                     | 可选。字符串数组，代表应该由背书赋予优先级的 peer 的名称。优先级意味着当背书计划在组中有更多 peer，然后需要满足背书策略时，将首先选择这些 peer 进行背书。该列表仅适用于使用发现服务的认可。此属性由[DiscoveryEndorsementHandler](./DiscoveryEndorsementHandler.md使用。                                                                                                               |
+| requiredOrgs       | Array.&lt;string&gt;                                                                                                                                                                     | 可选。字符串数组，表示背书所需的组织的 MSP ID。仅向这些组织中的 peer 发送提议。该列表仅适用于使用发现服务的背书。此属性由[DiscoveryEndorsementHandler](./DiscoveryEndorsementHandler.md使用。                                                                                                                                                                                         |
+| ignoreOrgs         | Array.&lt;string&gt;                                                                                                                                                                     | 可选。字符串数组，表示背书的组织应忽略的 MSP ID 的名称。在将组织中的 peer 添加到优先级列表之前，可以使用可选属性 preferredHeightGap 考虑其分类帐高度。该列表仅适用于使用发现服务的背书。此属性由[DiscoveryEndorsementHandler](./DiscoveryEndorsementHandler.md使用。                                                                                                                  |
+| preferredOrgs      | Array.&lt;string&gt;                                                                                                                                                                     | 可选。一组字符串，代表应由背书赋予优先级的组织的 MSP ID 的名称。在将组织中的 peer 添加到优先级列表之前，可以使用可选属性 preferredHeightGap 考虑其分类帐高度。该列表仅适用于使用发现服务的背书。此属性由[DiscoveryEndorsementHandler](./DiscoveryEndorsementHandler.md使用。                                                                                                          |
+| preferredHeightGap | Number                                                                                                                                                                                   | 可选。一个整数，表示一个 peer 的区块高度的最大差值和在背书计划内的一组 peer 中找到的最高区块高度，该整数允许成为首选 peer。如果 peer 的块高度比最高块高度小一个值大于此值，则不会给它一个优先级。没有默认值，如果未提供此值，则在添加到首选列表时将不考虑 peer 的块高。该列表仅适用于使用发现服务的背书。此属性由[DiscoveryEndorsementHandler](./DiscoveryEndorsementHandler.md使用。 |
 | sort               | string                                                                                                                                                                                   | 可选。一个字符串值，指示应如何选择组内的 peer。 “ ledgerHeight”，将 peer 按通道分类账上的块数降序排列。“随机”，从列表中随机拉 peer，preferred 将首先拉。默认设置为按分类帐高度排序。                                                                                                                                                                                                                                                             |
 
 #### ChaincodeQueryRequest
@@ -417,13 +417,13 @@ chaincode_spec
 
 | 名称            | 类型                                                                                                                                                                                     | 描述                                                                                                                                                                                                                     |
 | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| targets         | Array.[[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)](<[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)>)\|Array.&lt;string&gt; | 可选。当未提供时，将使用将接收此请求的 peer，添加到此通道对象的 peer 列表                                                                                                                                                |
+| targets         | Array.[[Peer](./Peer.md](<[Peer](./Peer.md>)&#124;Array.&lt;string&gt; | 可选。当未提供时，将使用将接收此请求的 peer，添加到此通道对象的 peer 列表                                                                                                                                                |
 | chaincodeId     | string                                                                                                                                                                                   | 必要。用于处理交易建议的链码的 ID                                                                                                                                                                                        |
 | transientMap    | object                                                                                                                                                                                   | 可选。带有 String 属性名称和 Buffer 属性值的对象，可以由链码使用，但不能保存在分类帐中。可以使用此技术将诸如用于加密的密码信息的数据传递到链码。应将要保留在私有数据存储区（集合）中的数据传递给 transientMap 中的链码。 |
 | fcn             | string                                                                                                                                                                                   | 可选。在目标链码中调用 stub.GetFunctionAndParameters()时要返回的函数名称。默认为“invoke”                                                                                                                                 |
 | args            | Array.&lt;string&gt;                                                                                                                                                                     | 特定于链码的“ Invoke”方法的字符串参数数组                                                                                                                                                                                |
 | request_timeout | integer                                                                                                                                                                                  | 用于此请求的超时值                                                                                                                                                                                                       |
-| txId            | [TransactionID](https://hyperledger.github.io/fabric-sdk-node/release-1.4/TransactionID.html)                                                                                           | 可选。用于查询的交易 ID。                                                                                                                                                                                                |
+| txId            | [TransactionID](./TransactionID.md                                                                                           | 可选。用于查询的交易 ID。                                                                                                                                                                                                |
 
 #### ChaincodeQueryResponse
 
@@ -435,7 +435,7 @@ chaincode_spec
 
 | 名称       | 类型                                                                                                               | 描述 |
 | ---------- | ------------------------------------------------------------------------------------------------------------------ | ---- |
-| chaincodes | Array.&lt;[ChaincodeInfo](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ChaincodeInfo)&gt; |      |
+| chaincodes | Array.&lt;[ChaincodeInfo](#ChaincodeInfo)&gt; |      |
 
 #### ChannelConfigGroup
 
@@ -541,9 +541,9 @@ values
 
 | 名称                                            | 类型                                                                                                                     | 描述                                                         |
 | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------ |
-| groups.Orderer.groups.&lt;orderer_org_name&gt;  | [OrganizationConfigGroup](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#OrganizationConfigGroup) | 这些是网络上定义的 Orderer 组织名称                          |
-| groups.Application.groups.&lt;peer_org_name&gt; | [OrganizationConfigGroup](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#OrganizationConfigGroup) | 这些是网络上定义的 peer 组织名称                             |
-| policy                                          | [ImplicitMetaPolicy](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ImplicitMetaPolicy)          | 这些策略指向其他策略，并指定"ANY"，"MAJORITY"或"ALL"中的阈值 |
+| groups.Orderer.groups.&lt;orderer_org_name&gt;  | [OrganizationConfigGroup](#OrganizationConfigGroup) | 这些是网络上定义的 Orderer 组织名称                          |
+| groups.Application.groups.&lt;peer_org_name&gt; | [OrganizationConfigGroup](#OrganizationConfigGroup) | 这些是网络上定义的 peer 组织名称                             |
+| policy                                          | [ImplicitMetaPolicy](#ImplicitMetaPolicy)          | 这些策略指向其他策略，并指定"ANY"，"MAJORITY"或"ALL"中的阈值 |
 
 #### ChannelInfo
 
@@ -583,7 +583,7 @@ values
 
 | 名称     | 类型                                                                                                           | 描述 |
 | -------- | -------------------------------------------------------------------------------------------------------------- | ---- |
-| channels | Array.&lt;[ChannelInfo](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ChannelInfo)&gt; |      |
+| channels | Array.&lt;[ChannelInfo](#ChannelInfo)&gt; |      |
 
 #### ChannelRequest
 
@@ -596,11 +596,11 @@ values
 | 名称       | 类型                                                                                                                                               | 描述                                                                                                                                                                                                                                                                               |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | name       | string                                                                                                                                             | 必要。新通道的名称                                                                                                                                                                                                                                                                 |
-| orderer    | [Orderer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Orderer.html) &#124; string                                                    | 必要。代表要发送通道创建请求的 orderer 节点的 orderer 对象或 orderer 名称                                                                                                                                                                                                          |
-| envelope   | Array.&lt;byte&gt;                                                                                                                                 | 可选。信封对象的字节，其中包含初始化此通道所需的所有设置和签名。该信封将由命令行工具[configtxgen](http://hyperledger-fabric.readthedocs.io/en/latest/configtxgen.html) 或 [configtxlator](https://github.com/hyperledger/fabric/blob/master/examples/configtxupdate/README.md)创建 |
-| config     | Array.&lt;byte&gt;                                                                                                                                 | 可选。从由 configtxgen 工具创建的 ConfigEnvelope 中提取的 Protobuf ConfigUpdate 对象。请参见[extractChannelConfig()](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#extractChannelConfig)。 ConfigUpdate 对象也可以由 configtxlator 工具创建。              |
-| signatures | Array.&lt;[ConfigSignature](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ConfigSignature)&gt; &#124; Array.&lt;string&gt; | 必要。使用“config"参数时，通道创建或更新策略所需的签名列表。                                                                                                                                                                                                                       |
-| txId       | [TransactionID](https://hyperledger.github.io/fabric-sdk-node/release-1.4/TransactionID.html)                                                      | 必要。具有交易 ID 和随机数的 TransactionID 对象                                                                                                                                                                                                                                    |
+| orderer    | [Orderer](./Orderer.md &#124; string                                                    | 必要。代表要发送通道创建请求的 orderer 节点的 orderer 对象或 orderer 名称                                                                                                                                                                                                          |
+| envelope   | Array.&lt;byte&gt;                                                                                                                                 | 可选。信封对象的字节，其中包含初始化此通道所需的所有设置和签名。该信封将由命令行工具[configtxgen](http://hyperledger-fabric.readthedocs.io/en/latest/configtxgen.md 或 [configtxlator](https://github.com/hyperledger/fabric/blob/master/examples/configtxupdate/README.md)创建 |
+| config     | Array.&lt;byte&gt;                                                                                                                                 | 可选。从由 configtxgen 工具创建的 ConfigEnvelope 中提取的 Protobuf ConfigUpdate 对象。请参见[extractChannelConfig()](./Client.html#extractChannelConfig)。 ConfigUpdate 对象也可以由 configtxlator 工具创建。              |
+| signatures | Array.&lt;[ConfigSignature](#ConfigSignature)&gt; &#124; Array.&lt;string&gt; | 必要。使用“config"参数时，通道创建或更新策略所需的签名列表。                                                                                                                                                                                                                       |
+| txId       | [TransactionID](./TransactionID.md                                                      | 必要。具有交易 ID 和随机数的 TransactionID 对象                                                                                                                                                                                                                                    |
 
 #### collectionConfig
 
@@ -630,7 +630,7 @@ values
 | 名称        | 类型                                                                                    | 描述                                                                    |
 | ----------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | chaincodeId | string                                                                                  | 必要。链码名称                                                          |
-| target      | string&#124;[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html) | 可选。当未提供此通道对象中的第一个 peer 时，将使用将接收此请求的 peer。 |
+| target      | string&#124;[Peer](./Peer.md | 可选。当未提供此通道对象中的第一个 peer 时，将使用将接收此请求的 peer。 |
 
 #### CollectionQueryResponse
 
@@ -648,11 +648,11 @@ values
 | maximum_peer_count | number                                                                                 | 背书后将发送私人数据的最大 peer 数。此数字必须大于 required_peer_count。                                                                                            |
 | block_to_live      | number                                                                                 | 收集数据到期之后的块数。例如，如果将该值设置为 10，则最后由块号 100 修改的密钥将在块号 111 处清除。零值与 MaxUint64 相同，不会清除数据。                            |
 | member_read_only   | boolean                                                                                | 成员仅读取访问权限表示是仅集合成员客户端可以读取私有数据（如果设置为 true），还是非成员可以读取数据（如果设置为 false，例如，如果您想在链码中实现更精细的访问逻辑） |
-| policy             | [Policy](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#Policy) | "member_orgs_policy"政策                                                                                                                                            |
+| policy             | [Policy](#Policy) | "member_orgs_policy"政策                                                                                                                                            |
 
 #### ConfigEnvelope
 
-ConfigEnvelope 包含通道配置数据，并且是配置块的主要内容。另一种类型的块是包含背书交易的块，其中主要内容是[Transaction](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#Transaction)数组。
+ConfigEnvelope 包含通道配置数据，并且是配置块的主要内容。另一种类型的块是包含背书交易的块，其中主要内容是[Transaction](#Transaction)数组。
 
 "ConfigEnvelope"将具有以下对象结构。
 
@@ -681,7 +681,7 @@ last_update
 
 | 名称             | 类型               | 描述                                                                                                               |
 | ---------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| signature_header | Array.&lt;byte&gt; | [SignatureHeader](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#SignatureHeader)的编码字节 |
+| signature_header | Array.&lt;byte&gt; | [SignatureHeader](#SignatureHeader)的编码字节 |
 | signature        | Array.&lt;byte&gt; | 签名的串联后签名的编码字节                                                                                         |
 
 #### ConfigUpdateEnvelope
@@ -709,8 +709,8 @@ signatures -- {array}
 
 | 名称                    | 类型                                                                                                           | 描述                                                                                 |
 | ----------------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| config_update.read_set  | [ChannelConfigGroup](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ChannelConfigGroup) | 一组所有正在更新的配置项的当前版本号                                                 |
-| config_update.write_set | [ChannelConfigGroup](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ChannelConfigGroup) | 一组所有正在更新的配置项。版本号必须比 read_set 中相同项目的版本号大一，并带有新值。 |
+| config_update.read_set  | [ChannelConfigGroup](#ChannelConfigGroup) | 一组所有正在更新的配置项的当前版本号                                                 |
+| config_update.write_set | [ChannelConfigGroup](#ChannelConfigGroup) | 一组所有正在更新的配置项。版本号必须比 read_set 中相同项目的版本号大一，并带有新值。 |
 
 #### ConnectionOpts
 
@@ -741,8 +741,8 @@ signatures -- {array}
 | full_block  | boolean                                                                                          | 可选。指示与 peer 的连接将向此 ChannelEventHub 发送完整的块或已过滤的块。默认设置是使用过滤后的块建立连接。过滤的块具有提供交易状态和链码事件所需的信息（无有效载荷）。使用未过滤的块（完整块）时，将要求用户有权建立连接以接收完整块。在已过滤的块连接上注册块侦听器可能无法提供足够的信息。                                                                                      |
 | startBlock  | number&#124;string                                                                               | 可选。这将具有连接设置，以使用该编号开始将块发送回事件中心。如果与 startBlock 连接，则事件侦听器可能未注册到 startBlock 或 endBlock。如果事件中心应该以它看到的最后一个块开头，则使用字符串“ last_seen”。如果事件中心应以分类账上最旧的块开头，则使用字符串“ oldest”。如果事件中心应以分类帐上的最新块开头，请使用字符串“ latest”或使用 startBlock。默认是从分类账上的最新块开始。 |
 | endBlock    | number&#124;string                                                                               | 可选。这将具有连接设置，以结束将块发送回具有该编号的块处的事件中心。如果与 endBlock 连接，则事件侦听器可能未注册到 startBlock 或 endBlock。如果事件中心应该以它看到的最后一个块结尾，则使用字符串'last_seen'。如果事件中心应以分类账上的当前块结尾，则使用字符串“最新”。默认为不停止发送。                                                                                         |
-| signedEvent | [SignedEvent](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#SignedEvent) | 可选。已签名的事件将发送给 peer。当 fabric 客户端应用程序没有用户的 privateKey 并且无法签署对结构网络的请求时，此选项很有用。                                                                                                                                                                                                                                                      |
-| target      | [Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)&#124;string          | 可选。提供结构事件服务的 peer。使用字符串时，必须为 Channel 分配一个具有该名称的 peer。此 peer 将替换此[Channel](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html)事件中心的当前 peer 端点。                                                                                                                                                                 |
+| signedEvent | [SignedEvent](#SignedEvent) | 可选。已签名的事件将发送给 peer。当 fabric 客户端应用程序没有用户的 privateKey 并且无法签署对结构网络的请求时，此选项很有用。                                                                                                                                                                                                                                                      |
+| target      | [Peer](./Peer.md&#124;string          | 可选。提供结构事件服务的 peer。使用字符串时，必须为 Channel 分配一个具有该名称的 peer。此 peer 将替换此[Channel](./Channel.md事件中心的当前 peer 端点。                                                                                                                                                                 |
 | as_array    | boolean                                                                                          | 可选。仅与链码代码事件一起使用，以指示在块中找到的所有链码事件应作为数组发送到回调，而不是一次发送给默认事件。                                                                                                                                                                                                                                                                     |
 
 #### CouchDBOpts
@@ -770,7 +770,7 @@ signatures -- {array}
 | ------------- | ----------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
 | privateKey    | string                                                                                          | 私钥的 PEM 文件路径                                                   |
 | privateKeyPEM | string                                                                                          | 私钥的 PEM 字符串（如果设置了 privateKey 或 privateKeyObj，则不需要） |
-| privateKeyObj | [module:api.Key](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.Key.html) | 私钥对象（如果设置了 privateKey 或 privateKeyPEM，则不需要）          |
+| privateKeyObj | [module:api.Key](./module-api.Key.md | 私钥对象（如果设置了 privateKey 或 privateKeyPEM，则不需要）          |
 | signedCert    | string                                                                                          | 证书的 PEM 文件路径                                                   |
 | signedCertPEM | string                                                                                          | 证书的 PEM 字符串（如果设置了 signedCert，则不需要）                  |
 
@@ -852,7 +852,7 @@ signatures -- {array}
 
 | 名称       | 类型                                                                                                                                 | 描述                                           |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------- |
-| chaincodes | Array.&lt;[DiscoveryChaincodeCall](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#DiscoveryChaincodeCall)&gt; | 链码名称和集合将发送到发现服务以计算认可计划。 |
+| chaincodes | Array.&lt;[DiscoveryChaincodeCall](#DiscoveryChaincodeCall)&gt; | 链码名称和集合将发送到发现服务以计算认可计划。 |
 
 #### DiscoveryChaincodeQuery
 
@@ -866,7 +866,7 @@ signatures -- {array}
 
 | 名称      | 类型                                                                                                                                         | 描述                       |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| interests | Array.&lt;[DiscoveryChaincodeInterest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#DiscoveryChaincodeInterest)&gt; | 在调用链码时定义 interests |
+| interests | Array.&lt;[DiscoveryChaincodeInterest](#DiscoveryChaincodeInterest)&gt; | 在调用链码时定义 interests |
 
 - 示例
 
@@ -943,7 +943,7 @@ signatures -- {array}
 
 | 名称  | 类型                                                                                                                           | 描述          |
 | ----- | ------------------------------------------------------------------------------------------------------------------------------ | ------------- |
-| peers | Array.&lt;[DiscoveryResultPeer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#DiscoveryResultPeer)&gt; | 该组中的 peer |
+| peers | Array.&lt;[DiscoveryResultPeer](#DiscoveryResultPeer)&gt; | 该组中的 peer |
 
 #### DiscoveryResultEndorsementLayout
 
@@ -963,9 +963,9 @@ signatures -- {array}
 | 名称      | 类型                                                                                                                                                            | 描述                                                                                                                                                                                                                                          |
 | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | chaincode | string                                                                                                                                                          | 链码名称，是 interest 的用于计算此计划的第一个链码。                                                                                                                                                                                          |
-| plan_id   | string                                                                                                                                                          | JSON 对象的字符串，它表示用于为此结果构建查询的提示。提示是[DiscoveryChaincodeInterest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#DiscoveryChaincodeInterest)，其中包含发现服务用来计算返回计划的链码名称和集合。 |
-| groups    | Object.&lt;string, [DiscoveryResultEndorsementGroup](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#DiscoveryResultEndorsementGroup)&gt; | 指定背书者，分为组。                                                                                                                                                                                                                          |
-| layouts   | Array.&lt;[DiscoveryResultEndorsementLayout](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#DiscoveryResultEndorsementLayout)&gt;        | 指定实现背书策略的选项                                                                                                                                                                                                                        |
+| plan_id   | string                                                                                                                                                          | JSON 对象的字符串，它表示用于为此结果构建查询的提示。提示是[DiscoveryChaincodeInterest](#DiscoveryChaincodeInterest)，其中包含发现服务用来计算返回计划的链码名称和集合。 |
+| groups    | Object.&lt;string, [DiscoveryResultEndorsementGroup](#DiscoveryResultEndorsementGroup)&gt; | 指定背书者，分为组。                                                                                                                                                                                                                          |
+| layouts   | Array.&lt;[DiscoveryResultEndorsementLayout](#DiscoveryResultEndorsementLayout)&gt;        | 指定实现背书策略的选项                                                                                                                                                                                                                        |
 
 #### DiscoveryResultEndpoint
 
@@ -991,7 +991,7 @@ signatures -- {array}
 
 | 名称      | 类型                                                                                                                                   | 描述 |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------- | ---- |
-| endpoints | Array.&lt;[DiscoveryResultEndpoint](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#DiscoveryResultEndpoint)&gt; |      |
+| endpoints | Array.&lt;[DiscoveryResultEndpoint](#DiscoveryResultEndpoint)&gt; |      |
 
 #### DiscoveryResultMSPConfig
 
@@ -1025,7 +1025,7 @@ signatures -- {array}
 | endpoint      | string                                                                                                                                   | peer 的 host:port |
 | ledger_height | Long                                                                                                                                     |                   |
 | name          | string                                                                                                                                   |                   |
-| chaincodes    | Array.&lt;[DiscoveryResultChaincode](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#DiscoveryResultChaincode)&gt; |                   |
+| chaincodes    | Array.&lt;[DiscoveryResultChaincode](#DiscoveryResultChaincode)&gt; |                   |
 
 #### DiscoveryResultPeers
 
@@ -1037,7 +1037,7 @@ signatures -- {array}
 
 | 名称  | 类型                                                                                                                           | 描述 |
 | ----- | ------------------------------------------------------------------------------------------------------------------------------ | ---- |
-| peers | Array.&lt;[DiscoveryResultPeer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#DiscoveryResultPeer)&gt; |      |
+| peers | Array.&lt;[DiscoveryResultPeer](#DiscoveryResultPeer)&gt; |      |
 
 #### DiscoveryResults
 
@@ -1049,10 +1049,10 @@ signatures -- {array}
 
 | 名称              | 类型                                                                                                                                                 | 描述                    |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
-| msps              | Object.&lt;string, [DiscoveryResultMSPConfig](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#DiscoveryResultMSPConfig)&gt;    | 可选。找到了 msp 配置。 |
-| orderers          | Object.&lt;string, [DiscoveryResultEndpoints](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#DiscoveryResultEndpoints)&gt;    | 可选。找到订购者。      |
-| peers_by_org      | Object.&lt;string, [DiscoveryResultPeers](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#DiscoveryResultPeers)&gt;            | 可选。组织的同行发现。  |
-| endorsement_plans | Array.&lt;[DiscoveryResultEndorsementPlan](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#DiscoveryResultEndorsementPlan)&gt; | 可选。                  |
+| msps              | Object.&lt;string, [DiscoveryResultMSPConfig](#DiscoveryResultMSPConfig)&gt;    | 可选。找到了 msp 配置。 |
+| orderers          | Object.&lt;string, [DiscoveryResultEndpoints](#DiscoveryResultEndpoints)&gt;    | 可选。找到订购者。      |
+| peers_by_org      | Object.&lt;string, [DiscoveryResultPeers](#DiscoveryResultPeers)&gt;            | 可选。组织的同行发现。  |
+| endorsement_plans | Array.&lt;[DiscoveryResultEndorsementPlan](#DiscoveryResultEndorsementPlan)&gt; | 可选。                  |
 | timestamp         | number                                                                                                                                               | 发现结果更新的时间戳。  |
 
 #### Endorsement
@@ -1099,7 +1099,7 @@ signature -- {byte[]}
 | enrollmentSecret | string                                                                                                                   | 与注册 ID 关联的 secret                                                                                        |
 | profile          | string                                                                                                                   | 配置文件名称。为 TLS 证书指定“ tls”配置文件；否则，将颁发入学证书。                                            |
 | csr              | string                                                                                                                   | 可选。 PEM 编码的 PKCS＃10 证书签名请求。从客户端发送到 Fabric-ca 以获得数字身份证书的消息。                   |
-| attr_reqs        | Array.&lt;[AttributeRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#AttributeRequest)&gt; | [AttributeRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#AttributeRequest)数组 |
+| attr_reqs        | Array.&lt;[AttributeRequest](#AttributeRequest)&gt; | [AttributeRequest](#AttributeRequest)数组 |
 
 #### EnrollmentResponse
 
@@ -1138,8 +1138,8 @@ signature -- {byte[]}
 
 | 名称        | 类型                                                                                           | 描述                            |
 | ----------- | ---------------------------------------------------------------------------------------------- | ------------------------------- |
-| identity    | [Identity](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#Identity)     | 进行此注册的身份                |
-| txId        | [TransactionID](https://hyperledger.github.io/fabric-sdk-node/release-1.4/TransactionID.html) | 此注册的交易 ID                 |
+| identity    | [Identity](#Identity)     | 进行此注册的身份                |
+| txId        | [TransactionID](./TransactionID.md | 此注册的交易 ID                 |
 | certificate | string                                                                                         | 证书文件，PEM 格式              |
 | mspId       | string                                                                                         | 用来处理身份的成员服务提供商 ID |
 
@@ -1187,7 +1187,7 @@ signature_header -- {SignatureHeader}
 
 | 名称             | 类型                                                                               | 描述                                 |
 | ---------------- | ---------------------------------------------------------------------------------- | ------------------------------------ |
-| role             | [Role](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#Role) | 特定角色的任何身份                   |
+| role             | [Role](#Role) | 特定角色的任何身份                   |
 | OrganizationUnit |                                                                                    | 每个信任证书链所属组织单位的任何身份 |
 | Identity         |                                                                                    | 特定身份                             |
 
@@ -1203,7 +1203,7 @@ signature_header -- {SignatureHeader}
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | enrollmentID     | string                                                                                                                     | 必要。唯一标识身份的注册 ID                                                                                                                                                                                                                          |
 | affiliation      | string                                                                                                                     | 必要。新身份的关联路径                                                                                                                                                                                                                               |
-| attrs            | Array.&lt;[KeyValueAttribute](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#KeyValueAttribute)&gt; | 要分配给用户的[KeyValueAttribute](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#KeyValueAttribute)属性数组                                                                                                                   |
+| attrs            | Array.&lt;[KeyValueAttribute](#KeyValueAttribute)&gt; | 要分配给用户的[KeyValueAttribute](#KeyValueAttribute)属性数组                                                                                                                   |
 | type             | string                                                                                                                     | 可选。身份类型(例如 _user_, _app_, _peer_, _orderer_)                                                                                                                                                                                                |
 | enrollmentSecret | string                                                                                                                     | 可选。注册 secret。如果未提供，则会生成随机 secret。                                                                                                                                                                                                 |
 | maxEnrollments   | number                                                                                                                     | 可选。秘密可用于注册的最大次数。如果为 0，则使用 fabric-ca-server 的已配置 max_enrollments；否则为 0。如果大于 0 并且小于等于配置了 fabric-ca-server 的最大注册人数，请使用 max_enrollments;如果大于配置了 fabric-ca-server 的最大注册数量，则错误。 |
@@ -1239,8 +1239,8 @@ policy
 
 | 名称               | 类型                                                                                                                                                                                              | 描述                                                                                                                                                              |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| target             | string&#124;[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)&#124;[ChannelPeer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelPeer.html)            | 可选。用于对配置信息进行初始化请求的目标 peer。与"targets"参数一起使用时，此处引用的 peer 将被添加到"targets"数组中。默认是使用分配给该通道的第一个 ChannelPeer。 |
-| targets            | Array.&lt;([Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html) &#124; [Channe&#124;Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelPeer.html))&gt; | 可选。用于对配置信息进行初始化请求的目标 peer。当与"target"参数一起使用时，被引用的 peer 将被添加到"targets"数组中。默认是使用分配给该通道的第一个 ChannelPeer。  |
+| target             | string&#124;[Peer](./Peer.md&#124;[ChannelPeer](./ChannelPeer.md            | 可选。用于对配置信息进行初始化请求的目标 peer。与"targets"参数一起使用时，此处引用的 peer 将被添加到"targets"数组中。默认是使用分配给该通道的第一个 ChannelPeer。 |
+| targets            | Array.&lt;([Peer](./Peer.md &#124; [Channe&#124;Peer](./ChannelPeer.md)&gt; | 可选。用于对配置信息进行初始化请求的目标 peer。当与"target"参数一起使用时，被引用的 peer 将被添加到"targets"数组中。默认是使用分配给该通道的第一个 ChannelPeer。  |
 | discover           | boolean                                                                                                                                                                                           | 可选。在目标 peer 上使用发现服务来加载配置和网络信息。默认为 false。如果为 false，则目标 peer 将使用 peer 查询来仅加载配置信息。                                  |
 | endorsementHandler | string                                                                                                                                                                                            | 可选。实现 EndorsementHandler 的自定义背书处理程序的路径。                                                                                                        |
 | commitHandler      | string                                                                                                                                                                                            | 可选。实现 CommitHandler 的自定义提交处理程序的路径。                                                                                                             |
@@ -1257,9 +1257,9 @@ policy
 
 | 名称    | 类型                                                                                                                                                                                      | 描述                                                                                                                                                                                                                           |
 | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| targets | Array.&lt;[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)&gt;https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html) &#124; Array.&lt;string&gt; | 可选。要求加入此通道的 peer 对象或 peer 名称数组。使用 peer 名称或将其留空（使用默认目标）时，必须已加载网络配置。参见[loadFromConfig()](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#loadFromConfig) |
-| block   | Array.&lt;byte&gt;                                                                                                                                                                        | 通道的创世块的编码字节。请参见[getGenesisBlock()](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#getGenesisBlock)方法                                                                                  |
-| txId    | [TransactionID](https://hyperledger.github.io/fabric-sdk-node/release-1.4/TransactionID.html)                                                                                             | 必要。具有交易 ID 和随机数的 TransactionID 对象                                                                                                                                                                                |
+| targets | Array.&lt;[Peer](./Peer.md&gt;./Peer.md &#124; Array.&lt;string&gt; | 可选。要求加入此通道的 peer 对象或 peer 名称数组。使用 peer 名称或将其留空（使用默认目标）时，必须已加载网络配置。参见[loadFromConfig()](./Client.html#loadFromConfig) |
+| block   | Array.&lt;byte&gt;                                                                                                                                                                        | 通道的创世块的编码字节。请参见[getGenesisBlock()](./Channel.html#getGenesisBlock)方法                                                                                  |
+| txId    | [TransactionID](./TransactionID.md                                                                                             | 必要。具有交易 ID 和随机数的 TransactionID 对象                                                                                                                                                                                |
 
 #### KeyValueAttribute
 
@@ -1297,8 +1297,8 @@ signature -- {byte[]}
 
 | 名称    | 类型                                                                                          | 描述                                                         |
 | ------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| txId    | [TransactionID](https://hyperledger.github.io/fabric-sdk-node/release-1.4/TransactionID.html) | 可选。具有交易 ID 和随机数的对象                             |
-| orderer | [Orderer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Orderer.html)             | 可选。要从中检索生成块的 orderer 实例或 orderer 的字符串名称 |
+| txId    | [TransactionID](./TransactionID.md | 可选。具有交易 ID 和随机数的对象                             |
+| orderer | [Orderer](./Orderer.md             | 可选。要从中检索生成块的 orderer 实例或 orderer 的字符串名称 |
 
 #### OrganizationConfigGroup
 
@@ -1363,7 +1363,7 @@ policies
 
 | 名称     | 类型                                                                                      | 描述                                                                                                                       |
 | -------- | ----------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| target   | [Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html) &#124; string | 用于服务发现请求的[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)对象或 peer 名称              |
+| target   | [Peer](./Peer.md &#124; string | 用于服务发现请求的[Peer](./Peer.md对象或 peer 名称              |
 | useAdmin | boolean                                                                                   | 可选。指示在向 Peer 发出此呼叫时应使用管理员凭据。必须通过连接配置文件或使用“ setAdminSigningIdentity”方法来加载管理身份。 |
 
 #### PeerQueryResponse
@@ -1410,8 +1410,8 @@ policies
 
 | 名称       | 类型                                                                                                         | 描述                                                                              |
 | ---------- | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- |
-| identities | Array.&lt;[Identity](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#Identity)&gt;     | "policy"部分中要引用的身份列表                                                    |
-| policy     | Array.&lt;[PolicySpec](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#PolicySpec)&gt; | 使用“签署人”和“ n-of”("signed-by" and "n-of")结构的组合来指定策略。该设计允许递归 |
+| identities | Array.&lt;[Identity](#Identity)&gt;     | "policy"部分中要引用的身份列表                                                    |
+| policy     | Array.&lt;[PolicySpec](#PolicySpec)&gt; | 使用“签署人”和“ n-of”("signed-by" and "n-of")结构的组合来指定策略。该设计允许递归 |
 
 #### PolicySpec
 
@@ -1423,7 +1423,7 @@ policies
 
 | 名称 | 类型   | 描述                                                                                                                                                                                                                                                                                                                                              |
 | ---- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type | Object | 策略的类型可以是单个身份签名的"签署人"("signed-by")，也可以是"n-of"，其中"n"是数字值。如果 type 属性是''签署者''，则该值是策略中指定的标识数组的数字索引。如果 type 属性为“ n-of”，则该值为[PolicySpec](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#PolicySpec)对象的数组。如您所见，此结构允许对复杂策略进行递归定义。 |
+| type | Object | 策略的类型可以是单个身份签名的"签署人"("signed-by")，也可以是"n-of"，其中"n"是数字值。如果 type 属性是''签署者''，则该值是策略中指定的标识数组的数字索引。如果 type 属性为“ n-of”，则该值为[PolicySpec](#PolicySpec)对象的数组。如您所见，此结构允许对复杂策略进行递归定义。 |
 
 #### ProcessedTransaction
 
@@ -1468,10 +1468,10 @@ Protobuf 消息，由提案请求的 peer 背书而返回。peer 节点运行提
 | ----------- | -------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version     | number                                                                                                               |                                                                                                                                                                                                                        |
 | timestamp   | Timestamp                                                                                                            | 提交者创建提案的时间                                                                                                                                                                                                   |
-| response    | [Response](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#Response)                           |                                                                                                                                                                                                                        |
+| response    | [Response](#Response)                           |                                                                                                                                                                                                                        |
 | payload     | Array.&lt;byte&gt;                                                                                                   | 响应的有效负载。它是“ ProposalResponsePayload” protobuf 消息的编码字节                                                                                                                                                 |
-| endorsement | [Endorsement](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#Endorsement)                     | 提案的背书，基本上是背书人在有效载荷上的签名                                                                                                                                                                           |
-| peer        | [RemoteCharacteristics](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#RemoteCharacteristics) | 创建此 ProposalResponse 的 peer 的特征。项目包括 url，名称和连接选项。此信息不是从 peer 返回的，也不是 peer 返回的序列化 protobuf 数据的一部分。客户端实例 peer 对象添加了此信息，以帮助标识此 ProposalResponse 对象。 |
+| endorsement | [Endorsement](#Endorsement)                     | 提案的背书，基本上是背书人在有效载荷上的签名                                                                                                                                                                           |
+| peer        | [RemoteCharacteristics](#RemoteCharacteristics) | 创建此 ProposalResponse 的 peer 的特征。项目包括 url，名称和连接选项。此信息不是从 peer 返回的，也不是 peer 返回的序列化 protobuf 数据的一部分。客户端实例 peer 对象添加了此信息，以帮助标识此 ProposalResponse 对象。 |
 
 #### ProposalResponseObject
 
@@ -1485,7 +1485,7 @@ Protobuf 消息，由提案请求的 peer 背书而返回。peer 节点运行提
 
 | 名称    | 类型                                                                                                                                   | 描述                                                                                                                                      |
 | ------- | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| index:0 | Array.&lt;([ProposalResponse](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ProposalResponse)&#124; Error)&gt; | 数组，其中每个元素要么是 ProposalResponse 对象（对于来自背书 peer 的成功响应），要么是 Error 对象（对于不成功的 peer 响应或运行时错误）。 |
+| index:0 | Array.&lt;([ProposalResponse](#ProposalResponse)&#124; Error)&gt; | 数组，其中每个元素要么是 ProposalResponse 对象（对于来自背书 peer 的成功响应），要么是 Error 对象（对于不成功的 peer 响应或运行时错误）。 |
 | index:1 | Object                                                                                                                                 | 将交易请求发送给 orderer 时所需的原始投标对象                                                                                             |
 
 #### RegisterRequest
@@ -1503,7 +1503,7 @@ Protobuf 消息，由提案请求的 peer 背书而返回。peer 节点运行提
 | role             | string                                                                                                                     | 表示用户角色值的可选任意字符串                                                                                                     |
 | affiliation      | string                                                                                                                     | 该用户将与之关联的关联公司，例如公司或组织                                                                                         |
 | maxEnrollments   | number                                                                                                                     | 允许该用户注册的最大次数                                                                                                           |
-| attrs            | Array.&lt;[KeyValueAttribute](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#KeyValueAttribute)&gt; | 要分配给用户的[KeyValueAttribute](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#KeyValueAttribute)属性数组 |
+| attrs            | Array.&lt;[KeyValueAttribute](#KeyValueAttribute)&gt; | 要分配给用户的[KeyValueAttribute](#KeyValueAttribute)属性数组 |
 
 #### RegistrationOpts
 
@@ -1560,7 +1560,7 @@ Protobuf 消息，由提案请求的 peer 背书而返回。peer 节点运行提
 
 | 名称    | 类型               | 描述                                                                                                  |
 | ------- | ------------------ | ----------------------------------------------------------------------------------------------------- |
-| status  | number             | 状态码。遵循：[HTTP status code definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) |
+| status  | number             | 状态码。遵循：[HTTP status code definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.md |
 | message | string             | 与响应状态代码关联的消息                                                                              |
 | payload | Array.&lt;byte&gt; | 可用于在此响应中包含元数据的有效负载                                                                  |
 
@@ -1600,8 +1600,8 @@ Protobuf 消息，由提案请求的 peer 背书而返回。peer 节点运行提
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------- |
 | Success  | boolean                                                                                                                              | 布尔值，指示请求是否成功   |
 | Result   | Object                                                                                                                               | 该请求的结果               |
-| Errors   | Array.&lt;[ServiceResponseMessage](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ServiceResponseMessage)&gt; | 错误消息数组（代码和消息） |
-| Messages | Array.&lt;[ServiceResponseMessage](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ServiceResponseMessage)&gt; | 信息消息数组（代码和消息） |
+| Errors   | Array.&lt;[ServiceResponseMessage](#ServiceResponseMessage)&gt; | 错误消息数组（代码和消息） |
+| Messages | Array.&lt;[ServiceResponseMessage](#ServiceResponseMessage)&gt; | 信息消息数组（代码和消息） |
 
 #### ServiceResponseMessage
 
@@ -1666,9 +1666,9 @@ rule
 
 | 名称              | 类型                                                                                                           | 描述                                                                               |
 | ----------------- | -------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| request           | [TransactionRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#TransactionRequest) | 必要。提交请求                                                                     |
+| request           | [TransactionRequest](#TransactionRequest) | 必要。提交请求                                                                     |
 | signedTransaction | Buffer                                                                                                         | 必要。签署的交易                                                                   |
-| orderer           | [Orderer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Orderer.html) &#124; string                | 可选。要操作的 orderer 实例或 orderer 的字符串名称。请参阅 Client.getTargetOrderer |
+| orderer           | [Orderer](./Orderer.md &#124; string                | 可选。要操作的 orderer 实例或 orderer 的字符串名称。请参阅 Client.getTargetOrderer |
 
 #### SignedEvent
 
@@ -1693,7 +1693,7 @@ rule
 
 | 名称           | 类型                                                                                      | 描述             |
 | -------------- | ----------------------------------------------------------------------------------------- | ---------------- |
-| targets        | Array.&lt;[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)&gt; | 必要。函数名称。 |
+| targets        | Array.&lt;[Peer](./Peer.md&gt; | 必要。函数名称。 |
 | signedProposal | Buffer                                                                                    | 必要。签署的提案 |
 
 #### SYSTEM_TIMEOUT
@@ -1820,10 +1820,10 @@ actions {array}
 
 | 名称              | 类型                                                                                                                     | 描述                                                                                                                                                                                                                                                |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| proposalResponses | Array.&lt;[ProposalResponse](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ProposalResponse)&gt; | 包含[endorsement](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#sendTransactionProposal)调用响应的数组或单个[ProposalResponse](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ProposalResponse)对象 |
+| proposalResponses | Array.&lt;[ProposalResponse](#ProposalResponse)&gt; | 包含[endorsement](./Channel.html#sendTransactionProposal)调用响应的数组或单个[ProposalResponse](#ProposalResponse)对象 |
 | proposal          | Proposal                                                                                                                 | 包含原始认可请求的投标对象                                                                                                                                                                                                                          |
 | txID              | TransactionId                                                                                                            | 可选。 -必须是提案认可中使用的交易 ID 对象。 transactionID 将仅用于确定请求的签名是否应由管理员身份或分配给客户端实例的用户来完成。                                                                                                                 |
-| orderer           | [Orderer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Orderer.html) &#124; string                         | 可选。要操作的 orderer 实例或 orderer 的字符串名称。请参阅 Client.getTargetOrderer                                                                                                                                                                  |
+| orderer           | [Orderer](./Orderer.md &#124; string                         | 可选。要操作的 orderer 实例或 orderer 的字符串名称。请参阅 Client.getTargetOrderer                                                                                                                                                                  |
 
 #### UserNamePasswordObject
 
@@ -1853,7 +1853,7 @@ actions {array}
 | --------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
 | username        | string                                                                                               | 用于注册的用户名                                |
 | mspid           | string                                                                                               | MSP ID                                          |
-| cryptoContent   | [CryptoContent](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#CryptoContent) | 私钥和证书                                      |
+| cryptoContent   | [CryptoContent](#CryptoContent) | 私钥和证书                                      |
 | skipPersistence | boolean                                                                                              | 是否将此新用户对象保存到持久性(persistence)中。 |
 
 ---

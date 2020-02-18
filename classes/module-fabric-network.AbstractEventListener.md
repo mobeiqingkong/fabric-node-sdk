@@ -70,10 +70,4 @@ Constructor
 
 由超级类取消注册功能调用。
 
-返回结果
-
-- 具有同级名称键和关联值的对象，它们是 Buffer 或 Error 对象。
-
-  - 类型
-
-    Object.&lt;String,(Buffer&#124;Error)&gt;
+---

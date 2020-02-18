@@ -24,21 +24,21 @@
 
 分层配置设置对设置 aa-bb 的搜索顺序：
 
-1.  内存：如果设置已添加如下:
+1. 内存：如果设置已添加如下:
 
-```
+```shell
 Client.setConfigSetting('aa-bb', 'value')
 ```
 
 2. 命令行参数，示例:
 
-   ```
+   ```shell
    node app.js --aa-bb value
    ```
 
 3. 环境变量 :
 
-```
+```shell
 AA_BB=value node app.js
 ```
 

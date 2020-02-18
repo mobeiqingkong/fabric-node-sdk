@@ -147,10 +147,10 @@
 
 ```javascript
 function myCallback(...events) {
-          for ({chaincode_event, block_num, tx_id, tx_status} of events) {
-              // 处理链码事件
-          }
-       }
+  for ({ chaincode_event, block_num, tx_id, tx_status } of events) {
+    // 处理链码事件
+  }
+}
 ```
 
 #### registerTxEvent(txid, onEvent, onError, options)

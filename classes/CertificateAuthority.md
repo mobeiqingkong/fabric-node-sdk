@@ -1,12 +1,3 @@
-<!--
- * @Author: LongZhiQiu
- * @Date: 2020-02-06 22:45:23
- * @Version: Do not edit
- * @Description: file content
- * @LastEditors: LongZhiQiu
- * @LastEditTime: 2020-02-13 18:02:44
- * @Auditor: LongZhiQiu
- -->
 # CertificateAuthority
 
 ## CertificateAuthority

@@ -4,21 +4,21 @@
 
 #### new event_hub_number()
 
-Transaction processing in fabric v1.1 is a long operation spanning multiple components (application, endorsing peer, orderer, committing peer) and takes a relatively lengthy period of time (think seconds instead of milliseconds) to complete. As a result the applications must design their handling of the transaction lifecycle in an asynchronous fashion. After the transaction proposal has been successfully [endorsed](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#sendTransactionProposal), and before the transaction message has been successfully [sent](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#sendTransaction) to the orderer, the application should register a listener to be notified when the transaction achieves finality, which is when the block containing the transaction gets added to the peer's ledger/blockchain.
+Fabric v1.1 中的事务处理是一项跨越多个组件（应用程序，认可对等端，订购者，提交对等端）的漫长操作，并且需要相对较长的时间段（以秒为单位，而不是毫秒）来完成。结果，应用程序必须以异步方式设计其对事务生命周期的处理。在成功许可([endorsed](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#sendTransactionProposal))交易建议之后，并且在成功将交易消息发送([sent](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#sendTransaction))给 orderer 之前，应用程序应该注册一个侦听器，以便在交易完成时获得通知，即交易的区块被添加到对等方的分类账/区块链中。
 
-Fabric committing peers provide a block delivery service to publish blocks or filtered blocks to connected fabric-clients. See [connect](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelEventHub.html#connect) on connection options and how this ChannelEventHub may connect to the fabric service. For more information on the service see [deliver](https://hyperledger-fabric.readthedocs.io/en/release-1.2/peer_event_services.html). A block gets published whenever the committing peer adds a validated block to the ledger. When a fabric-client receives a block it will investigate the block and notify interested listeners with the related contents of the block (e.g. transactionId, status). There are three types of listeners that will get notified by the fabric-client after it receives a published block from the fabric deliver service.
+Fabric 提交 Peer 提供块传递服务，以将块或已过滤的块发布到连接的 Fabric 客户端。请参阅连接([connect](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelEventHub.html#connect) )连接选项以及此 ChannelEventHub 如何连接到 Fabric 服务。有关该服务的更多信息，请参见交付( [deliver](https://hyperledger-fabric.readthedocs.io/en/release-1.2/peer_event_services.html))。只要提交 Peer 将经过验证的块添加到分类帐中，就会发布一个块。当 Fabric 客户端收到一个块时，它将调查该块并将有关的内容通知感兴趣的侦听器（例如 transactionId，状态）。 Fabric-client 接收到来自 Fabric 传递服务的已发布块后，会收到三种类型的侦听器通知。
 
-A "block listener" gets called for every block received. The listener will be passed a fully decoded [Block](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#Block) object unless the connection to the fabric service is using filtered blocks. See [registerBlockEvent](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelEventHub.html#registerBlockEvent)
+- 每个接收到的块都会调用一个“块侦听器”。除非与 Fabric 服务的连接使用已过滤的块，否则将向侦听器传递一个完全解码的 [Block](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#Block) 对象。参见[registerBlockEvent](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelEventHub.html#registerBlockEvent)
+- 提交特定事务（在已发布的块内发现）时，将调用“事务侦听器”。侦听器也可以注册为侦听“所有”事务。侦听器将被传递交易 ID，交易状态和区块编号。参见[registerTxEvent](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelEventHub.html#registerTxEvent)
+- 当在块中发现特定的链码事件时，将调用“链码事件侦听器”。将向侦听器传递块号，事务 ID 和事务状态。 [ChaincodeEvent](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ChaincodeEvent) 也将被传递，但是，如果与架构服务的连接正在发布已过滤的块，则不会传递事件的有效负载。参见[registerChaincodeEvent](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelEventHub.html#registerChaincodeEvent)
 
-A "transaction listener" gets called when the specific transaction is committed (discovered inside a published block). The listener may also be registered to listen to "all" transactions. The listener will be passed the transaction id, transaction status and block number. See [registerTxEvent](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelEventHub.html#registerTxEvent)
+当 Fabric 客户端连接到 Peer 时，它告诉 Peer 从哪个块开始交付。如果未提供起始块，则客户端将仅接收最近提交的块开始的事件。为避免客户端崩溃/脱机时发布的块中丢失事件，客户端应记录最近处理的块，并在启动时从该块号恢复事件传递。这样，就没有丢失事件的自定义恢复路径，而可以执行常规处理代码。如果您希望在收到一系列事件后停止收听，还可以包含一个 endBlock 编号。
 
-A "chaincode event listener" gets called when a specific chaincode event is discovered within a block. The listener will be passed the block number, transaction id, and transaction status. The [ChaincodeEvent](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ChaincodeEvent) will be also be passed, however the payload of the event will not be passed if the connection to the fabric service is publishing filtered blocks. See [registerChaincodeEvent](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelEventHub.html#registerChaincodeEvent)
-
-When the fabric-client connects to the peer, it tells the peer which block to begin delivering from. If no start block is provided, then the client will only receive events for the most recently committed block onwards. To avoid missing events in blocks that are published while the client is crashed/offline, the client should record the most recently processed block, and resume event delivery from this block number on startup. In this way, there is no custom recovery path for missed events, and the normal processing code may execute instead. You may also include an endBlock number if you wish to stop listening after receiving a range of events.
-
-- 示例
+##### 示例
 
 ```javascript
+const eh = channel.newChannelEventHub(peer);
+
 // register the listener before calling "connect()" so there
 // is an error callback ready to process an error in case the
 // connect() call fails
@@ -43,3 +43,5 @@ eh.registerTxEvent(
 
 eh.connect();
 ```
+
+---

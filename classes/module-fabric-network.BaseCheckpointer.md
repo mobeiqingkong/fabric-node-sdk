@@ -73,3 +73,5 @@ The constructor
 | blockNumber    | number               |        |                    |
 | transactionIds | Array.&lt;string&gt; |        |                    |
 | expectedTotal  | number               | 可选   | 此块中预期的事件数 |
+
+---

@@ -58,10 +58,10 @@ Channel 对象还负责验证交易提议响应中的背书签名。在使用 pe
 
 - 参数
 
-| 名称    | 类型                                                                               | 描述                                       |
-| :------ | :--------------------------------------------------------------------------------- | :----------------------------------------- |
+| 名称    | 类型                                                                              | 描述                                       |
+| :------ | :-------------------------------------------------------------------------------- | :----------------------------------------- |
 | orderer | [Orderer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Orderer.html) | Orderer 类的实例。                         |
-| replace | boolean                                                                            | 如果存在同名 orderer，请替换为该 orderer。 |
+| replace | boolean                                                                           | 如果存在同名 orderer，请替换为该 orderer。 |
 
 #### addPeer(peer, mspid, roles, replace)
 
@@ -71,7 +71,7 @@ Channel 对象还负责验证交易提议响应中的背书签名。在使用 pe
 
 | 名称    | 类型                                                                                                       | 描述                                                                         |
 | :------ | :--------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------- |
-| peer    | [Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)                               | 已使用 URL 和其他 gRPC 选项（如 TLS 凭据和请求超时）初始化的 Peer 类的实例。 |
+| peer    | [Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)                                | 已使用 URL 和其他 gRPC 选项（如 TLS 凭据和请求超时）初始化的 Peer 类的实例。 |
 | mspid   | string                                                                                                     | 该 peer 所属组织的 mpsid。                                                   |
 | roles   | [ChannelPeerRoles](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ChannelPeerRoles) | 可选的。此 peer 在此通道上扮演的角色。未定义的角色将默认为 true              |
 | replace | boolean                                                                                                    | 如果 peer 存在同名，请替换为该 peer。                                        |
@@ -104,12 +104,12 @@ Channel 对象还负责验证交易提议响应中的背书签名。在使用 pe
 
 - 参数
 
-| 名称        | 类型                                                                                                          | 描述                   |
-| :---------- | :------------------------------------------------------------------------------------------------------------ | :--------------------- |
+| 名称        | 类型                                                                                                         | 描述                   |
+| :---------- | :----------------------------------------------------------------------------------------------------------- | :--------------------- |
 | request     | [ProposalRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ProposalRequest)&gt; | 链码调用请求           |
-| mspId       | string                                                                                                        | 此身份的 mspId         |
-| certificate | string                                                                                                        | PEM 编码证书           |
-| admin       | boolean                                                                                                       | 此事务是否由管理员调用 |
+| mspId       | string                                                                                                       | 此身份的 mspId         |
+| certificate | string                                                                                                       | PEM 编码证书           |
+| admin       | boolean                                                                                                      | 此事务是否由管理员调用 |
 
 返回结果
 
@@ -264,8 +264,8 @@ Channel 对象还负责验证交易提议响应中的背书签名。在使用 pe
 
 - 参数
 
-| 名称    | 类型                                                                                                    | 描述               |
-| :------ | :------------------------------------------------------------------------------------------------------ | ------------------ |
+| 名称    | 类型                                                                                                   | 描述               |
+| :------ | :----------------------------------------------------------------------------------------------------- | ------------------ |
 | request | [OrdererRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#OrdererRequest) | 可选。交易 ID 对象 |
 
 返回结果
@@ -398,8 +398,8 @@ Channel 对象还负责验证交易提议响应中的背书签名。在使用 pe
 
 - 参数
 
-| 名称    | 类型                                                                                                          | 描述                                                                                                                   |
-| :------ | :------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
+| 名称    | 类型                                                                                                         | 描述                                                                                                                   |
+| :------ | :----------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | request | [InitializeRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#InitializeRequest) | 可选。一个[InitializeRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#InitializeRequest) |
 
 返回结果
@@ -713,7 +713,7 @@ for (let i = 0; i < responsePayloads.length; i++) {
 
 | 名称    | 类型                                                                                                           | 描述                                                                                                                |
 | :------ | :------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| request | [TransactionRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#TransactionRequest) | [TransactionRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#TransactionRequest)     |
+| request | [TransactionRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#TransactionRequest) | [TransactionRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#TransactionRequest)      |
 | timeout | Number                                                                                                         | 一个数字，表示等待响应之前等待超时（以毫秒为单位）的毫秒数。这将覆盖 Orderer 实例的默认超时和配置设置中的全局超时。 |
 
 返回结果
