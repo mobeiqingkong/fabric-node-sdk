@@ -81,7 +81,7 @@ const result = await contract
 
 - [X509WalletMixin](../classes/module-fabric-network.X509WalletMixin.md)
 
-## 类型定义
+### 类型定义
 
 #### DefaultEventHandlerStrategies
 
@@ -118,3 +118,4 @@ const result = await contract
 | 名称                    | 类型     | 描述                                                                               |
 | ----------------------- | -------- | ---------------------------------------------------------------------------------- |
 | MSPID_SCOPE_ROUND_ROBIN | function | 当出现连接断开时，会重新连接到组织中的任意一个事件发出端。以“循环”方式选择事件中心 |
+---

@@ -3,7 +3,7 @@
 - [前言](README.md)
 - 模块
   - [api](modules/api.md)
-    - [fabric-network](modules/fabric-network.md)
+  - [fabric-network](modules/fabric-network.md)
 - 类
   - [AffiliationService](classes/AffiliationService.md)
   - [BaseClient](classes/BaseClient.md)

@@ -11,7 +11,7 @@
 
 | 名称    | 类型                                                                               | 描述               |
 | ------- | ---------------------------------------------------------------------------------- | ------------------ |
-| channel | [ Channel](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html) | 此处理程序的通道。 |
+| channel | [Channel](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html) | 此处理程序的通道。 |
 
 ### Extends
 
@@ -27,7 +27,7 @@
 
 | 名称    | 类型                                                                               | 描述                               |
 | ------- | ---------------------------------------------------------------------------------- | ---------------------------------- |
-| channel | [ Channel](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html) | 该提交处理程序将要服务的通道实例。 |
+| channel | [Channel](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html) | 该提交处理程序将要服务的通道实例。 |
 
 - 返回结果
 

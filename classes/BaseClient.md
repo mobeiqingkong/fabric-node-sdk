@@ -1,6 +1,6 @@
 # BaseClient
 
-### BaseClient
+## BaseClient
 
 使用 CryptoSuite 签名和哈希的客户端的基类。它还包含用于构造 [CryptoKeyStore](CryptoKeyStore.md), [CryptoSuite](module-api.CryptoSuite.md) and [KeyValueStore](module-api.KeyValueStore.md) 的新实例的实用程序方法。
 
