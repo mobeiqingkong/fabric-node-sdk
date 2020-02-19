@@ -10,7 +10,7 @@
 
 #### &lt;async&gt; addBlockListener(listenerName, callback [, options])
 
-创建一个阻止事件监听器
+创建一个 Block 事件监听器
 
 - 参数
 
