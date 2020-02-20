@@ -1,10 +1,10 @@
-# fabric-client：如何创建 Hyperledger Fabric 通道(How to create a Hyperledger Fabric channel)
+# fabric-client:如何创建 Hyperledger Fabric 通道(How to create a Hyperledger Fabric channel)
 
-## fabric-client：如何创建 Hyperledger Fabric 通道(How to create a Hyperledger Fabric channel)
+## fabric-client:如何创建 Hyperledger Fabric 通道(How to create a Hyperledger Fabric channel)
 
-本教程说明了如何使用 Node.js fabric-client SDK 创建 Hyperledger Fabric 通道。 它显示了如何使用初始（默认）通道定义以及如何从该定义开始构建自定义的定义。 创建网络和通道的过程还涉及创建和使用加密材料(cryptographic material)，这里将不再讨论。
+本教程说明了如何使用 Node.js fabric-client SDK 创建 Hyperledger Fabric 通道。 它显示了如何使用初始(默认)通道定义以及如何从该定义开始构建自定义的定义。 创建网络和通道的过程还涉及创建和使用加密材料(cryptographic material)，这里将不再讨论。
 
-有关更多信息：
+有关更多信息:
 
 - Hyperledger Fabric 入门，请参阅[构建你的第一个网络(Building your first network)](http://hyperledger-fabric.readthedocs.io/en/latest/build_network.html)。
 - Hyperledger Fabric 中通道的配置以及创建和更新的内部过程，请参见[Hyperledger Fabric 通道配置(Hyperledger Fabric channel configuration)](http://hyperledger-fabric.readthedocs.io/en/latest/configtx.html)
@@ -12,7 +12,7 @@
 - 配置事务生成器，请参见 [configtxgen](http://hyperledger-fabric.readthedocs.io/en/latest/build_network.html#configuration-transaction-generator)
 - 配置转换工具，请参阅 [configtxlator](https://github.com/hyperledger/fabric/tree/master/examples/configtxupdate)
 
-以下内容假定您对 Hyperledger Fabric 网络（orderer 和 peer），[protobuf](https://developers.google.com/protocol-buffers/)以及 Node 应用程序开发（包括使用 Javascript Promise）有所了解。
+以下内容假定您对 Hyperledger Fabric 网络(orderer 和 peer)，[protobuf](https://developers.google.com/protocol-buffers/)以及 Node 应用程序开发(包括使用 Javascript Promise)有所了解。
 
 下面显示的示例基于余额转移示例应用程序。 参见[Hyperledger Fabric 示例(Hyperledger Fabric Samples)](https://github.com/hyperledger/fabric-samples/tree/master/balance-transfer)
 
@@ -94,7 +94,7 @@ curl -X POST --data-binary @mychannel.tx http://127.0.0.1:7059/protolator/decode
 
 解码文件 mychannel.tx 的结果是 configtxgen 工具生成的 common.Envelope 包含 common.ConfigUpdate 对象。 该对象在"payload.data" JSON 对象中的名称为"config_update"。 这是用作创建新通道的模板源所需要的对象。 common.ConfigUpdate 是将由所有组织签名并提交给 orderer 以创建新通道的对象。
 
-以下是从上面生成的"TwoOrgsChannel"通道创建二进制文件的解码中提取的 JSON "config_update"（common.ConfigUpdate）对象。
+以下是从上面生成的"TwoOrgsChannel"通道创建二进制文件的解码中提取的 JSON "config_update"(common.ConfigUpdate)对象。
 
 ```json
 {
@@ -163,7 +163,7 @@ curl -X POST --data-binary @mychannel.tx http://127.0.0.1:7059/protolator/decode
 }
 ```
 
-请注意，所使用的联盟(Consortium)名称必须存在于系统通道上。您要添加到新通道的所有组织都必须在"Consortium"部分下的系统通道上用该名称定义。使用已解码的创世区块来验证所有值，例如，通过查看上面生成的 genesis.json 文件。要将组织添加到通道，必须将它们放置在"Applications"部分下的"groups"部分下，如上所示。看到 Org1MSP 是 Applications.groups 部分的属性。在此示例中，组织 Org1MSP 的所有设置都将从系统通道继承(请注意该组织属性的空对象"{}")。要查看此组织的当前设置，请在系统通道的"Consortium"部分下的"SampleConsortium"部分中查看（系统通道的创世区块）。
+请注意，所使用的联盟(Consortium)名称必须存在于系统通道上。您要添加到新通道的所有组织都必须在"Consortium"部分下的系统通道上用该名称定义。使用已解码的创世区块来验证所有值，例如，通过查看上面生成的 genesis.json 文件。要将组织添加到通道，必须将它们放置在"Applications"部分下的"groups"部分下，如上所示。看到 Org1MSP 是 Applications.groups 部分的属性。在此示例中，组织 Org1MSP 的所有设置都将从系统通道继承(请注意该组织属性的空对象"{}")。要查看此组织的当前设置，请在系统通道的"Consortium"部分下的"SampleConsortium"部分中查看(系统通道的创世区块)。
 
 一旦具有代表您的通道的 JSON 配置，请将其发送给 configtxlator，以将其编码为配置二进制文件。以下示例将 REST 请求发送到 configtxlator 的示例使用 Node.js 包超级代理，因为它易于使用 HTTP 请求。
 
@@ -196,7 +196,7 @@ signatures.push(signature);
 
 现在是时候创建通道了，假设签名对象是由 client.signChannelConfig()方法返回的 common.ConfigSignature 数组。
 
-注意：orderer 必须从与初始二进制通道配置定义相同的配置文件生成的 genesis.block 开始
+注意:orderer 必须从与初始二进制通道配置定义相同的配置文件生成的 genesis.block 开始
 
 ```javascript
 // create an orderer object to represent the orderer of the network

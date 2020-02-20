@@ -22,7 +22,7 @@ The constructor
 
 返回结果
 
-- 对象参数具有键 blockNumber：字符串和值[module:fabric-network.BaseCheckpointer~Checkpoint](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.BaseCheckpointer.html#~Checkpoint)
+- 对象参数具有键 blockNumber:字符串和值[module:fabric-network.BaseCheckpointer~Checkpoint](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.BaseCheckpointer.html#~Checkpoint)
 
   - 类型
 

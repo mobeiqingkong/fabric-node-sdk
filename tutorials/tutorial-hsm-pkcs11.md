@@ -42,11 +42,11 @@ export SOFTHSM2_CONF="./test/fixtures/softhsm2.conf"
 softhsm2-util --init-token --slot 0 --label "My token 1"
 ```
 
-然后，系统将提示您两个 PIN：可用于重新初始化令牌的 SO(安全员)PIN，以及应用程序用于访问令牌以生成和检索密钥的用户 PIN。
+然后，系统将提示您两个 PIN:可用于重新初始化令牌的 SO(安全员)PIN，以及应用程序用于访问令牌以生成和检索密钥的用户 PIN。
 
 ## 测试
 
-单元测试已经在 SoftHSM2 上进行了尝试，并假定插槽为'0'，并且用户 PIN 为 98765432。如果您的配置不同，请使用以下环境变量来传递值：
+单元测试已经在 SoftHSM2 上进行了尝试，并假定插槽为'0'，并且用户 PIN 为 98765432。如果您的配置不同，请使用以下环境变量来传递值:
 
 - PKCS11_LIB - SoftHSM2 库的路径，如果未指定，则测试用例将搜索一系列常用的安装位置
 - PKCS11_PIN

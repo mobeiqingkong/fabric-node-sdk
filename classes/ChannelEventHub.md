@@ -137,7 +137,7 @@
 
 返回结果
 
-- 应该被视为用于注销的不透明句柄的对象（请参见 [unregisterChaincodeEvent()](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelEventHub.html#unregisterChaincodeEvent)）。
+- 应该被视为用于注销的不透明句柄的对象(请参见 [unregisterChaincodeEvent()](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelEventHub.html#unregisterChaincodeEvent))。
 
   - 类型
 

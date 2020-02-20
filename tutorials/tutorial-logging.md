@@ -1,6 +1,6 @@
-# fabric-common：如何使用日志记录(How to use logging)
+# fabric-common:如何使用日志记录(How to use logging)
 
-## fabric-common：如何使用日志记录(How to use logging)
+## fabric-common:如何使用日志记录(How to use logging)
 
 本教程说明了如何使用 Hyperledger Fabric Node.js 客户端日志记录功能。
 
@@ -27,13 +27,13 @@ const Client = require('fabric-client');
 
 Hyperledger Fabric 客户端的日志记录由配置设置 hfc-logging 和环境设置 HFC_LOGGING 控制。
 
-- 使用以下条目在 default.json 配置文件中设置日志记录设置：
+- 使用以下条目在 default.json 配置文件中设置日志记录设置:
 
 ```json
 "hfc-logging": "{'debug':'console', 'info':'console'}"
 ```
 
-- 使用环境设置将覆盖配置设置：
+- 使用环境设置将覆盖配置设置:
 
 ```shell
 export HFC_LOGGING='{"debug":"console","info":"console"}'

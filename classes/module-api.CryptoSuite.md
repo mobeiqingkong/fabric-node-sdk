@@ -2,7 +2,7 @@
 
 ## [api](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.html). CryptoSuite
 
-SDK 使用的一组加密算法的抽象类，用于执行数字签名，加密/解密和安全哈希。一套完整的套件包括对非对称密钥（例如 ECDSA 或 RSA），对称密钥（例如 AES）和安全哈希（例如 SHA2 / 3）的支持。该 SDK 提供了基于 ECDSA + SHA2 / 3 的默认实现。可以使用 "crypto-suite-software"配置设置来指定替代实现，该设置指向指向模块包的完整 require() 路径。
+SDK 使用的一组加密算法的抽象类，用于执行数字签名，加密/解密和安全哈希。一套完整的套件包括对非对称密钥(例如 ECDSA 或 RSA)，对称密钥(例如 AES)和安全哈希(例如 SHA2 / 3)的支持。该 SDK 提供了基于 ECDSA + SHA2 / 3 的默认实现。可以使用 "crypto-suite-software"配置设置来指定替代实现，该设置指向指向模块包的完整 require() 路径。
 
 #### new CryptoSuite( )
 
@@ -16,7 +16,7 @@ SDK 使用的一组加密算法的抽象类，用于执行数字签名，加密/
 
 | 名称       | 类型                                                                                            | 描述             |
 | ---------- | ----------------------------------------------------------------------------------------------- | ---------------- |
-| key        | [module:api.Key](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.Key.html) | 解密密钥（私钥） |
+| key        | [module:api.Key](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.Key.html) | 解密密钥(私钥) |
 | cipherText | Array.&lt;byte&gt;                                                                              | 密文解密         |
 | opts       | Object                                                                                          | 解密选项         |
 
@@ -55,7 +55,7 @@ SDK 使用的一组加密算法的抽象类，用于执行数字签名，加密/
 
 | 名称      | 类型                                                                                            | 描述             |
 | --------- | ----------------------------------------------------------------------------------------------- | ---------------- |
-| key       | [module:api.Key](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.Key.html) | 加密密钥（公钥） |
+| key       | [module:api.Key](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.Key.html) | 加密密钥(公钥) |
 | plainText | Array.&lt;byte&gt;                                                                              | 纯文本加密       |
 | opts      | Object                                                                                          | 加密选项         |
 
@@ -132,7 +132,7 @@ SDK 使用的一组加密算法的抽象类，用于执行数字签名，加密/
 | 名称 | 类型   | 描述                                         |
 | ---- | ------ | -------------------------------------------- |
 | msg  | string | 哈希的源消息                                 |
-| opts | Object | algorithm：要使用的算法的标识符，例如“ SHA3” |
+| opts | Object | algorithm:要使用的算法的标识符，例如“ SHA3” |
 
 返回结果
 
@@ -144,7 +144,7 @@ SDK 使用的一组加密算法的抽象类，用于执行数字签名，加密/
 
 #### importKey(pem, opts)
 
-使用 opts 从其原始表示形式导入密钥。如果 opts.ephemeral 参数为 false，则该方法除了返回导入的 Key 实例之外，还将导入的密钥保存为密钥库中的 PEM 文件，可以使用“ getKey（）”方法进行检索
+使用 opts 从其原始表示形式导入密钥。如果 opts.ephemeral 参数为 false，则该方法除了返回导入的 Key 实例之外，还将导入的密钥保存为密钥库中的 PEM 文件，可以使用“ getKey()”方法进行检索
 
 - 参数
 
@@ -179,8 +179,8 @@ SDK 使用的一组加密算法的抽象类，用于执行数字签名，加密/
 
 | 名称   | 类型                                                                                            | 描述                                                                                                               |
 | ------ | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| key    | [module:api.Key](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.Key.html) | 签名密钥（私钥）                                                                                                   |
-| digest | Array.&lt;byte&gt;                                                                              | 要签名的消息摘要。请注意，当需要较大消息的签名时，调用方负责对较大消息进行哈希处理并将哈希（作为摘要）传递给签名。 |
+| key    | [module:api.Key](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.Key.html) | 签名密钥(私钥)                                                                                                   |
+| digest | Array.&lt;byte&gt;                                                                              | 要签名的消息摘要。请注意，当需要较大消息的签名时，调用方负责对较大消息进行哈希处理并将哈希(作为摘要)传递给签名。 |
 
 返回结果
 
@@ -198,7 +198,7 @@ SDK 使用的一组加密算法的抽象类，用于执行数字签名，加密/
 
 | 名称      | 类型                                                                                            | 描述                 |
 | --------- | ----------------------------------------------------------------------------------------------- | -------------------- |
-| key       | [module:api.Key](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.Key.html) | 签名验证密钥（公钥） |
+| key       | [module:api.Key](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.Key.html) | 签名验证密钥(公钥) |
 | signature | Array.&lt;byte&gt;                                                                              | 签名验证             |
 | digest    | Array.&lt;byte&gt;                                                                              | 创建签名的摘要       |
 

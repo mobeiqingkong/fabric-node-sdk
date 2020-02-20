@@ -56,7 +56,7 @@ USER表示身份正在充当用户
 
 #### bitsToBytes(arr)
 
-从bitArray转换为字节（请参阅SJCL的编解码器
+从bitArray转换为字节(请参阅SJCL的编解码器
 
 - 参数
 
@@ -70,7 +70,7 @@ USER表示身份正在充当用户
 
 #### bytesToBits(bytes)
 
-从字节转换为bitArray（请参阅SJCL的编解码器）
+从字节转换为bitArray(请参阅SJCL的编解码器)
 
 - 参数
 
@@ -97,7 +97,7 @@ USER表示身份正在充当用户
 | org          | string | 机构(Organizational)名称 |
 | top          | string | 处理小组结构上的差异     |
 
-- 参见：
+- 参见:
   - /protos/common/configtx.proto
 
 #### loadConfigValue()
@@ -133,7 +133,7 @@ USER表示身份正在充当用户
 
 #### toEnvelope(signature, proposal_bytes)
 
-将proposal.proto：SignedProposal转换为common.proto：Envelope
+将proposal.proto:SignedProposal转换为common.proto:Envelope
 
 - 参数
 
@@ -205,19 +205,19 @@ metadata
 
 ##### 示例
 
-获取块号：
+获取块号:
 
 ```javascript
 var block_num = block.header.number;
 ```
 
-获取交易数量，包括无效交易：
+获取交易数量，包括无效交易:
 
 ```javascript
 var block_num = block.data.data.legnth;
 ```
 
-获取代码块中第一个事务的ID：
+获取代码块中第一个事务的ID:
 
 ```javascript
 var tx_id = block.data.data[0].payload.header.channel_header.tx_id;
@@ -233,7 +233,7 @@ var tx_id = block.data.data[0].payload.header.channel_header.tx_id;
 | 名称              | 类型         | 描述                                                         |
 | ----------------- | ------------ | ------------------------------------------------------------ |
 | height            | number       | 通道分类帐中有多少个区块                                     |
-| currentBlockHash  | Array.&lt;byte&gt; | 块哈希是通过对以下串联的ASN.1编码字节进行哈希计算得出的：块编号，先前的块哈希和当前的块数据哈希。区块哈希的链保证了分类账的不变性 |
+| currentBlockHash  | Array.&lt;byte&gt; | 块哈希是通过对以下串联的ASN.1编码字节进行哈希计算得出的:块编号，先前的块哈希和当前的块数据哈希。区块哈希的链保证了分类账的不变性 |
 | previousBlockHash | Array.&lt;byte&gt; | 前一个块的块哈希。                                           |
 
 #### BroadcastResponse
@@ -311,14 +311,14 @@ var tx_id = block.data.data[0].payload.header.channel_header.tx_id;
 | chaincodeVersion   | string                                                       | 必要。链码的版本字符串，例如“ v1”                            |
 | txId               | [TransactionID](./TransactionID.html) | 可选。此请求的TransactionID对象。                            |
 | collections-config | string                                                       | 可选。集合配置的路径。可以在本[教程(tutorial)](./tutorial-private-data.html)中找到更多详细信息 |
-| transientMap       | object                                                       | 可选。带有String属性名称和Buffer属性值的对象，可以由链码使用，但不能保存在分类帐中。可以使用此技术将诸如用于加密的密码信息的数据传递到链码。应将要保留在私有数据存储区（集合）中的数据传递给transientMap中的链码。 |
-| fcn                | string                                                       | 可选。在目标链码中调用stub.GetFunctionAndParameters()时要返回的函数名称。默认为'init';如果要不传入任何函数名，请显式传入fcn，其值为null或”（空字符串） |
+| transientMap       | object                                                       | 可选。带有String属性名称和Buffer属性值的对象，可以由链码使用，但不能保存在分类帐中。可以使用此技术将诸如用于加密的密码信息的数据传递到链码。应将要保留在私有数据存储区(集合)中的数据传递给transientMap中的链码。 |
+| fcn                | string                                                       | 可选。在目标链码中调用stub.GetFunctionAndParameters()时要返回的函数名称。默认为'init';如果要不传入任何函数名，请显式传入fcn，其值为null或”(空字符串) |
 | args               | Array.&lt;string&gt;                                               | 可选。传递给fcn值所标识的函数的字符串参数数组。            |
-| endorsement-policy | Object                                                       | 可选。此链码的EndorsementPolicy对象（请参见下面的示例）。如果未指定，则使用默认策略“由来自与成员服务提供者阵列相对应的任何组织的任何成员的签名”("a signature by any member from any of the organizations corresponding to the array of member service providers")。警告：不建议将默认策略用于生产，因为这将允许应用程序绕过投标背书，并直接向订购者发送手动构造的事务（在写入集中具有任意输出）。分配给创建签名的客户端实例的用户上下文将允许成功验证交易并将其提交到分类账。 |
+| endorsement-policy | Object                                                       | 可选。此链码的EndorsementPolicy对象(请参见下面的示例)。如果未指定，则使用默认策略“由来自与成员服务提供者阵列相对应的任何组织的任何成员的签名”("a signature by any member from any of the organizations corresponding to the array of member service providers")。警告:不建议将默认策略用于生产，因为这将允许应用程序绕过投标背书，并直接向订购者发送手动构造的事务(在写入集中具有任意输出)。分配给创建签名的客户端实例的用户上下文将允许成功验证交易并将其提交到分类账。 |
 
 ##### 示例
 
-背书策略：“由任何一个组织的成员签署”
+背书策略:“由任何一个组织的成员签署”
 
 ```javascript
 {
@@ -332,7 +332,7 @@ var tx_id = block.data.data[0].payload.header.channel_header.tx_id;
 }
 ```
 
-背书政策：“由ordererOrg的管理员和一个peer组织的任何成员签署”
+背书政策:“由ordererOrg的管理员和一个peer组织的任何成员签署”
 
 ```javascript
 {
@@ -387,7 +387,7 @@ chaincode_spec
 | chaincodeId        | string                                                       | 必要。用于处理交易建议的链码的ID                             |
 | endorsement_hint   | DiscoveryChaincodeIntereset                                  | 可选。 [DiscoveryChaincodeInterest](./global.html#DiscoveryChaincodeInterest)对象的一个，发现服务将使用该对象来计算适当的背书计划。仅当背书将由可调用其他链码的链码执行背书，或者背书应仅由一个或多个集合中的peer进行背书时，才需要该参数。 |
 | txId               | [TransactionID](./TransactionID.html) | 可选。具有交易ID和随机数的TransactionID对象。 [sendTransactionProposal](./Channel.html#sendTransactionProposal)需要txId，[generateUnsignedProposal](./Channel.html#generateUnsignedProposal)是可选的 |
-| transientMap       | object                                                       | 可选。带有String属性名称和Buffer属性值的对象，可以由链码使用，但不能保存在分类帐中。可以使用此技术将诸如用于加密的密码信息的数据传递到链码。应将要保留在私有数据存储区（集合）中的数据传递给transientMap中的链码。 |
+| transientMap       | object                                                       | 可选。带有String属性名称和Buffer属性值的对象，可以由链码使用，但不能保存在分类帐中。可以使用此技术将诸如用于加密的密码信息的数据传递到链码。应将要保留在私有数据存储区(集合)中的数据传递给transientMap中的链码。 |
 | fcn                | string                                                       | 可选。在目标链码中调用stub.GetFunctionAndParameters()时要返回的函数名称。默认为'invoke'。 |
 | args               | Array.&lt;string&gt;                                               | 可选。传递给fcn值所标识的函数的字符串参数数组。            |
 | required           | Array.&lt;string&gt;                                               | 可选。字符串数组，表示背书所需的peer的名称。这些将是发送提案的唯一peer。该列表仅适用于使用发现服务的背书。此属性由DiscoveryEndorsementHandler使用。 |
@@ -410,7 +410,7 @@ chaincode_spec
 | --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | targets         | Array.[[Peer](./Peer.html)]([Peer](./Peer.html))\|Array.&lt;string&gt; | 可选。当未提供时，将使用将接收此请求的peer，添加到此通道对象的peer列表 |
 | chaincodeId     | string                                                       | 必要。用于处理交易建议的链码的ID                             |
-| transientMap    | object                                                       | 可选。带有String属性名称和Buffer属性值的对象，可以由链码使用，但不能保存在分类帐中。可以使用此技术将诸如用于加密的密码信息的数据传递到链码。应将要保留在私有数据存储区（集合）中的数据传递给transientMap中的链码。 |
+| transientMap    | object                                                       | 可选。带有String属性名称和Buffer属性值的对象，可以由链码使用，但不能保存在分类帐中。可以使用此技术将诸如用于加密的密码信息的数据传递到链码。应将要保留在私有数据存储区(集合)中的数据传递给transientMap中的链码。 |
 | fcn             | string                                                       | 可选。在目标链码中调用stub.GetFunctionAndParameters()时要返回的函数名称。默认为“invoke” |
 | args            | Array.&lt;string&gt;                                               | 特定于链码的“ Invoke”方法的字符串参数数组                    |
 | request_timeout | integer                                                      | 用于此请求的超时值                                           |
@@ -429,7 +429,7 @@ chaincode_spec
 
 #### ChannelConfigGroup
 
-通道本身的块中包含控制结构应如何维护通道的配置设置。当一个块包含通道配置时，通道配置记录是块数据数组中的唯一项。每个块（包括配置块本身）都有一个指向最新配置块的指针，从而可以轻松查询最新的通道配置设置。
+通道本身的块中包含控制结构应如何维护通道的配置设置。当一个块包含通道配置时，通道配置记录是块数据数组中的唯一项。每个块(包括配置块本身)都有一个指向最新配置块的指针，从而可以轻松查询最新的通道配置设置。
 
 通道配置记录将具有以下对象结构。
 
@@ -554,11 +554,11 @@ values
 
 | 名称           | 类型    | 描述                                                         |
 | -------------- | ------- | ------------------------------------------------------------ |
-| endorsingPeer  | boolean | 可选。可以向该peer发送背书交易提议。peer必须安装链码。该应用程序还可以使用此属性来确定哪些peer发送链码安装请求。默认值：true |
-| chaincodeQuery | boolean | 可选。可以向该peer发送仅作为查询的交易建议。peer必须安装链码。该应用程序还可以使用此属性来确定哪些peer发送链码安装请求。默认值：true |
-| ledgerQuery    | boolean | 可选。可以向此peer发送不需要链码的查询提议，例如queryBlock()，queryTransaction()等。默认值：true |
-| eventSource    | boolean | 可选。此peer可能是事件侦听器注册的目标？所有peer都可以产生事件，但是该应用通常仅需要连接到一个事件。默认值：true |
-| discover       | boolean | 可选。该peer可能是服务发现的目标。默认值：true             |
+| endorsingPeer  | boolean | 可选。可以向该peer发送背书交易提议。peer必须安装链码。该应用程序还可以使用此属性来确定哪些peer发送链码安装请求。默认值:true |
+| chaincodeQuery | boolean | 可选。可以向该peer发送仅作为查询的交易建议。peer必须安装链码。该应用程序还可以使用此属性来确定哪些peer发送链码安装请求。默认值:true |
+| ledgerQuery    | boolean | 可选。可以向此peer发送不需要链码的查询提议，例如queryBlock()，queryTransaction()等。默认值:true |
+| eventSource    | boolean | 可选。此peer可能是事件侦听器注册的目标？所有peer都可以产生事件，但是该应用通常仅需要连接到一个事件。默认值:true |
+| discover       | boolean | 可选。该peer可能是服务发现的目标。默认值:true             |
 
 #### ChannelQueryResponse
 
@@ -629,7 +629,7 @@ values
 | required_peer_coun | number                                                       | 背书时将发送最少数量的peer私有数据。如果至少没有传播到这个数目的peer，则背书将失败。 |
 | maximum_peer_count | number                                                       | 背书后将发送私人数据的最大peer数。此数字必须大于required_peer_count。 |
 | block_to_live      | number                                                       | 收集数据到期之后的块数。例如，如果将该值设置为10，则最后由块号100修改的密钥将在块号111处清除。零值与MaxUint64相同，不会清除数据。 |
-| member_read_only   | boolean                                                      | 成员仅读取访问权限表示是仅集合成员客户端可以读取私有数据（如果设置为true），还是非成员可以读取数据（如果设置为false，例如，如果您想在链码中实现更精细的访问逻辑） |
+| member_read_only   | boolean                                                      | 成员仅读取访问权限表示是仅集合成员客户端可以读取私有数据(如果设置为true)，还是非成员可以读取数据(如果设置为false，例如，如果您想在链码中实现更精细的访问逻辑) |
 | policy             | [Policy](./global.html#Policy) | "member_orgs_policy"政策                                     |
 
 #### ConfigEnvelope
@@ -702,9 +702,9 @@ signatures -- {array}
 | 名称                     | 类型   | 描述                                                         |
 | ------------------------ | ------ | ------------------------------------------------------------ |
 | name                     | string | 可选。为这个远程端点命名。如果未提供名称，则端点将通过其URL知道。 |
-| request-timeout          | string | 一个整数值（以毫秒为单位），用作等待请求响应的最长时间。     |
-| pem                      | string | PEM格式的证书文件，用于gRPC协议（即TransportCredentials）。使用grpcs协议时必需。 |
-| ssl-target-name-override | string | 仅在测试环境中使用，当服务器证书的主机名（在“ CN”字段中）与服务器进程在其上运行的实际主机端点不匹配时，通过将此属性设置为服务器证书的主机名的值，应用程序可以解决客户端TLS验证失败的问题 |
+| request-timeout          | string | 一个整数值(以毫秒为单位)，用作等待请求响应的最长时间。     |
+| pem                      | string | PEM格式的证书文件，用于gRPC协议(即TransportCredentials)。使用grpcs协议时必需。 |
+| ssl-target-name-override | string | 仅在测试环境中使用，当服务器证书的主机名(在“ CN”字段中)与服务器进程在其上运行的实际主机端点不匹配时，通过将此属性设置为服务器证书的主机名的值，应用程序可以解决客户端TLS验证失败的问题 |
 | &lt;any&gt;                    | any    | 任何其他标准grpc调用选项将直接传递到grpc服务调用             |
 
 #### ConnectOptions
@@ -716,7 +716,7 @@ signatures -- {array}
 
 | 名称        | 类型                                                         | 描述                                                         |
 | ----------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| full_block  | boolean                                                      | 可选。指示与peer的连接将向此ChannelEventHub发送完整的块或已过滤的块。默认设置是使用过滤后的块建立连接。过滤的块具有提供交易状态和链码事件所需的信息（无有效载荷）。使用未过滤的块（完整块）时，将要求用户有权建立连接以接收完整块。在已过滤的块连接上注册块侦听器可能无法提供足够的信息。 |
+| full_block  | boolean                                                      | 可选。指示与peer的连接将向此ChannelEventHub发送完整的块或已过滤的块。默认设置是使用过滤后的块建立连接。过滤的块具有提供交易状态和链码事件所需的信息(无有效载荷)。使用未过滤的块(完整块)时，将要求用户有权建立连接以接收完整块。在已过滤的块连接上注册块侦听器可能无法提供足够的信息。 |
 | startBlock  | number&#124;string                                           | 可选。这将具有连接设置，以使用该编号开始将块发送回事件中心。如果与startBlock连接，则事件侦听器可能未注册到startBlock或endBlock。如果事件中心应该以它看到的最后一个块开头，则使用字符串“ last_seen”。如果事件中心应以分类账上最旧的块开头，则使用字符串“ oldest”。如果事件中心应以分类帐上的最新块开头，请使用字符串“ latest”或使用startBlock。默认是从分类账上的最新块开始。 |
 | endBlock    | number&#124;string                                           | 可选。这将具有连接设置，以结束将块发送回具有该编号的块处的事件中心。如果与endBlock连接，则事件侦听器可能未注册到startBlock或endBlock。如果事件中心应该以它看到的最后一个块结尾，则使用字符串'last_seen'。如果事件中心应以分类账上的当前块结尾，则使用字符串“最新”。默认为不停止发送。 |
 | signedEvent | [SignedEvent](./global.html#SignedEvent) | 可选。已签名的事件将发送给peer。当fabric客户端应用程序没有用户的privateKey并且无法签署对结构网络的请求时，此选项很有用。 |
@@ -733,7 +733,7 @@ signatures -- {array}
 | 名称 | 类型   | 描述                                                  |
 | ---- | ------ | ----------------------------------------------------- |
 | url  | string | CouchDB实例URL，形式为 http(s)://:@host:port          |
-| name | string | 可选。标识要使用的数据库的名称。默认值：member_db。 |
+| name | string | 可选。标识要使用的数据库的名称。默认值:member_db。 |
 
 #### CryptoContent
 
@@ -745,10 +745,10 @@ signatures -- {array}
 | 名称          | 类型                                                         | 描述                                                         |
 | ------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | privateKey    | string                                                       | 私钥的PEM文件路径                                            |
-| privateKeyPEM | string                                                       | 私钥的PEM字符串（如果设置了privateKey或privateKeyObj，则不需要） |
-| privateKeyObj | [module:api.Key](./module-api.Key.html) | 私钥对象（如果设置了privateKey或privateKeyPEM，则不需要）    |
+| privateKeyPEM | string                                                       | 私钥的PEM字符串(如果设置了privateKey或privateKeyObj，则不需要) |
+| privateKeyObj | [module:api.Key](./module-api.Key.html) | 私钥对象(如果设置了privateKey或privateKeyPEM，则不需要)    |
 | signedCert    | string                                                       | 证书的PEM文件路径                                            |
-| signedCertPEM | string                                                       | 证书的PEM字符串（如果设置了signedCert，则不需要）            |
+| signedCertPEM | string                                                       | 证书的PEM字符串(如果设置了signedCert，则不需要)            |
 
 #### CryptoSetting
 
@@ -759,7 +759,7 @@ signatures -- {array}
 
 | 名称      | 类型    | 描述                                                         |
 | --------- | ------- | ------------------------------------------------------------ |
-| software  | boolean | 加载基于软件的实施（true）或HSM实施（false）默认为true（对于基于软件的实施），在"crypto-suite-software"设置中指定了特定的实施模块 |
+| software  | boolean | 加载基于软件的实施(true)或HSM实施(false)默认为true(对于基于软件的实施)，在"crypto-suite-software"设置中指定了特定的实施模块 |
 | keysize   | number  | 用于加密套件实例的密钥大小。默认值为设置"crypto-keysize"的值 |
 | algorithm | string  | 数字签名算法，目前仅支持ECDSA，其值为"EC"                    |
 | hash      | string  | "SHA2"或"SHA3"                                               |
@@ -968,7 +968,7 @@ signatures -- {array}
 | 名称                   | 类型           | 描述                                                         |
 | ---------------------- | -------------- | ------------------------------------------------------------ |
 | rootCerts              | string         | 此MSP信任的根证书列表。它们在证书验证时使用。                |
-| intermediateCerts      | string         | 此MSP信任的中间证书列表。它们在证书验证时使用，如下所示：验证尝试从要验证的证书（位于路径的一端）和RootCerts字段中的证书之一（位于路径的另一端）构建路径。如果路径长于2，则在IntermediateCerts池中搜索中间的证书。 |
+| intermediateCerts      | string         | 此MSP信任的中间证书列表。它们在证书验证时使用，如下所示:验证尝试从要验证的证书(位于路径的一端)和RootCerts字段中的证书之一(位于路径的另一端)构建路径。如果路径长于2，则在IntermediateCerts池中搜索中间的证书。 |
 | admins                 | string         | 表示此MSP管理员的身份                                        |
 | id                     | string         | MSP的标识符                                                  |
 | orgs                   | Array.&lt;string&gt; | 属于此MSP配置的fabric组织单位标识符                          |
@@ -1012,7 +1012,7 @@ signatures -- {array}
 | ----------------- | ------------------------------------------------------------ | ------------------------ |
 | msps              | Object.&lt;string, [DiscoveryResultMSPConfig](./global.html#DiscoveryResultMSPConfig)&gt; | 可选。找到了msp配置。  |
 | orderers          | Object.&lt;string, [DiscoveryResultEndpoints](./global.html#DiscoveryResultEndpoints)&gt; | 可选。找到订购者。     |
-| peers_by_org      | Object.&lt;string, [DiscoveryResultPeers](./global.html#DiscoveryResultPeers)&gt; | 可选。组织的同行发现。 |
+| peers_by_org      | Object.&lt;string, [DiscoveryResultPeers](./global.html#DiscoveryResultPeers)&gt; | 可选。组织的peer发现。 |
 | endorsement_plans | Array.&lt;[DiscoveryResultEndorsementPlan](./global.html#DiscoveryResultEndorsementPlan)&gt; | 可选。                 |
 | timestamp         | number                                                       | 发现结果更新的时间戳。   |
 
@@ -1020,7 +1020,7 @@ signatures -- {array}
 
 背书是背书人对提案回复的签名。通过产生背书消息，背书者会隐式“批准”提案响应及其中包含的操作。收集到足够的背书后，就可以从一组提案响应中生成交易。
 
-背书消息具有以下结构：
+背书消息具有以下结构:
 
 ```javascript
 endorser
@@ -1083,7 +1083,7 @@ signature -- {byte[]}
 | -------- | ------ | ---------------------------------------- |
 | success  | Number | 收到的成功事件数。                       |
 | fail     | Number | 收到的错误数。                           |
-| expected | Number | 预期响应事件（或错误）的事件中心的数量。 |
+| expected | Number | 预期响应事件(或错误)的事件中心的数量。 |
 
 #### EventHubRegistrationRequest
 
@@ -1101,7 +1101,7 @@ signature -- {byte[]}
 
 #### Header
 
-Headers 描述有关交易记录的基本信息，例如其类型（配置更新或背书交易等），其所属通道的ID，交易ID等。标头消息还包含一个公共字段SignatureHeader，该字段描述有关如何验证签名的关键信息。
+Headers 描述有关交易记录的基本信息，例如其类型(配置更新或背书交易等)，其所属通道的ID，交易ID等。标头消息还包含一个公共字段SignatureHeader，该字段描述有关如何验证签名的关键信息。
 
 “Headers ”将具有以下对象结构。
 
@@ -1208,7 +1208,7 @@ policy
 
 | 名称    | 类型                                                         | 描述                                                         |
 | ------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| targets | Array.&lt;[Peer](./Peer.html)&gt;./Peer.html) &#124; Array.&lt;string&gt; | 可选。要求加入此通道的peer对象或peer名称数组。使用peer名称或将其留空（使用默认目标）时，必须已加载网络配置。参见[loadFromConfig()](./Client.html#loadFromConfig) |
+| targets | Array.&lt;[Peer](./Peer.html)&gt;./Peer.html) &#124; Array.&lt;string&gt; | 可选。要求加入此通道的peer对象或peer名称数组。使用peer名称或将其留空(使用默认目标)时，必须已加载网络配置。参见[loadFromConfig()](./Client.html#loadFromConfig) |
 | block   | Array.&lt;byte&gt;                                                 | 通道的创世块的编码字节。请参见[getGenesisBlock()](./Channel.html#getGenesisBlock)方法 |
 | txId    | [TransactionID](./TransactionID.html) | 必要。具有交易ID和随机数的TransactionID对象                  |
 
@@ -1251,7 +1251,7 @@ signature -- {byte[]}
 
 #### OrganizationConfigGroup
 
-通道的每个参与组织将在配置块的一个部分中表示，如下所述。这些部分中包含有关组织的重要信息，例如其成员资格服务提供商（MSP）内容及其预定义的策略，这些信息构成了通道的访问控制策略(Admins, Writers and Readers) 的基础。
+通道的每个参与组织将在配置块的一个部分中表示，如下所述。这些部分中包含有关组织的重要信息，例如其成员资格服务提供商(MSP)内容及其预定义的策略，这些信息构成了通道的访问控制策略(Admins, Writers and Readers) 的基础。
 
 组织配置将具有以下对象结构。
 
@@ -1379,7 +1379,7 @@ policies
 | 名称                | 类型   | 描述                                                         |
 | ------------------- | ------ | ------------------------------------------------------------ |
 | validationCode      | number | 有关所有定义的验证码，请参见[这个列表](https://github.com/hyperledger/fabric/blob/v1.0.0/protos/peer/transaction.proto#L125) |
-| transactionEnvelope | Object | 封装事务和签名。它具有以下结构：<br>signature -- {byte[]}<br>payload -- {}<br>header -- {Header}<br>data -- {Transaction} |
+| transactionEnvelope | Object | 封装事务和签名。它具有以下结构:<br>signature -- {byte[]}<br>payload -- {}<br>header -- {Header}<br>data -- {Transaction} |
 
 #### ProposalRequest
 
@@ -1394,7 +1394,7 @@ policies
 | args         | Array.&lt;string&gt;    | 必要。要发送到链码的参数。                                   |
 | chaincodeId  | string            | 必要。 ChaincodeId。                                         |
 | argbytes     | Buffer            | 可选。当参数必须作为字节包含时，包含。                     |
-| transientMap | object &lt;optional&gt; | 可选。带有String属性名称和Buffer属性值的对象，可以由链码使用，但不能保存在分类帐中。可以使用此技术将诸如用于加密的密码信息的数据传递到链码。应将要保留在私有数据存储区（集合）中的数据传递给transientMap中的链码。 |
+| transientMap | object &lt;optional&gt; | 可选。带有String属性名称和Buffer属性值的对象，可以由链码使用，但不能保存在分类帐中。可以使用此技术将诸如用于加密的密码信息的数据传递到链码。应将要保留在私有数据存储区(集合)中的数据传递给transientMap中的链码。 |
 
 #### ProposalResponse
 
@@ -1425,7 +1425,7 @@ Protobuf消息，由提案请求的peer背书而返回。peer节点运行提案�
 
 | 名称    | 类型                                                         | 描述                                                         |
 | ------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| index:0 | Array.&lt;([ProposalResponse](./global.html#ProposalResponse)&#124; Error)&gt; | 数组，其中每个元素要么是ProposalResponse对象（对于来自背书peer的成功响应），要么是Error对象（对于不成功的peer响应或运行时错误）。 |
+| index:0 | Array.&lt;([ProposalResponse](./global.html#ProposalResponse)&#124; Error)&gt; | 数组，其中每个元素要么是ProposalResponse对象(对于来自背书peer的成功响应)，要么是Error对象(对于不成功的peer响应或运行时错误)。 |
 | index:1 | Object                                                       | 将交易请求发送给orderer时所需的原始投标对象                  |
 
 #### RegisterRequest
@@ -1455,7 +1455,7 @@ Protobuf消息，由提案请求的peer背书而返回。peer节点运行提案�
 | ---------- | ---------------------- | ------------------------------------------------------------ |
 | startBlock | integer                | 可选-事件检查的起始块号。如果包括该peer，则将要求peer的fabric服务从该块号开始发送块。这是恢复或重播已添加到分类账中的错过的区块的方法。默认值是分类账上的最新块。设置startBlock可能会使其他事件侦听器感到困惑，因此，当使用startBlock时，ChannelEventHub上将只允许一个侦听器。设置startBlock还需要此ChannelEventHub使用不同的选项连接到fabric服务。必须在调用connect()之前完成向startBlock的注册。 |
 | endBlock   | integer&#124; 'newest' | 可选-事件检查的结束块号。值“最新”表示在注册时，peer会将endBlock计算为分类账上的最新块。这允许应用程序重播到分类账上的最新块，然后侦听器将停止并通过“ onError”回调通知。如果包括该peer，则peer的fabric服务将在该块交付后被要求停止发送块。这是重播已添加到分类帐中的错过的区块的方法。如果不包含startBlock，则endBlock必须等于或大于当前通道块的高度。设置endBlock可能会混淆其他事件侦听器，因此，在使用endBlock时，ChannelEventHub上将只允许一个侦听器。设置endBlock还需要此ChannelEventHub使用不同的选项连接到结构服务。必须在调用connect()之前完成对endBlock的注册。 |
-| unregister | boolean                | 可选-此选项设置指示看到事件时应删除注册（取消注册(unregister)）。当应用程序使用超时仅等待指定的时间量才能看到事务时，超时处理应包括对事务事件侦听器的手动“注销”，以避免意外调用事件回调。对于不同类型的事件侦听器，此设置的默认设置是不同的。对于块侦听器，默认值为true，但是仅当将end_block设置为选项并且该侦听器看到了end_block时，才假定事件侦听器已看到最终事件。对于事务侦听器，默认值为true，并且当此侦听器看到具有ID的事务时，该侦听器将被注销。对于链码侦听器，默认值将为false，因为匹配过滤器可能用于许多事务，而不是其他侦听器中的特定事务或块。如果未设置并且已设置endBlock，则侦听器将自动注销。 |
+| unregister | boolean                | 可选-此选项设置指示看到事件时应删除注册(取消注册(unregister))。当应用程序使用超时仅等待指定的时间量才能看到事务时，超时处理应包括对事务事件侦听器的手动“注销”，以避免意外调用事件回调。对于不同类型的事件侦听器，此设置的默认设置是不同的。对于块侦听器，默认值为true，但是仅当将end_block设置为选项并且该侦听器看到了end_block时，才假定事件侦听器已看到最终事件。对于事务侦听器，默认值为true，并且当此侦听器看到具有ID的事务时，该侦听器将被注销。对于链码侦听器，默认值将为false，因为匹配过滤器可能用于许多事务，而不是其他侦听器中的特定事务或块。如果未设置并且已设置endBlock，则侦听器将自动注销。 |
 | disconnect | boolean                | 可选-此选项设置指示ChannelEventHub实例在看到事件后自动与peer的Fabric服务断开连接。默认值为false。如果未设置并且已设置endBlock，则ChannelEventHub实例将自动断开自身连接。 |
 
 #### RemoteCharacteristics
@@ -1498,7 +1498,7 @@ Protobuf消息，由提案请求的peer背书而返回。peer节点运行提案�
 
 | 名称    | 类型         | 描述                                                         |
 | ------- | ------------ | ------------------------------------------------------------ |
-| status  | number       | 状态码。遵循：[HTTP status code definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) |
+| status  | number       | 状态码。遵循:[HTTP status code definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) |
 | message | string       | 与响应状态代码关联的消息                                     |
 | payload | Array.&lt;byte&gt; | 可用于在此响应中包含元数据的有效负载                         |
 
@@ -1510,10 +1510,10 @@ Protobuf消息，由提案请求的peer背书而返回。peer节点运行提案�
 
 | 名称          | 类型 | 描述                                                        |
 | ------------- | ---- | ----------------------------------------------------------- |
-| revokedBefore | Date | 在CRL中包括在此UTC时间戳之前被吊销的证书（采用RFC3339格式） |
-| revokedAfter  | Date | 在CRL中包括在此UTC时间戳之后（RFC3339格式）被吊销的证书     |
-| expireBefore  | Date | 在CRL中包含在此UTC时间戳之前（RFC3339格式）过期的已撤销证书 |
-| expireAfter   | Date | 在CRL中包括在此UTC时间戳之后（RFC3339格式）到期的已撤销证书 |
+| revokedBefore | Date | 在CRL中包括在此UTC时间戳之前被吊销的证书(采用RFC3339格式) |
+| revokedAfter  | Date | 在CRL中包括在此UTC时间戳之后(RFC3339格式)被吊销的证书     |
+| expireBefore  | Date | 在CRL中包含在此UTC时间戳之前(RFC3339格式)过期的已撤销证书 |
+| expireAfter   | Date | 在CRL中包括在此UTC时间戳之后(RFC3339格式)到期的已撤销证书 |
 
 #### Role
 
@@ -1537,8 +1537,8 @@ Protobuf消息，由提案请求的peer背书而返回。peer节点运行提案�
 | -------- | ------------------------------------------------------------ | -------------------------- |
 | Success  | boolean                                                      | 布尔值，指示请求是否成功   |
 | Result   | Object                                                       | 该请求的结果               |
-| Errors   | Array.&lt;[ServiceResponseMessage](./global.html#ServiceResponseMessage)&gt; | 错误消息数组（代码和消息） |
-| Messages | Array.&lt;[ServiceResponseMessage](./global.html#ServiceResponseMessage)&gt; | 信息消息数组（代码和消息） |
+| Errors   | Array.&lt;[ServiceResponseMessage](./global.html#ServiceResponseMessage)&gt; | 错误消息数组(代码和消息) |
+| Messages | Array.&lt;[ServiceResponseMessage](./global.html#ServiceResponseMessage)&gt; | 信息消息数组(代码和消息) |
 
 #### ServiceResponseMessage
 
@@ -1554,7 +1554,7 @@ Protobuf消息，由提案请求的peer背书而返回。peer节点运行提案�
 
 #### SignatureHeader
 
-Hyperledger Fabric中所有签名的一部分的对象。 “创建者”字段包含有关签名者身份的两个重要信息，签名者所属的组织（Mspid）和证书（IdBytes）。 “ nonce”字段是防止重放攻击的唯一值。
+Hyperledger Fabric中所有签名的一部分的对象。 “创建者”字段包含有关签名者身份的两个重要信息，签名者所属的组织(Mspid)和证书(IdBytes)。 “ nonce”字段是防止重放攻击的唯一值。
 
 ```javascript
 creator
@@ -1660,7 +1660,7 @@ rule
 
 #### Transaction
 
-交易（或“背书人交易”）是调用链码以收集背书的结果，在通道的上下文中进行全局排序，并在最终正式“提交”到区块内部的分类帐之前，被提交者peer作为区块的一部分进行验证。每笔交易都包含代表一系列执行交易的不同步骤的“动作”，这些步骤将被原子地处理，这意味着如果任何一个步骤失败，则整个交易将被标记为已拒绝。
+交易(或“背书人交易”)是调用链码以收集背书的结果，在通道的上下文中进行全局排序，并在最终正式“提交”到区块内部的分类帐之前，被提交者peer作为区块的一部分进行验证。每笔交易都包含代表一系列执行交易的不同步骤的“动作”，这些步骤将被原子地处理，这意味着如果任何一个步骤失败，则整个交易将被标记为已拒绝。
 
 "actions" 数组的每个条目都包含一个链码提议和相应的提议响应，这些响应封装了背书的peer关于该提议是否被视为有效的决定。请注意，即使背书的peer认为交易建议有效，提交人在交易验证期间仍可能拒绝交易建议。整个交易是否有效，并不反映在交易记录本身中，而是记录在区块元数据的单独字段中。
 

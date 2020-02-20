@@ -17,7 +17,7 @@
 | 名称         | 类型                                                                                                                                                                     | 描述                                       |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------ |
 | listenerName | String                                                                                                                                                                   | 标识收听者的唯一名称                       |
-| callback     | function                                                                                                                                                                 | 当事件被签名（错误，阻止）触发时调用的回调 |
+| callback     | function                                                                                                                                                                 | 当事件被签名(错误，阻止)触发时调用的回调 |
 | options      | [module:fabric-network.Network~EventListenerOptions](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.Network.html#~EventListenerOptions) | 可选。事件监听器选项                       |
 
 返回结果
@@ -59,7 +59,7 @@
 
 #### getContract(chaincodeId [, name])
 
-获取当前网络上合约（链码）的实例。
+获取当前网络上合约(链码)的实例。
 
 - 参数
 

@@ -1,6 +1,6 @@
-# fabric-client：如何配置双向 TLS(How to configure mutual TLS)
+# fabric-client:如何配置双向 TLS(How to configure mutual TLS)
 
-## fabric-client：如何配置双向 TLS(How to configure mutual TLS)
+## fabric-client:如何配置双向 TLS(How to configure mutual TLS)
 
 如果将 ORDERER_GENERAL_TLS_CLIENTAUTHREQUIRED 环境变量设置为 true，则 Orderer 已启用 TLS 客户端身份验证。
 

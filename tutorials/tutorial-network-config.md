@@ -1,10 +1,10 @@
-# fabric-client：如何使用公共连接配置文件(How to use a common connection profile)
+# fabric-client:如何使用公共连接配置文件(How to use a common connection profile)
 
-## fabric-client：如何使用公共连接配置文件(How to use a common connection profile)
+## fabric-client:如何使用公共连接配置文件(How to use a common connection profile)
 
 本教程说明了通用连接配置文件的用法。 从 1.1 开始，连接配置文件是 Hyperledger Fabric Node.js 客户端的一项新功能。 连接配置文件将向 Hyperledger Fabric Node.js 客户端(Fabric 客户端)描述 Hyperledger Fabric 网络。
 
-有关更多信息：
+有关更多信息:
 
 - Hyperledger Fabric 入门，请参阅[构建第一个网络(Building your first network)](http://hyperledger-fabric.readthedocs.io/en/latest/build_network.html)。
 - Hyperledger Fabric 中通道的配置以及创建和更新的内部过程，请参见[Hyperledger Fabric 通道(Hyperledger Fabric channel configuration)](http://hyperledger-fabric.readthedocs.io/en/latest/configtx.html)配置
@@ -149,7 +149,7 @@ certificateAuthorities:
 
 以下示例将使现有的 Fabric 客户端加载连接配置文件配置。该定义将仅包含客户端定义，而不包含 Fabric 网络定义。客户端可以随时加载新的配置文件，它将覆盖它包含的先前加载的顶级部分。在这种情况下，正在加载的文件仅包含一个客户部分，因此，已加载的定义现在将具有以前加载的通道，组织，peer，orderer 和 certificateAuthorities 部分定义以及新加载的客户部分定义。这使现有的 Fabric 客户端能够在不同的组织内工作。注意，此客户端定义包含一个连接部分，该连接部分的 client 部分具有 options 属性。此处定义的设置将应用于客户端创建的新 peer 实例和 orderer 实例。这将包括使用发现服务时将自动创建的 peer 和 orderer。peer 和 orderer 可以在其 grpcOptions 设置中覆盖这些连接设置。
 
-注意：Fabric 客户端 grpc-max-send-message-length 和 grpc-max-receive-message-length 的默认值为-1（无限制）。
+注意:Fabric 客户端 grpc-max-send-message-length 和 grpc-max-receive-message-length 的默认值为-1(无限制)。
 
 ```javascript
 client.loadFromConfig("test/fixtures/org1.yaml");
@@ -376,7 +376,7 @@ var channel_event_hubs = channel.getChannelEventHubsForOrg();
 
 ## Fabric 客户端在通用连接配置文件中查找什么
 
-Fabric 客户端将寻找以下密钥名称和这些密钥的参数：
+Fabric 客户端将寻找以下密钥名称和这些密钥的参数:
 
 ```yaml
 #

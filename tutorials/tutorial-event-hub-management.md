@@ -1,12 +1,12 @@
-# fabric-network：如何自动选择并重新连接到事件中心(How to automatically select and reconnect to event hubs)
+# fabric-network:如何自动选择并重新连接到事件中心(How to automatically select and reconnect to event hubs)
 
-## fabric-network：如何自动选择并重新连接到事件中心(How to automatically select and reconnect to event hubs)
+## fabric-network:如何自动选择并重新连接到事件中心(How to automatically select and reconnect to event hubs)
 
 本教程描述了如何定义事件中心断开连接或需要新的事件中心时使用的事件中心选择策略的行为。
 
 ChannelEventHub 是一个 fabric-client 类，它从 Peer 内的事件中心接收合约，提交和块事件。 Fabric 网络将事件中心抽象化，而使用事件中心选择策略来创建新的事件中心实例或重用现有实例。
 
-下面是示例事件中心选择策略：
+下面是示例事件中心选择策略:
 
 ```javascript
 class ExampleEventHubSelectionStrategy extends AbstractEventHubSelectionStrategy {

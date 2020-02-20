@@ -48,7 +48,7 @@ constructor
 | :----- | :--------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | params | EndorsementHandlerParameters | EndorsementHandlerParameters 包含足够的信息来确定目标，并包含一个[ChaincodeInvokeRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ChaincodeInvokeRequest)，要使用包含的 [Channel](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html) 通过 Channel'sendTransactionProposal'方法进行发送。 |
 
-继承自(Inherited From)：
+继承自(Inherited From):
 
 - [module:api.EndorsementHandler#endorse](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.EndorsementHandler.html#endorse)
 
@@ -68,7 +68,7 @@ constructor
 
 初始化通道后，通道将调用此方法。
 
-继承自(Inherited From)：
+继承自(Inherited From):
 
 - [module:api.EndorsementHandler#initialize](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.EndorsementHandler.html#initialize)
 

@@ -2,7 +2,7 @@
 
 ## [fabric-network](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.html)~ CommitEventListener
 
-表示网络中的智能合约（链码）实例。应用程序应该使用网络的 [getContract](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.Network.html#getContract) 方法获取一个Contract实例。
+表示网络中的智能合约(链码)实例。应用程序应该使用网络的 [getContract](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.Network.html#getContract) 方法获取一个Contract实例。
 
 #### new Contract()
 

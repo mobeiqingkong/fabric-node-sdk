@@ -1,10 +1,10 @@
-# fabric-client：如何使用发现服务(How to use the discovery service)
+# fabric-client:如何使用发现服务(How to use the discovery service)
 
-## fabric-client：如何使用发现服务(How to use the discovery service)
+## fabric-client:如何使用发现服务(How to use the discovery service)
 
 本教程从 1.2 版本开始说明 Hyperledger Fabric Node.js 客户端对服务发现的使用。
 
-有关更多信息：
+有关更多信息:
 
 - Hyperledger Fabric 入门，请参[阅构建第一个网络(Building your first network)](http://hyperledger-fabric.readthedocs.io/en/latest/build_network.html)。
 - Hyperledger Fabric 中通道的配置以及创建和更新的内部过程，请参见[Hyperledger Fabric 通道配置(Hyperledger Fabric channel configuration)](http://hyperledger-fabric.readthedocs.io/en/latest/configtx.html)
@@ -14,13 +14,13 @@
 
 ### 概述
 
-Hyperledger Fabric 提供的服务发现可帮助应用程序了解网络的当前视图。 服务发现还洞察了链码的背书策略，并能够提供网络上当前活跃的对等体的各种列表，这些对等体可用于背书提案。 要使用该服务，应用程序将只能与一个 peer 连接。
+Hyperledger Fabric 提供的服务发现可帮助应用程序了解网络的当前视图。 服务发现还洞察了链码的背书策略，并能够提供网络上当前活跃的peer的各种列表，这些peer可用于背书提案。 要使用该服务，应用程序将只能与一个 peer 连接。
 
 #### 修改后的 API 将使用服务发现
 
-- channel.initialize() - 通过添加使用新服务发现初始化通道对象的对等项的查询选项，此方法得到了增强。 可以随时调用此方法以重新初始化通道。 当使用发现时，这可以用于分配提供发现服务的新目标 peer。 实例化处理程序也需要 initialize()方法，默认情况下，fabric-client 附带的处理程序被设计为使用发现结果。
+- channel.initialize() - 通过添加使用新服务发现初始化通道对象的peer的查询选项，此方法得到了增强。 可以随时调用此方法以重新初始化通道。 当使用发现时，这可以用于分配提供发现服务的新目标 peer。 实例化处理程序也需要 initialize()方法，默认情况下，fabric-client 附带的处理程序被设计为使用发现结果。
 - channel.sendTransactionProposal() - 此方法已得到增强，可以使用发现的 peer 发送背书。
-- channel.sendTransaction（）-此方法已得到增强，可以使用发现的 orderer 发送已签名的背书。
+- channel.sendTransaction()-此方法已得到增强，可以使用发现的 orderer 发送已签名的背书。
 
 #### 使用服务发现的新 API
 
@@ -32,7 +32,7 @@ Hyperledger Fabric 提供的服务发现可帮助应用程序了解网络的当�
 
 - initialize-with-discovery - 布尔值(boolean)-当应用程序要求初始化通道时，将使用服务发现。(默认为 false)
 - Discovery-cache-life - 整数(integer)(以毫秒为单位的时间) - 服务发现结果被视为有效的时间。(默认 300000-5 分钟)
-- override-discovery-protocol-字符串(string)-覆盖在为发现的端点构建 URL 时使用的协议。发现服务仅提供 host：port。默认情况下，如果您不使用 TLS（grpc：//）连接到发现服务，则所有发现的端点将不使用 TLS 连接到。如果使用 TLS（grpcs：//）连接到 Discovery Service，则所有发现的端点都将使用 TLS 连接。您可以使用此配置设置为所有发现的端点强制使用 grpc 或 grpcs，无论您如何连接到发现服务。请注意，强烈建议不要连接到发现服务或没有 TLS（grpc：//）的任何发现的端点，因为所有信息都将以未加密的纯文本形式发送。
+- override-discovery-protocol-字符串(string)-覆盖在为发现的端点构建 URL 时使用的协议。发现服务仅提供 host:port。默认情况下，如果您不使用 TLS(grpc://)连接到发现服务，则所有发现的端点将不使用 TLS 连接到。如果使用 TLS(grpcs://)连接到 Discovery Service，则所有发现的端点都将使用 TLS 连接。您可以使用此配置设置为所有发现的端点强制使用 grpc 或 grpcs，无论您如何连接到发现服务。请注意，强烈建议不要连接到发现服务或没有 TLS(grpc://)的任何发现的端点，因为所有信息都将以未加密的纯文本形式发送。
 - endorsement-handler-字符串(string)-背书处理程序的路径。允许使用自定义处理程序。sendTransactionProposal 方法中使用此处理程序来确定目标 peer 以及如何发送建议。(默认为'fabric-client/lib/impl/DiscoveryEndorsementHandler.js')
 - commit-handler-字符串-提交处理程序的路径。允许使用自定义处理程序。在 sendTransaction 方法中使用此处理程序来确定排序器以及如何发送要提交的事务。(默认为'fabric-client/lib/impl/BasicCommitHandler.js')
 
@@ -48,11 +48,11 @@ Client.setConfigSetting('discover-cache-life', <milliseconds>);
 
 当处理程序处理发现服务结果时，它假定所引用的所有 Peer 均具有创建并分配给通道实例对象的 peer 实例对象。通道实例将在将结果传递给处理程序之前处理发现服务结果时，将构建所需的对等实例以支持背书。如果已通过应用程序或先前的发现服务请求将同级分配给该通道，则该通道将不会构建新的同级实例。
 
-默认的"DiscoveryEndorsementHandler"具有可选参数，这些可选参数允许应用程序指定将被首选，忽略或要求的同级或组织。发现服务结果将包括对等体组和布局，这些布局和布局指定从每个组中需要多少对等体来满足提案链码的背书策略或背书提示的背书策略。每个组将使用背书调用的参数进行修改。处理程序将首先删除不需要或应忽略的对等项。然后，组列表将按分类帐高度排序或随机分组。最后，首选 Peer 将移至组列表的顶部。处理程序将随机选择一个布局以进行背书。处理程序查看布局中的每个组，然后选择布局中该组指定的对等体数。同行数量是满足背书策略所需的背书数量。将在修改后的群组列表的顶部开始选择 Peer，以向其发送背书请求。如果任何请求失败，则处理程序将从已修改的组列表中选择下一个可用 Peer。如果成功背书的数量达到布局中每个组呼出的 Peer 的数量，则处理程序将成功返回背书。如果没有足够的成功背书，处理程序将选择另一个随机布局，然后重试或返回错误，表明它无法成功完成。该错误将包括所有 Peer 的响应。
+默认的"DiscoveryEndorsementHandler"具有可选参数，这些可选参数允许应用程序指定将被首选，忽略或要求的同级或组织。发现服务结果将包括peer组和布局，这些布局和布局指定从每个组中需要多少peer来满足提案链码的背书策略或背书提示的背书策略。每个组将使用背书调用的参数进行修改。处理程序将首先删除不需要或应忽略的peer。然后，组列表将按分类帐高度排序或随机分组。最后，首选 Peer 将移至组列表的顶部。处理程序将随机选择一个布局以进行背书。处理程序查看布局中的每个组，然后选择布局中该组指定的peer数。peer数量是满足背书策略所需的背书数量。将在修改后的群组列表的顶部开始选择 Peer，以向其发送背书请求。如果任何请求失败，则处理程序将从已修改的组列表中选择下一个可用 Peer。如果成功背书的数量达到布局中每个组呼出的 Peer 的数量，则处理程序将成功返回背书。如果没有足够的成功背书，处理程序将选择另一个随机布局，然后重试或返回错误，表明它无法成功完成。该错误将包括所有 Peer 的响应。
 
-注意：默认处理程序不会记住上一次调用的结果。可能失败的 Peer 将再次尝试。随着发现服务结果的随机化和刷新，对等体的选择顺序可能会随每个请求而改变。
+注意:默认处理程序不会记住上一次调用的结果。可能失败的 Peer 将再次尝试。随着发现服务结果的随机化和刷新，peer的选择顺序可能会随每个请求而改变。
 
-注意：如果上述行为不能满足您组织的需求，则可以使用自定义处理程序。
+注意:如果上述行为不能满足您组织的需求，则可以使用自定义处理程序。
 
 #### BasicCommitHandler 是如何运作的
 
@@ -62,7 +62,7 @@ Fabric 客户端随附的默认处理程序将一次发送给一个 orderer，�
 
 默认情况下，Fabric 客户端将不使用服务发现。 要启用该服务，请将 config 设置设置为 true 或在 initialize()调用上使用 discover 参数。
 
-注意：必须运行[Channel#initialize](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#initialize)才能启用发现并启动处理程序。
+注意:必须运行[Channel#initialize](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#initialize)才能启用发现并启动处理程序。
 
 ```javascript
 Client.setConfigSetting("initialize-with-discovery", true);
@@ -320,11 +320,11 @@ await channel.sendTransactionProposal(request);
 
 - preferredHeightGap : 一个整数，表示 peer 的分类帐高度和一组 peer 中找到的最高分类帐高度的最大差。如果 peer 的分类帐高度在此范围内，则将对其给予优先级。没有默认值，如果未提供此值，则在将 peer 添加到首选列表时将不考虑 peer 的分类帐高度。
 
-- sort : 一个字符串值，指示应如何选择组中的 peer。有两种可用的：
+- sort : 一个字符串值，指示应如何选择组中的 peer。有两种可用的:
 
   - "ledgerHeight" : 按通道分类账上的块数降序排列 peer。
 
-  - "random" : 从列表中对等体进行随机排序，preferred peer 将首先被随机添加，然后再随机添加其它 peer。
+  - "random" : 从列表中peer进行随机排序，preferred peer 将首先被随机添加，然后再随机添加其它 peer。
 
     默认值是按分类帐高度排序。
 

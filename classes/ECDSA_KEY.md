@@ -16,7 +16,7 @@
 
 如果此密钥是非对称私钥，则返回相应的公钥。如果此密钥已经公开，则返回此密钥本身。
 
-继承自(Inherited From)：
+继承自(Inherited From):
 
 - [module:api.Key#getPublicKey](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.Key.html#getPublicKey)
 
@@ -32,7 +32,7 @@
 
 返回此键的主题键标识符。
 
-继承自(Inherited From)：
+继承自(Inherited From):
 
 - [module:api.Key#getSKI](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.Key.html#getSKI)
 
@@ -48,7 +48,7 @@
 
 如果此密钥是非对称私钥，则返回 true，否则返回 false。
 
-继承自(Inherited From)：
+继承自(Inherited From):
 
 - [module:api.Key#isPrivate](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.Key.html#isPrivate)
 
@@ -64,7 +64,7 @@
 
 如果此密钥是对称密钥，则返回 true；如果此密钥是非对称密钥，则返回 false。
 
-继承自(Inherited From)：
+继承自(Inherited From):
 
 - [module:api.Key#isSymmetric](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.Key.html#isSymmetric)
 
@@ -80,7 +80,7 @@
 
 如果允许此操作，则将该键转换为其 PEM 表示形式。
 
-继承自(Inherited From)：
+继承自(Inherited From):
 
 - [module:api.Key#toBytes](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.Key.html#toBytes)
 

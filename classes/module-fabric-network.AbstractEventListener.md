@@ -14,7 +14,7 @@ Constructor
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
 | network       | [module:fabric-network.Network](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.Network.html) | 网络                                                                        |
 | listenerName  | string                                                                                                                        | 标识侦听器的唯一名称。                                                      |
-| eventCallback | function                                                                                                                      | 触发事件时调用的函数。它具有签名（err，... args），其中 args 取决于事件类型 |
+| eventCallback | function                                                                                                                      | 触发事件时调用的函数。它具有签名(err，... args)，其中 args 取决于事件类型 |
 | options       | module:fabric-network.Network~ListenerOptions                                                                                 | 事件处理程序选项                                                            |
 
 ### Methods

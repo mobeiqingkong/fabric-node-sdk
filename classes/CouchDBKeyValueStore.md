@@ -30,7 +30,7 @@ constructor
 | :--- | :----- | -------- |
 | name | string | key 名称 |
 
-继承自(Inherited From)：
+继承自(Inherited From):
 
 - [module:api.KeyValueStore#getValue](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.KeyValueStore.html#getValue)
 
@@ -57,7 +57,7 @@ constructor
 | name  | string | 要保存的 key 名称 |
 | value | string | 保存的 value      |
 
-继承自(Inherited From)：
+继承自(Inherited From):
 
 - [module:api.KeyValueStore#setValue](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.KeyValueStore.html#setValue)
 

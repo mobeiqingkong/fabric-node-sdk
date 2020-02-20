@@ -4,7 +4,7 @@
 
 本教程说明了如何通过 Hyperledger Fabric Node.js SDK(fabric-client 和 fabric-ca-client)API 使用脱机私钥。
 
-有关更多信息：
+有关更多信息:
 
 - Hyperledger Fabric 入门，请参阅[构建你的第一个网络(Building your first network)](http://hyperledger-fabric.readthedocs.io/en/latest/build_network.html)。
 - 在标准资产交换过程中发生的交易机制。 [Fabric 中的交易流 (transacton flow in fabric)](https://hyperledger-fabric.readthedocs.io/en/latest/txflow.html)。
@@ -22,29 +22,29 @@ Fabric-ca 具备注册 PKCS#10 标准 CSR 的能力，这意味着用户可以�
 
 ## 用于离线签署交易的交易流程
 
-下面将显示脱机签名交易的步骤：
+下面将显示脱机签名交易的步骤:
 
-在 Fabric 客户端上设置用户身份(证书和私钥)：
+在 Fabric 客户端上设置用户身份(证书和私钥):
 
 1. 背书(Endorse )-> Channel.sendTransactionProposal()
 2. 提交(Commit )-> Channel.sendTransaction()
 3. ChannelEventHub-> ChannelEventHub.connect()(如果 channel-eventhub 尚未连接到 Peer)
 
-在 Fabric 客户端上没有用户的私钥：
+在 Fabric 客户端上没有用户的私钥:
 
-1. 背书：
+1. 背书:
 
    1. 使用身份的证书生成未签名的交易提议-> Channel.generateUnsignedProposal()
    2. 使用身份的私钥离线签署未签名的交易建议，以生成签名的交易建议
    3. 将签署的交易提议书发送给 Peer 并获得背书-> Channel.sendSignedProposal()
 
-2. 提交：
+2. 提交:
 
    1. 生成带有签注的未签名交易-> Channel.generateUnsignedTransaction()
    2. 使用身份的私钥离线签署未签名的交易，从而生成签名的交易
    3. 将已签名的交易发送到 orderer-> Channel.sendSignedTransaction()
 
-3. 注册通道事件侦听器：如果通道事件集线器尚未连接到 Peer，则通道事件集线器注册也需要私钥的签名。
+3. 注册通道事件侦听器:如果通道事件集线器尚未连接到 Peer，则通道事件集线器注册也需要私钥的签名。
    1. 为 ChannelEventHub-> ChannelEventHub.generateUnsignedRegistration()生成一个未签名的 eventhub 注册
 4. 使用身份的私钥对未签名的 eventhub 注册进行签名，以离线生成已签名的 eventhub 注册
    3. 使用签名的 eventhub 注册进行 ChannelEventHub 的注册-> ChannelEventHub.connect(){signedEvent})

@@ -4,7 +4,7 @@ ChannelPeer 类表示此通道上目标区块链网络中的peer。
 
 #### new ChannelPeer(mspid, channel, peer, roles)
 
-使用给定的 Peer 和 opts 构造 ChannelPeer 对象。通道 peer 对象包含基于通道的引用：该 peer 所属的组织的 MSP ID。[Channel](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html)对象，用于了解此 peer 正在交互的通道。[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)对象用于与 Hyperledger fabric 网络进行交互。 [ChannelEventHub](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelEventHub.html)对象，用于侦听通道上的块更改。[ChannelPeerRoles](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ChannelPeerRoles) 列表，指示此 peer 在通道上扮演的角色。 Peer 在此通道上扮演的角色由 object 指示。
+使用给定的 Peer 和 opts 构造 ChannelPeer 对象。通道 peer 对象包含基于通道的引用:该 peer 所属的组织的 MSP ID。[Channel](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html)对象，用于了解此 peer 正在交互的通道。[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)对象用于与 Hyperledger fabric 网络进行交互。 [ChannelEventHub](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelEventHub.html)对象，用于侦听通道上的块更改。[ChannelPeerRoles](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ChannelPeerRoles) 列表，指示此 peer 在通道上扮演的角色。 Peer 在此通道上扮演的角色由 object 指示。
 
 - 参数
 

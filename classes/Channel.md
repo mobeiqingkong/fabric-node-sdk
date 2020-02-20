@@ -4,7 +4,7 @@
 
 Channel 为一组参与的组织提供了数据隔离。
 
-Channel 对象捕获在通道上下文中与 fabric 后端交互所需的设置。这些设置包括参与的组织列表，成员资格服务提供商（MSP）实例，背书 peer 列表和一个 orderer。
+Channel 对象捕获在通道上下文中与 fabric 后端交互所需的设置。这些设置包括参与的组织列表，成员资格服务提供商(MSP)实例，背书 peer 列表和一个 orderer。
 
 客户端应用程序可以使用 Channel 对象与 orderer 创建新通道，更新现有的通道，向 peer 节点发送各种 Channel 感知请求，例如调用链码来处理交易或查询。
 
@@ -71,7 +71,7 @@ Channel 对象还负责验证交易提议响应中的背书签名。在使用 pe
 
 | 名称    | 类型                                                                                                       | 描述                                                                         |
 | :------ | :--------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------- |
-| peer    | [Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)                                | 已使用 URL 和其他 gRPC 选项（如 TLS 凭据和请求超时）初始化的 Peer 类的实例。 |
+| peer    | [Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)                                | 已使用 URL 和其他 gRPC 选项(如 TLS 凭据和请求超时)初始化的 Peer 类的实例。 |
 | mspid   | string                                                                                                     | 该 peer 所属组织的 mpsid。                                                   |
 | roles   | [ChannelPeerRoles](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ChannelPeerRoles) | 可选的。此 peer 在此通道上扮演的角色。未定义的角色将默认为 true              |
 | replace | boolean                                                                                                    | 如果 peer 存在同名，请替换为该 peer。                                        |
@@ -100,7 +100,7 @@ Channel 对象还负责验证交易提议响应中的背书签名。在使用 pe
 
 #### generateUnsignedProposal(request, mspId, certificate, admin)
 
-生成事务的背书提议字节。当前[sendTransactionProposal](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#sendTransactionProposal)使用 SDK 上下文中的用户身份（包含用户的私钥）对事务进行签名。此方法旨在在 SDK 端构建提议字节，并且用户可以使用其私钥对该提议进行签名，并通过[sendSignedProposal]将已签名的提议发送给 peer，因此在 SDK 端将不需要用户的私钥。
+生成事务的背书提议字节。当前[sendTransactionProposal](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#sendTransactionProposal)使用 SDK 上下文中的用户身份(包含用户的私钥)对事务进行签名。此方法旨在在 SDK 端构建提议字节，并且用户可以使用其私钥对该提议进行签名，并通过[sendSignedProposal]将已签名的提议发送给 peer，因此在 SDK 端将不需要用户的私钥。
 
 - 参数
 
@@ -129,14 +129,14 @@ Channel 对象还负责验证交易提议响应中的背书签名。在使用 pe
 
 #### &lt;async&gt;getChannelConfig(target, timeout)
 
-向 peer 询问此通道的当前（最新）配置块。
+向 peer 询问此通道的当前(最新)配置块。
 
 - 参数
 
 | 名称    | 类型                                                                                    | 描述                                                                                                                                                                                        |
 | :------ | :-------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | target  | string&#124;[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html) | 可选的。用于发出请求的 peer。                                                                                                                                                               |
-| timeout | Number                                                                                  | 可选的。一个数字，表示等待响应之前等待超时（以毫秒为单位）的毫秒数。这将覆盖[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)实例的默认超时和配置设置中的全局超时 |
+| timeout | Number                                                                                  | 可选的。一个数字，表示等待响应之前等待超时(以毫秒为单位)的毫秒数。这将覆盖[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)实例的默认超时和配置设置中的全局超时 |
 
 返回结果
 
@@ -148,7 +148,7 @@ Channel 对象还负责验证交易提议响应中的背书签名。在使用 pe
 
 #### &lt;async&gt;getChannelConfigFromOrderer()
 
-向 orderer 询问该通道的当前（最新）配置块。该方法类似于 [getGenesisBlock()](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#getGenesisBlock), 不同之处在于它不是获取块编号 0，而是获取包含通道配置的最新块，并且仅返回解码后的[ConfigEnvelope](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ConfigEnvelope)。
+向 orderer 询问该通道的当前(最新)配置块。该方法类似于 [getGenesisBlock()](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#getGenesisBlock), 不同之处在于它不是获取块编号 0，而是获取包含通道配置的最新块，并且仅返回解码后的[ConfigEnvelope](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ConfigEnvelope)。
 
 返回结果
 
@@ -390,7 +390,7 @@ Channel 对象还负责验证交易提议响应中的背书签名。在使用 pe
 
 #### &lt;async&gt; initialize(request)
 
-用成员资格服务提供程序（MSP）初始化 channel 对象。通道的 MSP 对于为应用程序提供验证证书和验证从 fabric 网后端接收到的消息中的签名的能力至关重要。例如，在调用[sendTransactionProposal()](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#sendTransactionProposal)之后，应用程序可以验证投标响应的背书中的签名，以确保它们未被篡改。
+用成员资格服务提供程序(MSP)初始化 channel 对象。通道的 MSP 对于为应用程序提供验证证书和验证从 fabric 网后端接收到的消息中的签名的能力至关重要。例如，在调用[sendTransactionProposal()](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#sendTransactionProposal)之后，应用程序可以验证投标响应的背书中的签名，以确保它们未被篡改。
 
 如果未传入“ config”参数，则此方法从 orderer 那里检索配置。可以选择传入一个配置以初始化此通道，而无需调用orderer。
 
@@ -419,7 +419,7 @@ Channel 对象还负责验证交易提议响应中的背书签名。在使用 pe
 | 名称    | 类型                                                                                                           | 描述                                                                                                                                                                                  |
 | :------ | :------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | request | [JoinChannelRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#JoinChannelRequest) |                                                                                                                                                                                       |
-| timeout | Number                                                                                                         | 一个数字，表示等待响应之前等待超时（以毫秒为单位）的毫秒数。这将覆盖[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)实例的默认超时和配置设置中的全局超时。 |
+| timeout | Number                                                                                                         | 一个数字，表示等待响应之前等待超时(以毫秒为单位)的毫秒数。这将覆盖[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)实例的默认超时和配置设置中的全局超时。 |
 
 返回结果
 
@@ -567,7 +567,7 @@ for (let i = 0; i < responsePayloads.length; i++) {
 
 #### &lt;async&gt; queryInfo(target, useAdmin)
 
-查询有关通道状态（高度，已知 peer）的各种有用信息。
+查询有关通道状态(高度，已知 peer)的各种有用信息。
 
 - 参数
 
@@ -667,7 +667,7 @@ for (let i = 0; i < responsePayloads.length; i++) {
 | 名称    | 类型                                                                                                                                           | 描述                                                                                                             |
 | :------ | :--------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | request | [ChaincodeInstantiateUpgradeRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ChaincodeInstantiateUpgradeRequest) |                                                                                                                  |
-| timeout | Number                                                                                                                                         | 一个数字，表示等待响应之前等待超时（以毫秒为单位）的毫秒数。这将覆盖 Peer 实例的默认超时和配置设置中的全局超时。 |
+| timeout | Number                                                                                                                                         | 一个数字，表示等待响应之前等待超时(以毫秒为单位)的毫秒数。这将覆盖 Peer 实例的默认超时和配置设置中的全局超时。 |
 
 返回结果
 
@@ -701,9 +701,9 @@ for (let i = 0; i < responsePayloads.length; i++) {
 
 #### &lt;async&gt; sendTransaction(request, timeout)
 
-将包含交易提议背书的提议响应发送给 orderer 以进行进一步处理。这是 fabric 中事务生命周期的第二阶段。orderer 将在此通道的上下文中对交易进行全局订购，并将生成的块交付给提交的 peer，以根据链码的背书策略进行验证。当提交 peer 成功验证事务时，它将在该块内将事务标记为有效。在验证了一个区块中的所有交易并将其标记为有效或无效（带有[reason code](https://github.com/hyperledger/fabric/blob/v1.0.0/protos/peer/transaction.proto#L125)）之后，该区块将被附加（提交(committed)）到 peer 的通道分类帐中。
+将包含交易提议背书的提议响应发送给 orderer 以进行进一步处理。这是 fabric 中事务生命周期的第二阶段。orderer 将在此通道的上下文中对交易进行全局订购，并将生成的块交付给提交的 peer，以根据链码的背书策略进行验证。当提交 peer 成功验证事务时，它将在该块内将事务标记为有效。在验证了一个区块中的所有交易并将其标记为有效或无效(带有[reason code](https://github.com/hyperledger/fabric/blob/v1.0.0/protos/peer/transaction.proto#L125))之后，该区块将被附加(提交(committed))到 peer 的通道分类帐中。
 
-此方法的调用者必须使用背书者返回的提案响应以及发送给背书者的原始提案。这两个对象都包含在 [ProposalResponseObject](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ProposalResponseObject)中，该对象通过调用以下任何方法返回：
+此方法的调用者必须使用背书者返回的提案响应以及发送给背书者的原始提案。这两个对象都包含在 [ProposalResponseObject](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ProposalResponseObject)中，该对象通过调用以下任何方法返回:
 
 - [sendInstantiateProposal()](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#sendInstantiateProposal)
 - [sendUpgradeProposal()](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#sendUpgradeProposal)
@@ -714,7 +714,7 @@ for (let i = 0; i < responsePayloads.length; i++) {
 | 名称    | 类型                                                                                                           | 描述                                                                                                                |
 | :------ | :------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | request | [TransactionRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#TransactionRequest) | [TransactionRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#TransactionRequest)      |
-| timeout | Number                                                                                                         | 一个数字，表示等待响应之前等待超时（以毫秒为单位）的毫秒数。这将覆盖 Orderer 实例的默认超时和配置设置中的全局超时。 |
+| timeout | Number                                                                                                         | 一个数字，表示等待响应之前等待超时(以毫秒为单位)的毫秒数。这将覆盖 Orderer 实例的默认超时和配置设置中的全局超时。 |
 
 返回结果
 
@@ -726,14 +726,14 @@ for (let i = 0; i < responsePayloads.length; i++) {
 
 #### sendTransactionProposal(request, timeout)
 
-将交易建议发送给一个或多个背书 peer。 [installed](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#installChaincode)并实例化 Chaincode 后，就可以准备背书建议并参与交易处理了。链码事务处理始于将提案发送到背书 peer，提案将执行目标链码，并决定背书（如果成功执行）或不背书（如果链码返回错误）。
+将交易建议发送给一个或多个背书 peer。 [installed](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#installChaincode)并实例化 Chaincode 后，就可以准备背书建议并参与交易处理了。链码事务处理始于将提案发送到背书 peer，提案将执行目标链码，并决定背书(如果成功执行)或不背书(如果链码返回错误)。
 
 - 参数
 
 | 名称    | 类型                                                                                                                   | 描述                                                                                                                |
 | :------ | :--------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | request | [ChaincodeInvokeRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ChaincodeInvokeRequest) |                                                                                                                     |
-| timeout | Number                                                                                                                 | 一个数字，表示等待响应之前等待超时（以毫秒为单位）的毫秒数。这将覆盖 Orderer 实例的默认超时和配置设置中的全局超时。 |
+| timeout | Number                                                                                                                 | 一个数字，表示等待响应之前等待超时(以毫秒为单位)的毫秒数。这将覆盖 Orderer 实例的默认超时和配置设置中的全局超时。 |
 
 返回结果
 
@@ -754,7 +754,7 @@ for (let i = 0; i < responsePayloads.length; i++) {
 | 名称    | 类型                                                                                                                                           | 描述                                                                                                                |
 | :------ | :--------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | request | [ChaincodeInstantiateUpgradeRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ChaincodeInstantiateUpgradeRequest) |                                                                                                                     |
-| timeout | Number                                                                                                                                         | 一个数字，表示等待响应之前等待超时（以毫秒为单位）的毫秒数。这将覆盖 Orderer 实例的默认超时和配置设置中的全局超时。 |
+| timeout | Number                                                                                                                                         | 一个数字，表示等待响应之前等待超时(以毫秒为单位)的毫秒数。这将覆盖 Orderer 实例的默认超时和配置设置中的全局超时。 |
 
 返回结果
 
@@ -780,7 +780,7 @@ for (let i = 0; i < responsePayloads.length; i++) {
 
 #### verifyProposalResponse(proposal_response)
 
-验证单个投标响应的实用方法。它检查以下方面：
+验证单个投标响应的实用方法。它检查以下方面:
 
 - 背书人的身份属于该通道的合法 MSP，可以成功反序列化
 - 背书签名可以通过背书人的身份证书成功验证

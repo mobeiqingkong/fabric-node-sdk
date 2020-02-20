@@ -10,7 +10,7 @@
 
 ## 入门
 
-与 Hyperledger Fabric 区块链网络进行交互的入口点是 [Gateway](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.Gateway.html)类。该类提供了与区块链网络中 peer 节点的连接，并允许访问以该 peer 节点为成员的所有区块链[网络](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.Network.html)（通道）。继而提供运行在该区块链网络中的智能[合约](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.Contract.html)（链码）的访问，并且可以向其 [提交](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.Transaction.html#submit)[交易](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.Transaction.html)或可以[评估](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.Transaction.html#evaluate)查询 。
+与 Hyperledger Fabric 区块链网络进行交互的入口点是 [Gateway](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.Gateway.html)类。该类提供了与区块链网络中 peer 节点的连接，并允许访问以该 peer 节点为成员的所有区块链[网络](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.Network.html)(通道)。继而提供运行在该区块链网络中的智能[合约](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.Contract.html)(链码)的访问，并且可以向其 [提交](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.Transaction.html#submit)[交易](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.Transaction.html)或可以[评估](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.Transaction.html#evaluate)查询 。
 
 可以将私有数据作为[临时](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.Transaction.html#setTransient) 数据提交到事务处理，以防止将其记录在分类帐中。
 
@@ -85,18 +85,18 @@ const result = await contract
 
 #### DefaultEventHandlerStrategies
 
-- 属性：
+- 属性:
 
 | 名称                   | 类型 | 描述                                                                                                                                                 |
 | ---------------------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| MSPID_SCOPE_ALLFORTX   |      | 监听来自客户端身份组织中所有 peer 节点的事务提交事件。 SubmitTransaction 函数将等待，直到从当前连接的所有 peer 节点接收到成功事件为止（至少 1 个）。 |
+| MSPID_SCOPE_ALLFORTX   |      | 监听来自客户端身份组织中所有 peer 节点的事务提交事件。 SubmitTransaction 函数将等待，直到从当前连接的所有 peer 节点接收到成功事件为止(至少 1 个)。 |
 | MSPID_SCOPE_ANYFORTX   |      | 侦听来自客户端身份组织中所有 peer 节点的事务提交事件。 SubmitTransaction 函数将等待，直到从任何 peer 节点接收到成功事件为止。                        |
-| NETWORK_SCOPE_ALLFORTX |      | 侦听网络中所有peer的事务提交事件。 SubmitTransaction 函数将等待，直到从当前连接的所有 peer 节点接收到成功事件为止（至少 1 个）。                   |
+| NETWORK_SCOPE_ALLFORTX |      | 侦听网络中所有peer的事务提交事件。 SubmitTransaction 函数将等待，直到从当前连接的所有 peer 节点接收到成功事件为止(至少 1 个)。                   |
 | NETWORK_SCOPE_ANYFORTX |      | 侦听网络中所有peer的事务提交事件。 SubmitTransaction 函数将等待，直到从任何 peer 节点接收到成功事件为止。                                          |
 
 #### DefaultQueryHandlerStrategies
 
-- 属性：
+- 属性:
 
 | 名称                    | 类型     | 描述                                                                               |
 | ----------------------- | -------- | ---------------------------------------------------------------------------------- |
@@ -105,7 +105,7 @@ const result = await contract
 
 #### CheckpointFactories
 
-- 属性：
+- 属性:
 
 | 名称                     | 类型     | 描述                 |
 | ------------------------ | -------- | -------------------- |

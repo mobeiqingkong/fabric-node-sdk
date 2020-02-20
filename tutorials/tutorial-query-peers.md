@@ -1,6 +1,6 @@
-# fabric-network：如何选择 Peer 以评估交易（查询）(How to select peers for evaluating transactions (queries))
+# fabric-network:如何选择 Peer 以评估交易(查询)(How to select peers for evaluating transactions (queries))
 
-## fabric-network：如何选择 Peer 以评估交易（查询）(How to select peers for evaluating transactions (queries))
+## fabric-network:如何选择 Peer 以评估交易(查询)(How to select peers for evaluating transactions (queries))
 
 本教程描述了如何选择 Peer 来评估不会随后被写入分类帐的事务，也可以将其视为查询。
 
@@ -25,7 +25,7 @@ await gateway.connect(connectionProfile, connectOptions);
 
 ### 插件查询处理程序
 
-如果需要默认查询处理策略未提供的行为，则可以实现自己的查询处理。 通过指定您自己的工厂功能作为查询处理策略来实现。 工厂函数应返回查询处理程序对象并采用一个参数：
+如果需要默认查询处理策略未提供的行为，则可以实现自己的查询处理。 通过指定您自己的工厂功能作为查询处理策略来实现。 工厂函数应返回查询处理程序对象并采用一个参数:
 
 1. Blockchain network: Network
 

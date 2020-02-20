@@ -1,14 +1,14 @@
-# fabric-common：如何设置 gRPC 设置(How to set gRPC settings)
+# fabric-common:如何设置 gRPC 设置(How to set gRPC settings)
 
-## fabric-common：如何设置 gRPC 设置(How to set gRPC settings)
+## fabric-common:如何设置 gRPC 设置(How to set gRPC settings)
 
 本教程说明了从 1.4 版本开始，通过 Hyperledger Fabric Node.js 客户端设置用于连接 Hyperledger Fabric 网络的 gRPC 设置的不同方法。
 
-有关更多信息：
+有关更多信息:
 
 - Hyperledger Fabric 入门，请参阅[构建第一个网络(Building your first network)](http://hyperledger-fabric.readthedocs.io/en/latest/build_network.html)。
 
-以下内容假定您对 Hyperledger Fabric 网络（Orderer 和 Peer）以及 Node 应用程序开发有所了解。
+以下内容假定您对 Hyperledger Fabric 网络(Orderer 和 Peer)以及 Node 应用程序开发有所了解。
 
 ### 概述
 
@@ -71,7 +71,7 @@ client.setConfigSetting("connection-options", new_defaults);
 const peer = client.newPeer(url, options);
 ```
 
-注意：更改系统配置将使所有新连接使用新的默认连接选项。 这包括使用发现服务时由新 Peer 和新 Orderer 创建的连接。 分配新值时要小心，不要删除其他值。 所有默认连接选项都包含在一个系统配置设置连接选项中。
+注意:更改系统配置将使所有新连接使用新的默认连接选项。 这包括使用发现服务时由新 Peer 和新 Orderer 创建的连接。 分配新值时要小心，不要删除其他值。 所有默认连接选项都包含在一个系统配置设置连接选项中。
 
 ### 将连接选项添加到客户端(Add connection options to the client)
 
@@ -92,7 +92,7 @@ const peer = client.newPeer(url, options);
 channel.initialize({ discover: true, target: peer });
 ```
 
-注意：此客户端创建的所有新连接，包括使用发现服务时自动创建的新连接，都将使用客户端的连接选项来覆盖默认连接选项。
+注意:此客户端创建的所有新连接，包括使用发现服务时自动创建的新连接，都将使用客户端的连接选项来覆盖默认连接选项。
 
 ### 在创建时添加连接选项(Add connection options on create)
 
@@ -110,7 +110,7 @@ const options = {
 const peer = client.newPeer(url, options);
 ```
 
-注意：在 newPeer()和 newOrderer()调用中传递的连接选项将仅用于该 Peer 或 Orderer。
+注意:在 newPeer()和 newOrderer()调用中传递的连接选项将仅用于该 Peer 或 Orderer。
 
 ### 将连接选项添加到通用连接配置文件(Add connection options to a common connection profile)
 
@@ -130,25 +130,25 @@ client:
     timeout:
       peer:
         # the timeout in seconds to be used on requests to a peer,
-        # 在Peer的请求中使用的超时（以秒为单位），
+        # 在Peer的请求中使用的超时(以秒为单位)，
         # for example 'sendTransactionProposal'
         # 例如'sendTransactionProposal'
         endorser: 120
         # the timeout in seconds to be used by applications when waiting for an
         # event to occur. This time should be used in a javascript timer object
         # that will cancel the event registration with the channel event hub instance.
-        # 等待事件发生时应用程序将使用的超时（以秒为单位）。
+        # 等待事件发生时应用程序将使用的超时(以秒为单位)。
         # 此时间应在javascript计时器对象中使用，该对象将取消与通道事件中心实例的事件注册。
         eventHub: 60
         # the timeout in seconds to be used when setting up the connection
         # with the peer event hub. If the peer does not acknowledge the
         # connection within the time, the application will be notified over the
         # error callback if provided.
-        # 与Peer事件中心建立连接时要使用的超时（以秒为单位）。
-        # 如果Peer在此时间内未确认连接，则将通过错误回调（如果提供）通知应用程序。
+        # 与Peer事件中心建立连接时要使用的超时(以秒为单位)。
+        # 如果Peer在此时间内未确认连接，则将通过错误回调(如果提供)通知应用程序。
         eventReg: 3
       # the timeout in seconds to be used on request to the orderer,
-      # 要求Orderer使用的超时（以秒为单位），
+      # 要求Orderer使用的超时(以秒为单位)，
       # for example
       # 示例
       orderer: 30
@@ -174,6 +174,6 @@ peers:
       path: test/fixtures/channel/c...
 ```
 
-注意：此客户端创建的所有新连接，包括使用发现服务时自动创建的新连接，都将使用客户端的连接选项来覆盖默认连接选项。 peer1 将使用其自己的唯一值覆盖一个设置。 peer2 不会覆盖任何客户端默认值或系统默认值。 应用程序可以调用 client.addConnectionOptions()以添加其他设置或替代设置。 在添加调用之后，通过调用 [Client#getPeer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#getPeer) 或通过调用 [Client#getOrderer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#getOrderer) 或通过调用[Client#getChannel](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#getChannel) 创建的 Peer 将使用新的值集。
+注意:此客户端创建的所有新连接，包括使用发现服务时自动创建的新连接，都将使用客户端的连接选项来覆盖默认连接选项。 peer1 将使用其自己的唯一值覆盖一个设置。 peer2 不会覆盖任何客户端默认值或系统默认值。 应用程序可以调用 client.addConnectionOptions()以添加其他设置或替代设置。 在添加调用之后，通过调用 [Client#getPeer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#getPeer) 或通过调用 [Client#getOrderer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#getOrderer) 或通过调用[Client#getChannel](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#getChannel) 创建的 Peer 将使用新的值集。
 
 ---

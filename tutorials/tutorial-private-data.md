@@ -4,7 +4,7 @@
 
 本教程说明了如何使用 Node.js SDK API 在 Hyperledger Fabric 网络中存储和检索私有数据。
 
-从 v1.2 开始，Fabric 提供了创建私有数据集合的功能，该功能允许通道上的组织子集支持，提交或查询私有数据，而无需创建单独的通道。 有关更多信息，请参阅：
+从 v1.2 开始，Fabric 提供了创建私有数据集合的功能，该功能允许通道上的组织子集支持，提交或查询私有数据，而无需创建单独的通道。 有关更多信息，请参阅:
 
 - [私有数据概念(Private Data Concept)](http://hyperledger-fabric.readthedocs.io/en/latest/private-data/private-data.html)
 - [私有数据架构(Private Data Architecture)](http://hyperledger-fabric.readthedocs.io/en/latest/private-data-arch.html)
@@ -27,13 +27,13 @@
 
 集合定义由以下五个属性组成。
 
-- name：集合的名称。
-- policy：定义允许持久保存收集数据的组织 Peer。
-- requiredPeerCount：传播私有数据所需的 peer 数目，以作为对链码的背书
-- maxPeerCount：出于数据冗余的目的，当前背书 Peer 将尝试向其分发数据的其他 Peer 的数量。如果背书 Peer 发生故障，则如果有请求拉私有数据的请求，则这些其他 Peer 在提交时可用。
-- blockToLive：对于价格或个人信息等非常敏感的信息，此值表示数据应在数据块上驻留在专用数据库上的时间。在指定数量的专用数据库块之后，将清除数据。要无限期保留私有数据，即从不清除私有数据，请将 blockToLive 属性设置为 0。
+- name:集合的名称。
+- policy:定义允许持久保存收集数据的组织 Peer。
+- requiredPeerCount:传播私有数据所需的 peer 数目，以作为对链码的背书
+- maxPeerCount:出于数据冗余的目的，当前背书 Peer 将尝试向其分发数据的其他 Peer 的数量。如果背书 Peer 发生故障，则如果有请求拉私有数据的请求，则这些其他 Peer 在提交时可用。
+- blockToLive:对于价格或个人信息等非常敏感的信息，此值表示数据应在数据块上驻留在专用数据库上的时间。在指定数量的专用数据库块之后，将清除数据。要无限期保留私有数据，即从不清除私有数据，请将 blockToLive 属性设置为 0。
 
-这是一个样本集合定义 JSON 文件，其中包含两个集合定义的数组：
+这是一个样本集合定义 JSON 文件，其中包含两个集合定义的数组:
 
 ```json
 [
@@ -95,7 +95,7 @@
 ]
 ```
 
-此示例包含两个私有数据集合：collectionMarbles 和 collectionMarblePrivateDetails。 collectionMarbles 定义中的 policy 属性允许通道的所有成员（Org1 和 Org2）在私有数据库中拥有私有数据。 collectionMarblesPrivateDetails 集合仅允许 Org1 的成员在其私有数据库中拥有私有数据。
+此示例包含两个私有数据集合:collectionMarbles 和 collectionMarblePrivateDetails。 collectionMarbles 定义中的 policy 属性允许通道的所有成员(Org1 和 Org2)在私有数据库中拥有私有数据。 collectionMarblesPrivateDetails 集合仅允许 Org1 的成员在其私有数据库中拥有私有数据。
 
 对于 Node.js SDK，必须以与上面所示相同的格式定义策略。
 
@@ -103,10 +103,10 @@
 
 Fabric 提供 chaincode API 来存储和查询私人数据。例如，请查看[marbles private data example](https://github.com/hyperledger/fabric-samples/blob/master/chaincode/marbles02_private/go/marbles_chaincode_private.go)，以了解如何使用链码 API 读取和写入私有数据。本示例实现以下功能来管理私有数据。
 
-- readMarble：使用集合 collectionMarbles 查询 name，color，size 和 owner 属性的值。
-- readMarblePrivateDetails：使用集合 collectionMarblePrivateDetails 查询 price 属性的值。
-- initMarble：存储集合的私有数据。
-- delete：从私有数据库中删除 marble 。
+- readMarble:使用集合 collectionMarbles 查询 name，color，size 和 owner 属性的值。
+- readMarblePrivateDetails:使用集合 collectionMarblePrivateDetails 查询 price 属性的值。
+- initMarble:存储集合的私有数据。
+- delete:从私有数据库中删除 marble 。
 
 ### 使用集合定义安装和实例化 chaincode
 
@@ -181,7 +181,7 @@ try {
 
 ```javascript
 // Private data sent as transient data: { [key: string]: Buffer }
-// 发送为临时数据的私有数据：{ [key: string]: Buffer }
+// 发送为临时数据的私有数据:{ [key: string]: Buffer }
 const transientData = {
   marblename: Buffer.from("marble1"),
   color: Buffer.from("red"),

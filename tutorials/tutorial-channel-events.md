@@ -1,20 +1,20 @@
-# fabric-client：如何使用基于通道的事件服务(How to use the channel-based event service)
+# fabric-client:如何使用基于通道的事件服务(How to use the channel-based event service)
 
-## fabric-client：如何使用基于通道的事件服务(How to use the channel-based event service)
+## fabric-client:如何使用基于通道的事件服务(How to use the channel-based event service)
 
 本教程说明了基于通道的事件的用法。 从 v1.1 开始，基于通道的事件是 Hyperledger Fabric Node.js 客户端的一项新功能。 它从 v1.0 取代了事件中心，并提供了一个更有用和更可靠的界面，供应用程序接收事件。
 
 有关 Fabric 入门的更多信息，请查看 [构建您的第一个网络(Building your first network)](http://hyperledger-fabric.readthedocs.io/en/latest/build_network.html)。
 
-以下内容假定您对 Fabric 网络（orderer 和 peer）以及 Node 应用程序开发（包括 Java Promise 的使用）有所了解。
+以下内容假定您对 Fabric 网络(orderer 和 peer)以及 Node 应用程序开发(包括 Java Promise 的使用)有所了解。
 
 ### 总述
 
 客户端应用程序可以使用 Fabric Node.js 客户端注册"侦听器(listener)"，以接收将其添加到通道分类帐中的块。我们称这些为"基于通道的事件(channel-based events)"，它们允许客户端开始从特定的块编号接收块，从而使事件处理可以在可能已丢失的块上正常运行。 Fabric Node.js 客户端还可以通过处理传入的块并查找特定的事务或链码事件来协助客户端应用程序。这允许向客户端应用程序通知事务完成或任意链码事件，而不必在接收到块时执行多次查询或搜索整个块。
 
-应用程序可以使用块或链码事件将通道数据提供给其他应用程序。例如，应用程序可以侦听区块事件并将事务数据写入数据存储，以针对通道数据执行查询或其他分析。对于接收到的每个块，块侦听器应用程序可以遍历块事务，并使用来自每个有效事务的'rwset'的键/值写入来构建数据存储（有关这些数据结构的详细信息，请参见 [Block](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#Block) 和[Transaction](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#Transaction) 类型定义）。
+应用程序可以使用块或链码事件将通道数据提供给其他应用程序。例如，应用程序可以侦听区块事件并将事务数据写入数据存储，以针对通道数据执行查询或其他分析。对于接收到的每个块，块侦听器应用程序可以遍历块事务，并使用来自每个有效事务的'rwset'的键/值写入来构建数据存储(有关这些数据结构的详细信息，请参见 [Block](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#Block) 和[Transaction](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#Transaction) 类型定义)。
 
-事件服务还允许应用程序接收"filtered(过滤的)"block(块)事件（允许接收事务验证状态而无需提供其他敏感信息）。可以在 Fabric 中独立配置对"filtered(已过滤)"和"unfiltered(未过滤)"事件的访问。默认行为是连接以接收过滤后的块事件。要连接以接收未过滤的块事件，请调用 connect(true)（请参见下文）。
+事件服务还允许应用程序接收"filtered(过滤的)"block(块)事件(允许接收事务验证状态而无需提供其他敏感信息)。可以在 Fabric 中独立配置对"filtered(已过滤)"和"unfiltered(未过滤)"事件的访问。默认行为是连接以接收过滤后的块事件。要连接以接收未过滤的块事件，请调用 connect(true)(请参见下文)。
 
 请注意，如果您注册块事件然后提交交易，则不应假设哪个块包含您的交易。特别是，您不应假定您的事务位于与注册到 Peer 基于通道的事件服务之后收到的第一个块事件相关联的块中。相反，您可以简单地注册一个交易事件。
 
@@ -48,9 +48,9 @@
 
 #### options 参数
 
-这是一个可选参数。此参数将包含以下可选属性：
+这是一个可选参数。此参数将包含以下可选属性:
 
-- {integer &#124; 'newest' &#124; 'oldest' &#124; 'last_seen'} startBlock（可选）用于事件检查的起始块号。如果包含该 Peer，则将要求 Peer 基于通道的事件服务从该块号开始发送块。这是恢复已添加到分类帐中的丢失块的恢复聆听或重播方法。此选项更改了与 Fabric Peer 基于通道的事件服务的连接方式，因此必须在通道事件中心建立连接之前进行注册。重播事件可能会使其他事件侦听器迷惑；因此，在侦听器注册上使用 startBlock 和/或 endBlock 时，ChannelEventHub 上将只允许一个侦听器。
+- {integer &#124; 'newest' &#124; 'oldest' &#124; 'last_seen'} startBlock(可选)用于事件检查的起始块号。如果包含该 Peer，则将要求 Peer 基于通道的事件服务从该块号开始发送块。这是恢复已添加到分类帐中的丢失块的恢复聆听或重播方法。此选项更改了与 Fabric Peer 基于通道的事件服务的连接方式，因此必须在通道事件中心建立连接之前进行注册。重播事件可能会使其他事件侦听器迷惑；因此，在侦听器注册上使用 startBlock 和/或 endBlock 时，ChannelEventHub 上将只允许一个侦听器。
 
   - Number - 可以将数字值指定为块编号。
   - 'newest' - 字符串'newest'。在账本上最新块的连接时，将具有由 Peer 基于通道的事件服务确定的块号。
@@ -76,7 +76,7 @@ ChannelEventHub 类非常灵活。它允许许多使用模块。
 
 大多数用户将需要知道何时将事务提交到分类帐。 所有交易都有可以监控的唯一标识符。 用户可以注册事件侦听器，以指示特定交易已写入分类账。 这将称为交易事件。
 
-通知交易事件的步骤：
+通知交易事件的步骤:
 
 - 获取一个通道事件中心实例，这可以针对每个事务完成，也可以一次执行并重用。
 - 将通道事件中心实例与 Peer 的事件服务连接。 对于许多事务重用 ChannelEventHub 实例时，您可能希望在注册之前先进行连接。
@@ -92,9 +92,9 @@ ChannelEventHub 类非常灵活。它允许许多使用模块。
 
 在 Fabric 网络上运行的 Chaincode 程序能够在事务中添加名称和值，这称为 Chaincode 事件。"name"很可能不是唯一的，并且一个以上的事务可能包含链码事件名称，因此侦听器回调可能被调用多次。 可以将侦听器设置为在查找名称匹配时使用正则表达式，以便可以用许多不同的名称通知单个侦听器。
 
-注意：必须先提交 Chaincode 事件并将其写入分类帐，然后才能通知侦听器。 ChannelEventHub 实例将看不到事务中的链码事件，直到事务提交并写入 ChannelEventHub 已连接到事件服务的 Peer 上的 Peer 分类帐中。
+注意:必须先提交 Chaincode 事件并将其写入分类帐，然后才能通知侦听器。 ChannelEventHub 实例将看不到事务中的链码事件，直到事务提交并写入 ChannelEventHub 已连接到事件服务的 Peer 上的 Peer 分类帐中。
 
-发生链码事件时要通知的步骤：
+发生链码事件时要通知的步骤:
 
 - 获取一个通道事件中心实例，应将其完成一次并重新使用。
 - 将通道事件中心实例与 peer 的事件服务连接。 对于许多事务重用 ChannelEventHub 实例时，您可能希望在注册之前先进行连接。
@@ -109,7 +109,7 @@ ChannelEventHub 类非常灵活。它允许许多使用模块。
 
 一旦 ChannelEventHub 连接到 Peer 的事件服务，它将开始接收添加到分类账中的块，除非指定了"startBlock"，否则它将开始从指定的块中接收块。 当 ChannelEventHub 实例从 Peer 的事件服务接收到一个块时，这称为块事件，
 
-发生阻塞事件时要通知的步骤：
+发生阻塞事件时要通知的步骤:
 
 - 获取通道事件中心实例。
 - 注册接收块。
@@ -122,7 +122,7 @@ ChannelEventHub 类非常灵活。它允许许多使用模块。
 
 如果希望查看已经发生的事件，请使用“ startBlock”选项来重播事件。 使用起始块将连接到 Peer 的事件服务，并使其开始发送以指定的块号而不是最新的块开头的现有块。 块将继续发送，直到看到"endBlock"为止。 如果未指定结束块，则将块添加到分类帐时将继续发送它们。 当您的应用程序离线时，重播可用于再次查找您的事务或链码事件。 当未指定结束块时，通道事件中心可能会继续用于监视新事件，因为新事件在赶上现有事件之后会在通道上发生。
 
-发生重播事件时要通知的步骤：
+发生重播事件时要通知的步骤:
 
 - 获取通道事件中心实例。
 - 注册以接收您的事件。
@@ -144,7 +144,7 @@ const channel_event_hub = channel.newChannelEventHub(peer);
 const channel_event_hub = channel.newChannelEventHub("peer0.org1.example.com");
 ```
 
-使用连接配置文件时（请参阅 [如何使用公用的公共连接配置文件(How to use a common common connection profile file)](https://hyperledger.github.io/fabric-sdk-node/release-1.4/tutorial-network-config.html)），则可以使用 Peer 的名称来获取通道事件中心。 每次调用"getChannelEventHub"时，它将返回相同的 ChannelEventHub 实例。
+使用连接配置文件时(请参阅 [如何使用公用的公共连接配置文件(How to use a common common connection profile file)](https://hyperledger.github.io/fabric-sdk-node/release-1.4/tutorial-network-config.html))，则可以使用 Peer 的名称来获取通道事件中心。 每次调用"getChannelEventHub"时，它将返回相同的 ChannelEventHub 实例。
 
 ```javascript
 // must use peer name
@@ -491,7 +491,7 @@ const channelEventHub = channel.newChannelEventHub(peer);
 
 您的应用程序可能正在记录进入的块号，或者它可能使用另一个通道事件中心的最后一个块。 您的应用程序已脱机，现在希望赶上错过的块，然后继续处理新的块。 以下内容将在您选择的点将通道事件中心连接到 Peer 基于通道的事件服务，并且由于未指定 endBlock，因此它将继续接收添加到分类帐中的块。
 
-注意：使用 ChannelEventHubs.lastBlockNumber()获取从先前运行的 ChannelEventHub 实例接收到的最后一个块的编号。
+注意:使用 ChannelEventHubs.lastBlockNumber()获取从先前运行的 ChannelEventHub 实例接收到的最后一个块的编号。
 
 ```javascript
 const channel_event_hub = channel.newChannelEventHub(mypeer);

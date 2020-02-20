@@ -1,15 +1,15 @@
-# fabric-client：如何在链码安装过程中添加 CouchDB 索引(How to add CouchDB indexes during chaincode installation)
+# fabric-client:如何在链码安装过程中添加 CouchDB 索引(How to add CouchDB indexes during chaincode installation)
 
-## fabric-client：如何在链码安装过程中添加 CouchDB 索引(How to add CouchDB indexes during chaincode installation)
+## fabric-client:如何在链码安装过程中添加 CouchDB 索引(How to add CouchDB indexes during chaincode installation)
 
 本教程说明了如何在链式代码安装中添加元数据。从 v1.1 开始，唯一的元数据就是可以添加到通道分类帐的 CouchDB 状态数据库中的索引。
 
-了解更多信息：
+了解更多信息:
 
 - [Hyperledger Fabric 入门(getting started with Hyperledger Fabric)](http://hyperledger-fabric.readthedocs.io/en/latest/build_network.html)
 - [设置一个 CouchDB 作为状态数据库(setting up a CouchDB as the state database)](http://hyperledger-fabric.readthedocs.io/en/latest/couchdb_as_state_database.html)
 
-以下内容假定您对 Hyperledger Fabric 网络(orderer 和 peer)以及 Node 应用程序开发（包括 Java Promise 的使用）有所了解。
+以下内容假定您对 Hyperledger Fabric 网络(orderer 和 peer)以及 Node 应用程序开发(包括 Java Promise 的使用)有所了解。
 
 ### 概述
 

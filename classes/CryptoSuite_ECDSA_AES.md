@@ -2,7 +2,7 @@
 
 ## CryptoSuite_ECDSA_AES
 
-[module:api.CryptoSuite](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.CryptoSuite.html)用于 ECDSA 的实现和使用软件密钥生成的 AES 算法。此类实现基于软件的密钥生成（与基于硬件安全模块的密钥管理相对）
+[module:api.CryptoSuite](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.CryptoSuite.html)用于 ECDSA 的实现和使用软件密钥生成的 AES 算法。此类实现基于软件的密钥生成(与基于硬件安全模块的密钥管理相对)
 
 ### new CryptoSuite_ECDSA_AES(keySize, hash)
 
@@ -49,7 +49,7 @@ constructor
 
 生成一个临时密钥。
 
-继承自(Inherited From)：
+继承自(Inherited From):
 
 - [module:api.CryptoSuite#generateEphemeralKey](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.CryptoSuite.html#generateEphemeralKey)
 
@@ -79,7 +79,7 @@ constructor
 | :--- | :------ | ------ |
 | opts | KeyOpts | 可选。 |
 
-继承自(Inherited From)：
+继承自(Inherited From):
 
 - [module:api.CryptoSuite#generateKey](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.CryptoSuite.html#generateKey)
 
@@ -109,7 +109,7 @@ constructor
 | :--- | :----- | ------------------------------------------------------------------ |
 | ski  | string | 特定用于 Crypto Suite 实现的主题密钥标识符，作为表示密钥的唯一索引 |
 
-继承自(Inherited From)：
+继承自(Inherited From):
 
 - [module:api.CryptoSuite#getKey](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.CryptoSuite.html#getKey)
 
@@ -175,11 +175,11 @@ constructor
 
 | 名称      | 类型                                                                                            | 描述                 |
 | :-------- | :---------------------------------------------------------------------------------------------- | -------------------- |
-| key       | [module:api.Key](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.Key.html) | 签名验证密钥（公钥） |
+| key       | [module:api.Key](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.Key.html) | 签名验证密钥(公钥) |
 | signature | Array.&lt;byte&gt;                                                                              | 签名验证             |
 | digest    | Array.&lt;byte&gt;                                                                              | 创建签名的摘要       |
 
-继承自(Inherited From)：
+继承自(Inherited From):
 
 - [module:api.CryptoSuite#verify](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.CryptoSuite.html#verify)
 

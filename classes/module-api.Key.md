@@ -2,7 +2,7 @@
 
 ## [api](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.html). Key
 
-密钥代表加密密钥。它可以是对称的或不对称的。在非对称密钥的情况下，密钥可以是公共的或私有的。在使用非对称私钥的情况下，getPublicKey()方法允许检索相应的公钥。可以通过主题密钥标识符（SKI）引用密钥，并且可以通过适当的 CryptoSuite 实现对其进行解析。
+密钥代表加密密钥。它可以是对称的或不对称的。在非对称密钥的情况下，密钥可以是公共的或私有的。在使用非对称私钥的情况下，getPublicKey()方法允许检索相应的公钥。可以通过主题密钥标识符(SKI)引用密钥，并且可以通过适当的 CryptoSuite 实现对其进行解析。
 
 #### new Key()
 

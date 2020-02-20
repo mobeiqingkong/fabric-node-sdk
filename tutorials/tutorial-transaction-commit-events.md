@@ -1,12 +1,12 @@
-# fabric-network：如何等待将事务提交到分类帐(How to wait for transactions to be committed to the ledger)
+# fabric-network:如何等待将事务提交到分类帐(How to wait for transactions to be committed to the ledger)
 
-## fabric-network：如何等待将事务提交到分类帐(How to wait for transactions to be committed to the ledger)
+## fabric-network:如何等待将事务提交到分类帐(How to wait for transactions to be committed to the ledger)
 
 本教程描述了 Fabric 网络模块的用户可以选择的方法，以确保已提交的事务在 Peer 上提交。
 
 ### 概述
 
-提交事务涉及几个步骤：
+提交事务涉及几个步骤:
 
 1. 将提案发送给背书 Peer。
 2. 将背书的交易发送给 Orderer。
@@ -39,7 +39,7 @@ await gateway.connect(connectionProfile, connectOptions);
 
 ### 插件事件处理程序
 
-如果需要默认事件处理策略未提供的行为，则可以实现自己的事件处理。 这是通过指定自己的工厂功能作为事件处理策略来实现的。 工厂函数应返回一个事务事件处理程序对象，并采用两个参数：
+如果需要默认事件处理策略未提供的行为，则可以实现自己的事件处理。 这是通过指定自己的工厂功能作为事件处理策略来实现的。 工厂函数应返回一个事务事件处理程序对象，并采用两个参数:
 
 1. Transaction: Transaction
 2. Blockchain network: Network

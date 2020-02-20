@@ -9,9 +9,9 @@
 - 对每个经过身份验证的用户使用专用的客户端实例。为每个通过身份验证的用户创建一个新实例。您可以分别注册每个经过身份验证的用户，以便每个用户获得自己的签名身份。
 - 在经过身份验证的用户之间使用共享的客户端实例和公共的签名身份。
 
-重要的是要理解，将具有相同客户端实例的 userContexts 切换为反模式。这是有状态设计的直接结果。JIRA 工作项已打开，以讨论添加对 SDK 的无状态使用的支持：[FAB-4563](https://jira.hyperledger.org/browse/FAB-4563)
+重要的是要理解，将具有相同客户端实例的 userContexts 切换为反模式。这是有状态设计的直接结果。JIRA 工作项已打开，以讨论添加对 SDK 的无状态使用的支持:[FAB-4563](https://jira.hyperledger.org/browse/FAB-4563)
 
-客户端还通过 stateStore 支持持久性。状态存储区是一个简单的存储插件，可实现以下[module:api.KeyValueStore](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.KeyValueStore.html) 接口，这有助于 SDK 保存在服务器重新启动/崩溃时使用的关键信息。开箱即用，SDK 将签名身份（User 类的实例）保存在状态存储中。
+客户端还通过 stateStore 支持持久性。状态存储区是一个简单的存储插件，可实现以下[module:api.KeyValueStore](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.KeyValueStore.html) 接口，这有助于 SDK 保存在服务器重新启动/崩溃时使用的关键信息。开箱即用，SDK 将签名身份(User 类的实例)保存在状态存储中。
 
 #### new Client()
 
@@ -113,7 +113,7 @@
 
 #### &lt;async&gt; createUser(opts)
 
-根据私钥和相应的 x509 证书返回具有签名标识的 User 对象。 这允许应用程序使用预先存在的加密材料（私钥和证书）来构造具有签名功能的用户对象，以替代通过 fabric-ca 动态注册用户
+根据私钥和相应的 x509 证书返回具有签名标识的 User 对象。 这允许应用程序使用预先存在的加密材料(私钥和证书)来构造具有签名功能的用户对象，以替代通过 fabric-ca 动态注册用户
 
 请注意，成功创建新用户对象后，会将其设置为客户端实例作为当前 userContext。
 
@@ -220,7 +220,7 @@
 
 返回此客户端实例使用的 CryptoSuite 对象
 
-继承自(Inherited From)：
+继承自(Inherited From):
 
 - [BaseClient#getCryptoSuite](https://hyperledger.github.io/fabric-sdk-node/release-1.4/BaseClient.html#getCryptoSuite)
 
@@ -314,7 +314,7 @@
 
 #### &lt;async&gt; getUserContext(name, checkPersistence)
 
-通过给定名称返回用户。 这可以是同步调用，也可以是异步调用，具体取决于“ checkPersistent”是否正确。 如果为真，则该方法为异步方法并返回 Promise，否则为同步方法。 如上所述，客户端实例可以具有可选的状态存储。 SDK 将注册的用户保存在存储中，该存储可以由应用程序的授权用户访问（身份验证由 SDK 外部的应用程序完成）。 此函数尝试按名称从本地存储中加载用户（通过 KeyValueStore 接口）。 加载的用户对象必须代表具有由受信任的 CA（例如 CA 服务器）签名的有效注册证书的注册用户。
+通过给定名称返回用户。 这可以是同步调用，也可以是异步调用，具体取决于“ checkPersistent”是否正确。 如果为真，则该方法为异步方法并返回 Promise，否则为同步方法。 如上所述，客户端实例可以具有可选的状态存储。 SDK 将注册的用户保存在存储中，该存储可以由应用程序的授权用户访问(身份验证由 SDK 外部的应用程序完成)。 此函数尝试按名称从本地存储中加载用户(通过 KeyValueStore 接口)。 加载的用户对象必须代表具有由受信任的 CA(例如 CA 服务器)签名的有效注册证书的注册用户。
 
 - 参数
 
@@ -354,7 +354,7 @@
 | 名称    | 类型                                                                                                                     | 描述                                                                                                             |
 | :------ | :----------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | request | [ChaincodeInstallRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ChaincodeInstallRequest) | 请求对象                                                                                                         |
-| timeout | Number                                                                                                                   | 一个数字，表示等待响应之前等待超时（以毫秒为单位）的毫秒数。这将覆盖 Peer 实例的默认超时和配置设置中的全局超时。 |
+| timeout | Number                                                                                                                   | 一个数字，表示等待响应之前等待超时(以毫秒为单位)的毫秒数。这将覆盖 Peer 实例的默认超时和配置设置中的全局超时。 |
 
 返回结果
 
@@ -382,7 +382,7 @@
 
 #### &lt;async&gt; loadUserFromStateStore(name)
 
-通过键值存储中的给定名称恢复 [User](https://hyperledger.github.io/fabric-sdk-node/release-1.4/User.html) 状态（如果找到）。如果找不到，则返回 null。
+通过键值存储中的给定名称恢复 [User](https://hyperledger.github.io/fabric-sdk-node/release-1.4/User.html) 状态(如果找到)。如果找不到，则返回 null。
 
 - 参数
 
@@ -437,7 +437,7 @@
 
 #### newPeer(url, opts)
 
-返回具有给定 url 和 opts 的[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)对象。 对等对象封装了背书对等的属性以及通过 grpc 服务 API 与其进行的交互。 对等对象由[Client](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html)对象用于发送与通道无关的请求（例如，安装链码，查询 Peer 对象以获取已安装的链代码等）。它们也被[Channel](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html)对象用于发送通道感知的请求（如实例化链代码和调用事务）。 此方法将返回一个新的[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)对象。
+返回具有给定 url 和 opts 的[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)对象。 对等对象封装了背书对等的属性以及通过 grpc 服务 API 与其进行的交互。 对等对象由[Client](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html)对象用于发送与通道无关的请求(例如，安装链码，查询 Peer 对象以获取已安装的链代码等)。它们也被[Channel](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html)对象用于发送通道感知的请求(如实例化链代码和调用事务)。 此方法将返回一个新的[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)对象。
 
 - 参数
 
@@ -556,12 +556,12 @@
 
 #### setCryptoSuite(cryptoSuite)
 
-设置客户端实例以使用 CryptoSuite 对象进行签名和哈希创建和设置 CryptoSuite 是可选的，因为客户端将基于默认配置设置构造实例：
+设置客户端实例以使用 CryptoSuite 对象进行签名和哈希创建和设置 CryptoSuite 是可选的，因为客户端将基于默认配置设置构造实例:
 
-- crypto-hsm：使用硬件安全模块（如果设置为 true）或基于软件的密钥管理（如果设置为 false）的实现
-- crypto-keysize：与数字签名公钥算法一起使用的安全级别或密钥大小。 当前支持 ECDSA，有效密钥大小为 256 和 384
-- crypto-hash-algo：哈希算法
-- 密钥值存储：某些 CryptoSuite 实现需要密钥存储来保留私钥。 为此提供了一个 CryptoKeyStore，它可以在 KeyValueStore 接口的任何实现之上使用，例如基于文件的存储或基于数据库的存储。 具体的实现方式取决于此配置设置的值。
+- crypto-hsm:使用硬件安全模块(如果设置为 true)或基于软件的密钥管理(如果设置为 false)的实现
+- crypto-keysize:与数字签名公钥算法一起使用的安全级别或密钥大小。 当前支持 ECDSA，有效密钥大小为 256 和 384
+- crypto-hash-algo:哈希算法
+- 密钥值存储:某些 CryptoSuite 实现需要密钥存储来保留私钥。 为此提供了一个 CryptoKeyStore，它可以在 KeyValueStore 接口的任何实现之上使用，例如基于文件的存储或基于数据库的存储。 具体的实现方式取决于此配置设置的值。
 
 - 参数
 
@@ -569,7 +569,7 @@
 | :---------- | :-------------------------------------------------------------------------------------------------------------- | ---------------- |
 | cryptoSuite | [module:api.CryptoSuite](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.CryptoSuite.html) | CryptoSuite 对象 |
 
-继承自(Inherited From)：
+继承自(Inherited From):
 
 - [BaseClient#setCryptoSuite](https://hyperledger.github.io/fabric-sdk-node/release-1.4/BaseClient.html#setCryptoSuite)
 
@@ -601,7 +601,7 @@ SDK 支持持久存储 [User](https://hyperledger.github.io/fabric-sdk-node/rele
 
 #### setTlsClientCertAndKey(clientCert, clientKey)
 
-设置使用公用连接配置文件（连接配置文件）时建立网络端点所必需的双向 TLS 客户端证书和密钥。 必须在需要 Peer，Orderer 或通道 eventhub 之前调用此方法。 如果尚未为客户提供 tls 客户资料，则在用户已分配给该客户的情况下将生成该资料。 请注意，它将始终使用默认软件 cryptosuite，而不是分配给客户端的默认软件。
+设置使用公用连接配置文件(连接配置文件)时建立网络端点所必需的双向 TLS 客户端证书和密钥。 必须在需要 Peer，Orderer 或通道 eventhub 之前调用此方法。 如果尚未为客户提供 tls 客户资料，则在用户已分配给该客户的情况下将生成该资料。 请注意，它将始终使用默认软件 cryptosuite，而不是分配给客户端的默认软件。
 
 - 参数
 
@@ -612,7 +612,7 @@ SDK 支持持久存储 [User](https://hyperledger.github.io/fabric-sdk-node/rele
 
 #### &lt;async&gt; setUserContext(user, skipPersistence)
 
-设置 User 类的实例作为此客户端实例的安全上下文。 该用户的签名身份（私钥及其相应的证书）将用于通过 Fabric 后端对所有请求进行签名。
+设置 User 类的实例作为此客户端实例的安全上下文。 该用户的签名身份(私钥及其相应的证书)将用于通过 Fabric 后端对所有请求进行签名。
 
 设置用户上下文后，如果已在客户端实例上设置了“状态存储”，则 SDK 会将对象保存在持久性缓存中。 如果未设置状态存储，则不会建立此缓存，并且如果应用程序崩溃并恢复，则应用程序负责再次设置用户上下文。
 
@@ -620,7 +620,7 @@ SDK 支持持久存储 [User](https://hyperledger.github.io/fabric-sdk-node/rele
 
 | 名称            | 类型                                                                                                                                                                                                      | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | :-------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| user            | [User](https://hyperledger.github.io/fabric-sdk-node/release-1.4/User.html) &#124; [UserNamePasswordObject](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#UserNamePasswordObject) | User 类的一个实例，其中封装了经过身份验证的用户的签名材料（私钥和注册证书）。 该参数也可以是[UserNamePasswordObject](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#UserNamePasswordObject)，其中包含用户名以及可选的密码和 caName。 必须已加载公共连接配置文件才能使用[UserNamePasswordObject](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#UserNamePasswordObject)，这还将创建用户上下文并在此客户端实例上进行设置。 创建的用户上下文将基于当前的网络配置（即当前组织的 CA，当前持久性存储）。 |
+| user            | [User](https://hyperledger.github.io/fabric-sdk-node/release-1.4/User.html) &#124; [UserNamePasswordObject](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#UserNamePasswordObject) | User 类的一个实例，其中封装了经过身份验证的用户的签名材料(私钥和注册证书)。 该参数也可以是[UserNamePasswordObject](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#UserNamePasswordObject)，其中包含用户名以及可选的密码和 caName。 必须已加载公共连接配置文件才能使用[UserNamePasswordObject](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#UserNamePasswordObject)，这还将创建用户上下文并在此客户端实例上进行设置。 创建的用户上下文将基于当前的网络配置(即当前组织的 CA，当前持久性存储)。 |
 | skipPersistence | boolean                                                                                                                                                                                                   | 是否跳过将用户对象保存到持久性中。 默认值为 false，该方法将尝试将用户对象保存到状态存储中。 当使用公共连接配置文件和[UserNamePasswordObject](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#UserNamePasswordObject)时，用户对象将始终存储到持久性存储中。                                                                                                                                                                                                                                                                 |
 
 返回结果

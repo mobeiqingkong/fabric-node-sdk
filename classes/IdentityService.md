@@ -17,7 +17,7 @@
 | 名称      | 类型                                                                                                     | 描述                                                                                                     |
 | --------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | req       | [IdentityRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#IdentityRequest) | [IdentityRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#IdentityRequest) |
-| registrar | [User](https://hyperledger.github.io/fabric-sdk-node/release-1.4/User.html)                              | 注册商的身份（即执行注册的人）。                                                                         |
+| registrar | [User](https://hyperledger.github.io/fabric-sdk-node/release-1.4/User.html)                              | 注册商的身份(即执行注册的人)。                                                                         |
 
 返回结果
 
@@ -55,7 +55,7 @@
 
 | 名称      | 类型                                                                        | 描述                                   |
 | --------- | --------------------------------------------------------------------------- | -------------------------------------- |
-| registrar | [User](https://hyperledger.github.io/fabric-sdk-node/release-1.4/User.html) | 必要。注册商的身份（即执行注册的人）。 |
+| registrar | [User](https://hyperledger.github.io/fabric-sdk-node/release-1.4/User.html) | 必要。注册商的身份(即执行注册的人)。 |
 
 返回结果
 
@@ -74,7 +74,7 @@
 | 名称         | 类型                                                                        | 描述                                   |
 | ------------ | --------------------------------------------------------------------------- | -------------------------------------- |
 | enrollmentID | string                                                                      | 必要。唯一标识身份的注册 ID            |
-| registrar    | [User](https://hyperledger.github.io/fabric-sdk-node/release-1.4/User.html) | 必要。注册商的身份（即执行注册的人）。 |
+| registrar    | [User](https://hyperledger.github.io/fabric-sdk-node/release-1.4/User.html) | 必要。注册商的身份(即执行注册的人)。 |
 
 返回结果
 

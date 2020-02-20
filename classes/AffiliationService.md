@@ -17,7 +17,7 @@
 | 名称      | 类型                                                  | 描述                                                       |
 | --------- | ----------------------------------------------------- | ---------------------------------------------------------- |
 | req       | [AffiliationRequest](../global.md#AffiliationRequest) | 必要. AffiliationRequest](../global.md#AffiliationRequest) |
-| registrar | [User](../global.md#User)                             | 必要. 注册人员的身份（即执行注册的人）。                   |
+| registrar | [User](../global.md#User)                             | 必要. 注册人员的身份(即执行注册的人)。                   |
 
 - 返回结果:
 
@@ -36,7 +36,7 @@
 | 名称      | 类型                                                                        | 描述                                                       |
 | --------- | --------------------------------------------------------------------------- | ---------------------------------------------------------- |
 | req       | [AffiliationRequest](../global.md#AffiliationRequest)                       | 必要. AffiliationRequest](../global.md#AffiliationRequest) |
-| registrar | [User](https://hyperledger.github.io/fabric-sdk-node/release-1.4/User.html) | 必要. 注册人员的身份（即执行注册的人）。                   |
+| registrar | [User](https://hyperledger.github.io/fabric-sdk-node/release-1.4/User.html) | 必要. 注册人员的身份(即执行注册的人)。                   |
 
 - 返回结果:
 
@@ -54,7 +54,7 @@
 
 | 名称      | 类型                                                                        | 描述                                     |
 | --------- | --------------------------------------------------------------------------- | ---------------------------------------- |
-| registrar | [User](https://hyperledger.github.io/fabric-sdk-node/release-1.4/User.html) | 必要. 注册人员的身份（即执行注册的人）。 |
+| registrar | [User](https://hyperledger.github.io/fabric-sdk-node/release-1.4/User.html) | 必要. 注册人员的身份(即执行注册的人)。 |
 
 - 返回结果:
 
@@ -73,7 +73,7 @@
 | 名称        | 类型                                                                        | 描述                                                       |
 | ----------- | --------------------------------------------------------------------------- | ---------------------------------------------------------- |
 | affiliation | string                                                                      | 必要. AffiliationRequest](../global.md#AffiliationRequest) |
-| registrar   | [User](https://hyperledger.github.io/fabric-sdk-node/release-1.4/User.html) | 必要. 注册人员的身份（即执行注册的人）。                   |
+| registrar   | [User](https://hyperledger.github.io/fabric-sdk-node/release-1.4/User.html) | 必要. 注册人员的身份(即执行注册的人)。                   |
 
 - 返回结果:
 

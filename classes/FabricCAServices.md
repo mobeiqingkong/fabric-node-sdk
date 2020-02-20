@@ -15,7 +15,7 @@ constructor
 | url         | string &#124; object                                                                           | Fabric CA 服务的端点 URL，格式为:"<http://host:port"或"https://host:port"。如果此参数是一个对象，则它必须包括列为键值对的参数。>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | tlsOptions  | [TLSOptions](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#TLSOptions) | Fabric CA 服务端点使用“ https”时要使用的 TLS 设置                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | caName      | string                                                                                         | CA 的可选名称。 Fabric-ca 服务器从单个服务器支持多个证书颁发机构。如果省略，为 null 或为空字符串，则默认 CA 为请求的目标                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| cryptoSuite | CryptoSuite                                                                                    | 如果需要除默认值以外的其他选项，则使用可选的 cryptoSuite 实例。如果未指定，则将基于当前配置设置构造 CryptoSuite 实例：<br>-crypto-hsm：使用硬件安全模块（如果设置为 true）或基于软件的密钥管理（如果设置为 false）的实现<br>-crypto-keysize：与数字签名公钥算法一起使用的安全级别或密钥大小。当前支持 ECDSA，有效密钥大小为 256 和 384<br> -crypto-hash-algo：哈希算法<br>-密钥值存储：某些 CryptoSuite 实现需要密钥存储来保留私钥。为此提供了一个[CryptoKeyStore](https://hyperledger.github.io/fabric-sdk-node/release-1.4/CryptoKeyStore.html)，它可以在 KeyValueStore 接口的任何实现之上使用，例如基于文件的存储或基于数据库的存储。具体的实现方式取决于此配置设置的值。 |
+| cryptoSuite | CryptoSuite                                                                                    | 如果需要除默认值以外的其他选项，则使用可选的 cryptoSuite 实例。如果未指定，则将基于当前配置设置构造 CryptoSuite 实例:<br>-crypto-hsm:使用硬件安全模块(如果设置为 true)或基于软件的密钥管理(如果设置为 false)的实现<br>-crypto-keysize:与数字签名公钥算法一起使用的安全级别或密钥大小。当前支持 ECDSA，有效密钥大小为 256 和 384<br> -crypto-hash-algo:哈希算法<br>-密钥值存储:某些 CryptoSuite 实现需要密钥存储来保留私钥。为此提供了一个[CryptoKeyStore](https://hyperledger.github.io/fabric-sdk-node/release-1.4/CryptoKeyStore.html)，它可以在 KeyValueStore 接口的任何实现之上使用，例如基于文件的存储或基于数据库的存储。具体的实现方式取决于此配置设置的值。 |
 
 ### 扩展
 
@@ -48,11 +48,11 @@ constructor
 | 名称      | 类型                                                                        | 描述                               |
 | --------- | --------------------------------------------------------------------------- | ---------------------------------- |
 | request   | [Restriction                                                                |                                    |
-| registrar | [User](https://hyperledger.github.io/fabric-sdk-node/release-1.4/User.html) | 注册服务商的身份（即执行撤销的人） |
+| registrar | [User](https://hyperledger.github.io/fabric-sdk-node/release-1.4/User.html) | 注册服务商的身份(即执行撤销的人) |
 
 返回结果
 
-- 证书吊销列表（CRL）。
+- 证书吊销列表(CRL)。
 
   - 类型
 
@@ -74,7 +74,7 @@ constructor
 
 返回此客户端实例使用的 CryptoSuite 对象
 
-继承自(Inherited From)：
+继承自(Inherited From):
 
 - [BaseClient#getCryptoSuite](https://hyperledger.github.io/fabric-sdk-node/release-1.4/BaseClient.html#getCryptoSuite)
 
@@ -148,7 +148,7 @@ constructor
 | 名称      | 类型                                                                                                     | 描述                                                                                                     |
 | --------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | req       | [RegisterRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#RegisterRequest) | [RegisterRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#RegisterRequest) |
-| registrar | [User](https://hyperledger.github.io/fabric-sdk-node/release-1.4/User.html)                              | 注册商的身份（即执行注册的人）                                                                           |
+| registrar | [User](https://hyperledger.github.io/fabric-sdk-node/release-1.4/User.html)                              | 注册商的身份(即执行注册的人)                                                                           |
 
 返回结果
 
@@ -160,14 +160,14 @@ constructor
 
 #### revoke(request, registrar)
 
-吊销现有证书（注册证书或交易证书），或吊销颁发给注册 ID 的所有证书。如果撤销特定证书，然后必须输入授权密钥标识符和序列号。如果按注册 ID 撤销，则以后所有注册此 ID 的请求都将被拒绝。
+吊销现有证书(注册证书或交易证书)，或吊销颁发给注册 ID 的所有证书。如果撤销特定证书，然后必须输入授权密钥标识符和序列号。如果按注册 ID 撤销，则以后所有注册此 ID 的请求都将被拒绝。
 
 - 参数
 
 | 名称      | 类型                                                                        | 描述                                                                                                                                                                                                                                                                                                                                     |
 | --------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| request   | Object                                                                      | 请求对象具有以下字段： <br>-enrollmentID {字符串}。要撤消的 ID <br>-aki {string}。授权密钥标识符字符串，十六进制编码，用于吊销特定证书 <br>-serial{string}。十六进制编码的序列号字符串，用于撤销特定的证书<br>-reason{string}。撤销的原因。有关有效值，请参见<https://godoc.org/golang.org/x/crypto/ocsp。默认值为0(ocsp.Unspecified)。> |
-| registrar | [User](https://hyperledger.github.io/fabric-sdk-node/release-1.4/User.html) | 注册服务商的身份（即执行撤销的人）                                                                                                                                                                                                                                                                                                       |
+| request   | Object                                                                      | 请求对象具有以下字段: <br>-enrollmentID {字符串}。要撤消的 ID <br>-aki {string}。授权密钥标识符字符串，十六进制编码，用于吊销特定证书 <br>-serial{string}。十六进制编码的序列号字符串，用于撤销特定的证书<br>-reason{string}。撤销的原因。有关有效值，请参见<https://godoc.org/golang.org/x/crypto/ocsp。默认值为0(ocsp.Unspecified)。> |
+| registrar | [User](https://hyperledger.github.io/fabric-sdk-node/release-1.4/User.html) | 注册服务商的身份(即执行撤销的人)                                                                                                                                                                                                                                                                                                       |
 
 返回结果
 
@@ -179,12 +179,12 @@ constructor
 
 #### setCryptoSuite(cryptoSuite)
 
-设置客户端实例以使用 CryptoSuite 对象进行签名和哈希创建和设置 CryptoSuite 是可选的，因为客户端将基于默认配置设置构造实例：
+设置客户端实例以使用 CryptoSuite 对象进行签名和哈希创建和设置 CryptoSuite 是可选的，因为客户端将基于默认配置设置构造实例:
 
-- crypto-hsm：使用硬件安全模块（如果设置为 true）或基于软件的密钥管理（如果设置为 false）的实现
-- crypto-keysize：与数字签名公钥算法一起使用的安全级别或密钥大小。当前支持 ECDSA，有效密钥大小为 256 和 384
-- crypto-hash-algo：哈希算法
-- 密钥值存储：某些 CryptoSuite 实现需要密钥存储来保留私钥。为此提供了一个 [CryptoKeyStore](https://hyperledger.github.io/fabric-sdk-node/release-1.4/CryptoKeyStore.html) ，它可以在 KeyValueStore 接口的任何实现之上使用，例如基于文件的存储或基于数据库的存储。具体的实现方式取决于此配置设置的值。
+- crypto-hsm:使用硬件安全模块(如果设置为 true)或基于软件的密钥管理(如果设置为 false)的实现
+- crypto-keysize:与数字签名公钥算法一起使用的安全级别或密钥大小。当前支持 ECDSA，有效密钥大小为 256 和 384
+- crypto-hash-algo:哈希算法
+- 密钥值存储:某些 CryptoSuite 实现需要密钥存储来保留私钥。为此提供了一个 [CryptoKeyStore](https://hyperledger.github.io/fabric-sdk-node/release-1.4/CryptoKeyStore.html) ，它可以在 KeyValueStore 接口的任何实现之上使用，例如基于文件的存储或基于数据库的存储。具体的实现方式取决于此配置设置的值。
 
 - 参数
 
@@ -192,7 +192,7 @@ constructor
 | ----------- | --------------------------------------------------------------------------------------------------------------- | ---------------- |
 | cryptoSuite | [module:api.CryptoSuite](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.CryptoSuite.html) | CryptoSuite 对象 |
 
-继承自(Inherited From)：
+继承自(Inherited From):
 
 - [BaseClient#setCryptoSuite](https://hyperledger.github.io/fabric-sdk-node/release-1.4/BaseClient.html#setCryptoSuite)
 

@@ -1,10 +1,10 @@
-# fabric-common：如何使用背书，查询和提交处理程序(How to use the endorsement and commit handlers)
+# fabric-common:如何使用背书，查询和提交处理程序(How to use the endorsement and commit handlers)
 
-## fabric-common：如何使用背书，查询和提交处理程序(How to use the endorsement and commit handlers)
+## fabric-common:如何使用背书，查询和提交处理程序(How to use the endorsement and commit handlers)
 
 本教程从 1.3 版本开始说明 Hyperledger Fabric Node.js 客户端对处理程序的使用。
 
-有关更多信息：
+有关更多信息:
 
 - Hyperledger Fabric 入门，请参阅[构建第一个网络(Building your first network)](http://hyperledger-fabric.readthedocs.io/en/latest/build_network.html)。
 - Hyperledger Fabric 中通道的配置以及创建和更新的内部过程，请参见[Hyperledger Fabric 通道配置(Hyperledger Fabric channel configuration)](http://hyperledger-fabric.readthedocs.io/en/latest/configtx.html)

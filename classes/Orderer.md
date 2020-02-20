@@ -2,7 +2,7 @@
 
 ## Orderer
 
-Orderer 类封装了与目标区块链网络中的 Orderer 节点进行交互的客户端功能。orderer节点公开了两个 API： broadcast()和 deliver()。两者都是流 API，因此客户端和orderer之间存在持久的 grpc 流连接，在这两个方向上都可以交换消息。broadcast() API 用于将交易发送到orderer进行处理。 delivery() API 用于向orderer询问诸如通道配置之类的信息。
+Orderer 类封装了与目标区块链网络中的 Orderer 节点进行交互的客户端功能。orderer节点公开了两个 API: broadcast()和 deliver()。两者都是流 API，因此客户端和orderer之间存在持久的 grpc 流连接，在这两个方向上都可以交换消息。broadcast() API 用于将交易发送到orderer进行处理。 delivery() API 用于向orderer询问诸如通道配置之类的信息。
 
 #### new Orderer(url, opts)
 
@@ -134,7 +134,7 @@ Orderer 类封装了与目标区块链网络中的 Orderer 节点进行交互的
 | 名称     | 类型               | 描述                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | -------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | envelope | Array.&lt;byte&gt; | 广播中要包含的字节数据。这必须是[common.Envelope](https://github.com/hyperledger/fabric/blob/v1.0.0/protos/common/common.proto#L132)的经 protobuf 编码的字节数组，该信封在信封的 payload.data 属性中包含[ConfigUpdateEnvelope](https://github.com/hyperledger/fabric/blob/v1.0.0/protos/common/configtx.proto#L70)或[Transaction](https://github.com/hyperledger/fabric/blob/v1.0.0/protos/peer/transaction.proto#L70)。 |
-| timeout  | Number             | 一个数字，表示等待响应之前等待超时（以毫秒为单位）的毫秒数。这将覆盖 Peer 实例的默认超时和配置设置中的全局超时。                                                                                                                                                                                                                                                                                                         |
+| timeout  | Number             | 一个数字，表示等待响应之前等待超时(以毫秒为单位)的毫秒数。这将覆盖 Peer 实例的默认超时和配置设置中的全局超时。                                                                                                                                                                                                                                                                                                         |
 
 抛出
 

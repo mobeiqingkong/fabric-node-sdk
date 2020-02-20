@@ -18,7 +18,7 @@ constructor
 
 | 名称       | 类型                                                                                           | 描述                                                                                                                     |
 | :--------- | :--------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| protocol   | string                                                                                         | 使用的协议（HTTP 或 HTTPS）                                                                                              |
+| protocol   | string                                                                                         | 使用的协议(HTTP 或 HTTPS)                                                                                              |
 | hostname   | string                                                                                         | Fabric CA 服务器终结点的主机名                                                                                           |
 | port       | number                                                                                         | Fabric CA 服务器端点的端口                                                                                               |
 | tlsOptions | [TLSOptions](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#TLSOptions) | Fabric CA 端点使用“ https”时要使用的 TLS 设置                                                                            |
@@ -139,7 +139,7 @@ constructor
 
 #### revoke(enrollmentID, aki, serial, reason, signingIdentity)
 
-吊销现有证书（注册证书或交易证书），或吊销颁发给注册 ID 的所有证书。如果吊销特定证书，则同时需要授权密钥标识符和序列号。如果按注册 ID 撤销，则以后所有注册此 ID 的请求都将被拒绝。
+吊销现有证书(注册证书或交易证书)，或吊销颁发给注册 ID 的所有证书。如果吊销特定证书，则同时需要授权密钥标识符和序列号。如果按注册 ID 撤销，则以后所有注册此 ID 的请求都将被拒绝。
 
 - 参数
 
