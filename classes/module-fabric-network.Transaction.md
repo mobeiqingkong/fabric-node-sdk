@@ -110,13 +110,13 @@
 
 抛出
 
-- 如果交易已成功提交给订购者，但在从对等方接收到提交事件之前超时。
+- 如果交易已成功提交给orderer，但在从peer接收到提交事件之前超时。
 
   - 类型
 
     [module:fabric-network.TimeoutError](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.TimeoutError.html)
 
-- 如果发生基础基础结构故障。错误的“responses”属性包含来自认可对等方的提议响应对象数组。
+- 如果发生基础基础结构故障。错误的“responses”属性包含来自背书peer的提议响应对象数组。
 
   - 类型
 

@@ -2,7 +2,7 @@
 
 ## [fabric-network](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.html)~ Query
 
-描述要在一组指定的对等方上评估的事务。查询处理程序实现用于评估所选对等实体上的事务。
+描述要在一组指定的peer上评估的事务。查询处理程序实现用于评估所选对等实体上的事务。
 
 #### new Query()
 

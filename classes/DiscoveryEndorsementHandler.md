@@ -2,7 +2,7 @@
 
 ## DiscoveryEndorsementHandler
 
-这是 [EndorsementHandler](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.EndorsementHandler.html) API 的实现。它将提交要认可的交易到根据服务发现结果生成的目标列表。
+这是 [EndorsementHandler](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.EndorsementHandler.html) API 的实现。它将提交要背书的交易到根据服务发现结果生成的目标列表。
 
 #### new DiscoveryEndorsementHandler(channel)
 

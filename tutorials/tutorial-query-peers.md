@@ -1,12 +1,12 @@
-# fabric-network：如何选择对等方以评估交易（查询）(How to select peers for evaluating transactions (queries))
+# fabric-network：如何选择 Peer 以评估交易（查询）(How to select peers for evaluating transactions (queries))
 
-## fabric-network：如何选择对等方以评估交易（查询）(How to select peers for evaluating transactions (queries))
+## fabric-network：如何选择 Peer 以评估交易（查询）(How to select peers for evaluating transactions (queries))
 
 本教程描述了如何选择 Peer 来评估不会随后被写入分类帐的事务，也可以将其视为查询。
 
 ### 查询处理策略
 
-SDK 如何评估网络中对等节点上的事务提供了几种可选策略。 可用策略在 DefaultQueryHandlerStrategies 中定义。 (可选)将所需策略指定为网关上 connect()的参数，并将该策略用于从该网关实例获取的合约的所有交易评估。
+SDK 如何评估网络中 pwwe 节点上的事务提供了几种可选策略。 可用策略在 DefaultQueryHandlerStrategies 中定义。 (可选)将所需策略指定为网关上 connect()的参数，并将该策略用于从该网关实例获取的合约的所有交易评估。
 
 如果未指定查询处理策略，则默认使用 MSPID_SCOPE_SINGLE。 这将评估可以从其获得响应的第一个 Peer 上的所有事务，并且仅在该 Peer 失败时才切换到另一个 Peer。
 

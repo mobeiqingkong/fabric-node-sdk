@@ -42,7 +42,7 @@ Fabric-ca 具备注册 PKCS#10 标准 CSR 的能力，这意味着用户可以�
 
    1. 生成带有签注的未签名交易-> Channel.generateUnsignedTransaction()
    2. 使用身份的私钥离线签署未签名的交易，从而生成签名的交易
-   3. 将已签名的交易发送到订购者-> Channel.sendSignedTransaction()
+   3. 将已签名的交易发送到 orderer-> Channel.sendSignedTransaction()
 
 3. 注册通道事件侦听器：如果通道事件集线器尚未连接到 Peer，则通道事件集线器注册也需要私钥的签名。
    1. 为 ChannelEventHub-> ChannelEventHub.generateUnsignedRegistration()生成一个未签名的 eventhub 注册

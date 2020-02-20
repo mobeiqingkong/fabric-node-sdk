@@ -91,7 +91,7 @@
   - [fabric-client：如何配置双向 TLS(How to configure mutual TLS)](tutorials/tutorial-mutual-tls.md)
   - [fabric-client：如何使用公共连接配置文件(How to use a common connection profile)](tutorials/tutorial-network-config.md)
   - [如何使用私人数据(How to use private data)](tutorials/tutorial-private-data.md)
-  - [fabric-network：如何选择对等方以评估交易（查询）(How to select peers for evaluating transactions (queries))](tutorials/tutorial-query-peers.md)
+  - [fabric-network：如何选择peer以评估交易（查询）(How to select peers for evaluating transactions (queries))](tutorials/tutorial-query-peers.md)
   - [使用离线私钥(Working with an offline private key)](tutorials/tutorial-sign-transaction-offline.md)
   - [fabric-network：如何等待将事务提交到分类帐(How to wait for transactions to be committed to the ledger)](tutorials/tutorial-transaction-commit-events.md)
 - [总体](global/README.md)

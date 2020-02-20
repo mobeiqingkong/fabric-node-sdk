@@ -2,7 +2,7 @@
 
 ## Orderer
 
-Orderer 类封装了与目标区块链网络中的 Orderer 节点进行交互的客户端功能。订购者节点公开了两个 API： broadcast()和 deliver()。两者都是流 API，因此客户端和订购者之间存在持久的 grpc 流连接，在这两个方向上都可以交换消息。broadcast() API 用于将交易发送到订购者进行处理。 delivery() API 用于向订购者询问诸如通道配置之类的信息。
+Orderer 类封装了与目标区块链网络中的 Orderer 节点进行交互的客户端功能。orderer节点公开了两个 API： broadcast()和 deliver()。两者都是流 API，因此客户端和orderer之间存在持久的 grpc 流连接，在这两个方向上都可以交换消息。broadcast() API 用于将交易发送到orderer进行处理。 delivery() API 用于向orderer询问诸如通道配置之类的信息。
 
 #### new Orderer(url, opts)
 
@@ -150,7 +150,7 @@ Orderer 类封装了与目标区块链网络中的 Orderer 节点进行交互的
 
 #### &lt;async&gt; sendDeliver(envelope)
 
-发送传递消息到订购者服务。
+发送传递消息到orderer服务。
 
 - 参数
 

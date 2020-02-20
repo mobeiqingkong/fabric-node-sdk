@@ -18,7 +18,7 @@ Channel 对象还负责验证交易提议响应中的背书签名。在使用 pe
 
 | 名称          | 类型                                                                            | 描述                                                                                                                                                                                                                                      |
 | ------------- | ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| name          | string                                                                          | 用于标识通道的名称。这个值在 fabric 里做感知请求时作为通道标识使用，例如调用链码以认可交易。通道的命名由订购服务强制执行，并且在 fabric 后端中必须唯一。 Fabric 网络中的通道名称受配置设置 channel-name-regx-checker 中显示的模式的约束。 |
+| name          | string                                                                          | 用于标识通道的名称。这个值在 fabric 里做感知请求时作为通道标识使用，例如调用链码以背书交易。通道的命名由订购服务强制执行，并且在 fabric 后端中必须唯一。 Fabric 网络中的通道名称受配置设置 channel-name-regx-checker 中显示的模式的约束。 |
 | clientContext | [Client](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html) | 客户端实例，提供操作环境，例如签名身份                                                                                                                                                                                                    |
 
 ### Methods
@@ -322,7 +322,7 @@ Channel 对象还负责验证交易提议响应中的背书签名。在使用 pe
 
 返回结果
 
-- channel 对象中的订购者列表
+- channel 对象中的orderer列表
 
   - 类型
 
@@ -392,7 +392,7 @@ Channel 对象还负责验证交易提议响应中的背书签名。在使用 pe
 
 用成员资格服务提供程序（MSP）初始化 channel 对象。通道的 MSP 对于为应用程序提供验证证书和验证从 fabric 网后端接收到的消息中的签名的能力至关重要。例如，在调用[sendTransactionProposal()](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#sendTransactionProposal)之后，应用程序可以验证投标响应的背书中的签名，以确保它们未被篡改。
 
-如果未传入“ config”参数，则此方法从 orderer 那里检索配置。可以选择传入一个配置以初始化此通道，而无需调用订购者。
+如果未传入“ config”参数，则此方法从 orderer 那里检索配置。可以选择传入一个配置以初始化此通道，而无需调用orderer。
 
 使用发现时，此方法还将自动加载代表 fabric 网络的 orderer 和 peer 实体。该应用程序必须提供一个运行 fabric 发现服务的 peer。
 
@@ -431,7 +431,7 @@ Channel 对象还负责验证交易提议响应中的背书签名。在使用 pe
 
 #### newChannelEventHub(peer)
 
-返回一个 [ChannelEventHub](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelEventHub.html) 对象。事件中心对象封装了 peer 节点上事件流的属性，对等节点通过该事件发布对通道分类帐中提交的块的通知。此方法将创建一个新的 ChannelEventHub 而不保存引用。使用{getChannelEventHub}重用 ChannelEventHub。
+返回一个 [ChannelEventHub](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelEventHub.html) 对象。事件中心对象封装了 peer 节点上事件流的属性，peer节点通过该事件发布对通道分类帐中提交的块的通知。此方法将创建一个新的 ChannelEventHub 而不保存引用。使用{getChannelEventHub}重用 ChannelEventHub。
 
 - 参数
 
@@ -718,7 +718,7 @@ for (let i = 0; i < responsePayloads.length; i++) {
 
 返回结果
 
-- orderer 返回的“ BroadcastResponse”消息的承诺，其中包含一个用于标准[HTTP response code](https://github.com/hyperledger/fabric/blob/v1.0.0/protos/common/common.proto#L27)的“状态”字段。这将是成功提交交易的 orderer 的确认。
+- orderer 返回的"BroadcastResponse"消息的Promise，其中包含一个用于标准[HTTP response code](https://github.com/hyperledger/fabric/blob/v1.0.0/protos/common/common.proto#L27)的“状态”字段。这将是成功提交交易的 orderer 的确认。
 
   - 类型
 
@@ -726,7 +726,7 @@ for (let i = 0; i < responsePayloads.length; i++) {
 
 #### sendTransactionProposal(request, timeout)
 
-将交易建议发送给一个或多个背书 peer。 [installed](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#installChaincode)并实例化 Chaincode 后，就可以准备认可建议并参与交易处理了。链码事务处理始于将提案发送到背书 peer，提案将执行目标链码，并决定背书（如果成功执行）或不背书（如果链码返回错误）。
+将交易建议发送给一个或多个背书 peer。 [installed](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#installChaincode)并实例化 Chaincode 后，就可以准备背书建议并参与交易处理了。链码事务处理始于将提案发送到背书 peer，提案将执行目标链码，并决定背书（如果成功执行）或不背书（如果链码返回错误）。
 
 - 参数
 
@@ -782,7 +782,7 @@ for (let i = 0; i < responsePayloads.length; i++) {
 
 验证单个投标响应的实用方法。它检查以下方面：
 
-- 背书人的身份属于该频道的合法 MSP，可以成功反序列化
+- 背书人的身份属于该通道的合法 MSP，可以成功反序列化
 - 背书签名可以通过背书人的身份证书成功验证
 
 此方法要求已调用此通道对象的 initialize 方法来加载此通道的 MSP。 MSP 将具有此通道的受信任的根证书。

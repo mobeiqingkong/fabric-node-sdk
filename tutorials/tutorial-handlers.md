@@ -14,7 +14,7 @@
 
 ### 概述
 
-架构客户端提供了用于定制代码的功能，该代码将处理认可过程以及向订购者提交认可。 定义了两个插入点，一个在 [Channel#sendTransactionProposal](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#sendTransactionProposal) 上，一个在[Channel#sendTransaction](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#sendTransaction)上。 架构客户端将控制权交给处理程序以完成处理。 定制代码可以决定重试，尝试另一个端点或使用发现来完成任务。
+Fabric 客户端提供了用于定制代码的功能，该代码将处理背书过程以及向 orderer 提交背书。 定义了两个插入点，一个在 [Channel#sendTransactionProposal](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#sendTransactionProposal) 上，一个在[Channel#sendTransaction](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#sendTransaction)上。 Fabric 客户端将控制权交给处理程序以完成处理。 定制代码可以决定重试，尝试另一个端点或使用发现来完成任务。
 
 请参见 [fabric-client: How to use the discovery service](https://hyperledger.github.io/fabric-sdk-node/release-1.4/tutorial-discovery.html) (如何使用发现服务)以及如何将默认处理程序与发现一起使用。
 
@@ -26,7 +26,7 @@
 
 #### 新的配置设置(New configuration settings)
 
-- endorsement-handler - 字符串-认可处理程序的路径。允许使用自定义处理程序。 sendTransactionProposal()方法中使用此处理程序来确定目标对等方以及如何发送建议。(默认为'fabric-client/lib/impl/DiscoveryEndorsementHandler.js')
+- endorsement-handler - 字符串-背书处理程序的路径。允许使用自定义处理程序。 sendTransactionProposal()方法中使用此处理程序来确定目标 peer 以及如何发送建议。(默认为'fabric-client/lib/impl/DiscoveryEndorsementHandler.js')
 - commit-handler - 字符串-提交处理程序的路径。允许使用自定义处理程序。在 sendTransaction()方法中使用此处理程序来确定排序器以及如何发送要提交的事务。(默认为'fabric-client/lib/impl/BasicCommitHandler.js')
 
 ### 新的背书处理程序(new Endorsement Handler)

@@ -91,8 +91,8 @@ const result = await contract
 | ---------------------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | MSPID_SCOPE_ALLFORTX   |      | 监听来自客户端身份组织中所有 peer 节点的事务提交事件。 SubmitTransaction 函数将等待，直到从当前连接的所有 peer 节点接收到成功事件为止（至少 1 个）。 |
 | MSPID_SCOPE_ANYFORTX   |      | 侦听来自客户端身份组织中所有 peer 节点的事务提交事件。 SubmitTransaction 函数将等待，直到从任何 peer 节点接收到成功事件为止。                        |
-| NETWORK_SCOPE_ALLFORTX |      | 侦听网络中所有对等方的事务提交事件。 SubmitTransaction 函数将等待，直到从当前连接的所有 peer 节点接收到成功事件为止（至少 1 个）。                   |
-| NETWORK_SCOPE_ANYFORTX |      | 侦听网络中所有对等方的事务提交事件。 SubmitTransaction 函数将等待，直到从任何 peer 节点接收到成功事件为止。                                          |
+| NETWORK_SCOPE_ALLFORTX |      | 侦听网络中所有peer的事务提交事件。 SubmitTransaction 函数将等待，直到从当前连接的所有 peer 节点接收到成功事件为止（至少 1 个）。                   |
+| NETWORK_SCOPE_ANYFORTX |      | 侦听网络中所有peer的事务提交事件。 SubmitTransaction 函数将等待，直到从任何 peer 节点接收到成功事件为止。                                          |
 
 #### DefaultQueryHandlerStrategies
 

@@ -8,7 +8,7 @@
 
 - Hyperledger Fabric 入门，请参阅[构建第一个网络(Building your first network)](http://hyperledger-fabric.readthedocs.io/en/latest/build_network.html)。
 
-以下内容假定您对 Hyperledger Fabric 网络（订购者和对等者）以及 Node 应用程序开发有所了解。
+以下内容假定您对 Hyperledger Fabric 网络（Orderer 和 Peer）以及 Node 应用程序开发有所了解。
 
 ### 概述
 
@@ -144,8 +144,8 @@ client:
         # with the peer event hub. If the peer does not acknowledge the
         # connection within the time, the application will be notified over the
         # error callback if provided.
-        # 与对等事件中心建立连接时要使用的超时（以秒为单位）。
-        # 如果对等方在此时间内未确认连接，则将通过错误回调（如果提供）通知应用程序。
+        # 与Peer事件中心建立连接时要使用的超时（以秒为单位）。
+        # 如果Peer在此时间内未确认连接，则将通过错误回调（如果提供）通知应用程序。
         eventReg: 3
       # the timeout in seconds to be used on request to the orderer,
       # 要求Orderer使用的超时（以秒为单位），

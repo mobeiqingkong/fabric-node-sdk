@@ -2,7 +2,7 @@
 
 ## [fabric-network](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.html)~ Network
 
-网络代表 Fabric 网络中的一组对等点。应用程序应该使用网关的[getNetwork](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.Gateway.html#getNetwork) 方法获取一个 Network 实例。
+网络代表 Fabric 网络中的一组peer。应用程序应该使用网关的[getNetwork](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.Gateway.html#getNetwork) 方法获取一个 Network 实例。
 
 #### new Network()
 

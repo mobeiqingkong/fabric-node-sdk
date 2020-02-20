@@ -2,9 +2,9 @@
 
 ## Client
 
-客户端实例提供了主要的 API 表面，可以与对等方和订购者的网络进行交互。使用 SDK 的应用程序可能需要与多个网络交互，每个网络都通过客户端的单独实例进行。
+客户端实例提供了主要的 API 表面，可以与peer和orderer的网络进行交互。使用 SDK 的应用程序可能需要与多个网络交互，每个网络都通过客户端的单独实例进行。
 
-当前 Client 类设计的一个重要方面是它是有状态的。必须先使用 userContext 配置实例，然后才能使用它与架构后端进行对话。userContext 是 User 类的实例，它封装了对请求进行签名的功能。如果在多用户环境中使用 SDK，则建议使用两种推荐的技术来管理经过身份验证的用户和客户端实例。
+当前 Client 类设计的一个重要方面是它是有状态的。必须先使用 userContext 配置实例，然后才能使用它与Fabric后端进行对话。userContext 是 User 类的实例，它封装了对请求进行签名的功能。如果在多用户环境中使用 SDK，则建议使用两种推荐的技术来管理经过身份验证的用户和客户端实例。
 
 - 对每个经过身份验证的用户使用专用的客户端实例。为每个通过身份验证的用户创建一个新实例。您可以分别注册每个经过身份验证的用户，以便每个用户获得自己的签名身份。
 - 在经过身份验证的用户之间使用共享的客户端实例和公共的签名身份。
@@ -51,7 +51,7 @@
 
 #### addConnectionOptions(options)
 
-向此客户端添加一组连接选项。 创建新的 Peer 和 Orderer 时，或者当通道使用发现功能自动在通道上创建对等方和订购者时，这些将可合并到应用程序的选项中。 这将是一个方便的地方，可以存储影响该客户端的所有连接的通用 GRPC 设置。 当调用[Client#newPeer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#newPeer), [Client#getPeer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#getPeer), [Client#newOrderer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#newOrderer) 或 [Client#getOrderer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#getOrderer) 方法时，此客户端对象构建新的[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html) 或[Orderer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Orderer.html)实例时将使用这些设置。 加载公共连接配置文件时，选项将自动添加，并且客户端部分的“连接”部分带有“选项”属性。 默认连接选项将首先从系统配置的“连接选项”设置中加载。
+向此客户端添加一组连接选项。 创建新的 Peer 和 Orderer 时，或者当通道使用发现功能自动在通道上创建peer和orderer时，这些将可合并到应用程序的选项中。 这将是一个方便的地方，可以存储影响该客户端的所有连接的通用 GRPC 设置。 当调用[Client#newPeer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#newPeer), [Client#getPeer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#getPeer), [Client#newOrderer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#newOrderer) 或 [Client#getOrderer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#getOrderer) 方法时，此客户端对象构建新的[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html) 或[Orderer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Orderer.html)实例时将使用这些设置。 加载公共连接配置文件时，选项将自动添加，并且客户端部分的“连接”部分带有“选项”属性。 默认连接选项将首先从系统配置的“连接选项”设置中加载。
 
 - 参数
 
@@ -368,7 +368,7 @@
 
 确定 Fabric 后端是否以开发模式启动。 在开发模式下，背书的 Peer 将不会尝试启动 docker 实例来运行交易建议所请求的目标链码，而是将调用请求重定向到已向背书的 Peer 注册了自己的链码流程。 这使得在开发链代码期间测试链代码的更改更加容易。
 
-可以将客户端实例设置为 dev 模式，以反映后端的开发模式。 这将导致 SDK 对某些行为进行调整，例如在安装链码期间不将链码包发送给对等方。
+可以将客户端实例设置为 dev 模式，以反映后端的开发模式。 这将导致 SDK 对某些行为进行调整，例如在安装链码期间不将链码包发送给peer。
 
 #### loadFromConfig(config)
 
@@ -400,7 +400,7 @@
 
 #### newChannel(name)
 
-返回具有给定名称的 [Channel](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html) 实例。这代表一个渠道及其相关的分类帐。
+返回具有给定名称的 [Channel](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html) 实例。这代表一个通道及其相关的分类帐。
 
 - 参数
 
@@ -418,7 +418,7 @@
 
 #### newOrderer(url, opts)
 
-返回具有给定 url 和 opts 的 Orderer 对象。 一个 Orderer 对象封装了 Orderer 节点的属性以及通过 grpc 流 API 与其交互的属性。 客户端对象使用订购者对象来广播创建和更新通道的请求。 Channel 对象使用它们来广播请求交易的请求。 此方法将创建 Orderer。
+返回具有给定 url 和 opts 的 Orderer 对象。 一个 Orderer 对象封装了 Orderer 节点的属性以及通过 grpc 流 API 与其交互的属性。 客户端对象使用orderer对象来广播创建和更新通道的请求。 Channel 对象使用它们来广播请求交易的请求。 此方法将创建 Orderer。
 
 - 参数
 
@@ -456,7 +456,7 @@
 
 #### newTransactionID(admin)
 
-返回一个新的 [TransactionID](https://hyperledger.github.io/fabric-sdk-node/release-1.4/TransactionID.html) 对象。 架构事务 ID 被构造为随机数的哈希值，该哈希值与签名身份的序列化字节串联在一起。 TransactionID 对象将随机数和结果 ID 字符串捆绑在一起，成为一个连贯的对。
+返回一个新的 [TransactionID](https://hyperledger.github.io/fabric-sdk-node/release-1.4/TransactionID.html) 对象。 Fabric TransactionID 被构造为随机数的哈希值，该哈希值与签名身份的序列化字节串联在一起。 TransactionID 对象将随机数和结果 ID 字符串捆绑在一起，成为一个连贯的对。
 
 此方法需要为客户端实例分配一个 userContext。
 

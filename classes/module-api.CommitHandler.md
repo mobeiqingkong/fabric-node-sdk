@@ -14,7 +14,7 @@
 
 #### commit(params)
 
-此方法将处理参数以确定 orderers。处理程序将使用提供的 orderer 或使用分配给通道的 orderer。处理程序应执行故障转移，并使用所有可用的 orderer 程序发送已认可的交易。
+此方法将处理参数以确定 orderers。处理程序将使用提供的 orderer 或使用分配给通道的 orderer。处理程序应执行故障转移，并使用所有可用的 orderer 程序发送已背书的交易。
 
 - 参数
 

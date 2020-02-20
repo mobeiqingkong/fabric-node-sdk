@@ -18,7 +18,7 @@
 
 ### 事件处理策略
 
-SDK 提供了几种可选的策略，说明在事务调用后如何等待提交事件。 可用策略在 DefaultEventHandlerStrategies 中定义。 (可选)将所需的策略指定为 Gateway 上 connect()的参数，并将该策略用于从该网关实例获取的所有合同交易调用。
+SDK 提供了几种可选的策略，说明在事务调用后如何等待提交事件。 可用策略在 DefaultEventHandlerStrategies 中定义。 (可选)将所需的策略指定为 Gateway 上 connect()的参数，并将该策略用于从该网关实例获取的所有合约交易调用。
 
 如果未指定事件处理策略，则默认使用 MSPID_SCOPE_ALLFORTX。
 
@@ -35,7 +35,7 @@ const gateway = new Gateway();
 await gateway.connect(connectionProfile, connectOptions);
 ```
 
-将 null 指定为事件处理策略将在成功将认可的事务发送给 Orderer 后立即导致事务调用返回。 它不会等待从 Peer 收到任何提交事件。 有关事件处理选项的更多详细信息，请参见 [DefaultEventHandlerOptions](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.Gateway.html#~DefaultEventHandlerOptions__anchor)。
+将 null 指定为事件处理策略将在成功将背书的事务发送给 Orderer 后立即导致事务调用返回。 它不会等待从 Peer 收到任何提交事件。 有关事件处理选项的更多详细信息，请参见 [DefaultEventHandlerOptions](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.Gateway.html#~DefaultEventHandlerOptions__anchor)。
 
 ### 插件事件处理程序
 

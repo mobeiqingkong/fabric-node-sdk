@@ -46,7 +46,7 @@
 | 名称            | 类型                                                                                                                | 描述                                                                                                                                                                        |
 | :-------------- | :------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | options         | [ConnectOptions](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ConnectOptions)&#124;boolean | 可选。如果类型为布尔值，则将假定如何连接以接收完整(true)或已过滤(false)块。                                                                                                 |
-| connectCallback | function                                                                                                            | 可选。该回调将报告与 peer 的连接完成，或报告与对等方连接期间遇到的任何错误。发生错误时，此 ChannelEventHub 将关闭(disconnected)。回调函数应采用两个参数作为(error, value)。 |
+| connectCallback | function                                                                                                            | 可选。该回调将报告与 peer 的连接完成，或报告与peer连接期间遇到的任何错误。发生错误时，此 ChannelEventHub 将关闭(disconnected)。回调函数应采用两个参数作为(error, value)。 |
 
 #### disconnect()
 

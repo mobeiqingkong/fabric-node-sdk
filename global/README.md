@@ -42,11 +42,11 @@ HFREVOKER 是一个布尔属性，它允许身份重新调用用户和/或证书
 
 #### &lt;constant&gt; ORDERER
 
-ORDERER 指示身份正在充当订购者
+ORDERER 指示身份正在充当orderer
 
 #### &lt;constant&gt; PEER
 
-PEER 表示身份正在充当对等方
+PEER 表示身份正在充当peer
 
 #### &lt;constant&gt; USER
 
@@ -321,7 +321,7 @@ var tx_id = block.data.data[0].payload.header.channel_header.tx_id;
 | transientMap       | object                                                                                                                                                                                   | 可选。带有 String 属性名称和 Buffer 属性值的对象，可以由链码使用，但不能保存在分类帐中。可以使用此技术将诸如用于加密的密码信息的数据传递到链码。应将要保留在私有数据存储区（集合）中的数据传递给 transientMap 中的链码。                                                                                                                                                                                                                                                        |
 | fcn                | string                                                                                                                                                                                   | 可选。在目标链码中调用 stub.GetFunctionAndParameters()时要返回的函数名称。默认为'init';如果要不传入任何函数名，请显式传入 fcn，其值为 null 或”（空字符串）                                                                                                                                                                                                                                                                                                                      |
 | args               | Array.&lt;string&gt;                                                                                                                                                                     | 可选。传递给 fcn 值所标识的函数的字符串参数数组。                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| endorsement-policy | Object                                                                                                                                                                                   | 可选。此链码的 EndorsementPolicy 对象（请参见下面的示例）。如果未指定，则使用默认策略“由来自与成员服务提供者阵列相对应的任何组织的任何成员的签名”("a signature by any member from any of the organizations corresponding to the array of member service providers")。警告：不建议将默认策略用于生产，因为这将允许应用程序绕过投标认可，并直接向订购者发送手动构造的事务（在写入集中具有任意输出）。分配给创建签名的客户端实例的用户上下文将允许成功验证交易并将其提交到分类账。 |
+| endorsement-policy | Object                                                                                                                                                                                   | 可选。此链码的 EndorsementPolicy 对象（请参见下面的示例）。如果未指定，则使用默认策略“由来自与成员服务提供者阵列相对应的任何组织的任何成员的签名”("a signature by any member from any of the organizations corresponding to the array of member service providers")。警告：不建议将默认策略用于生产，因为这将允许应用程序绕过投标背书，并直接向orderer发送手动构造的事务（在写入集中具有任意输出）。分配给创建签名的客户端实例的用户上下文将允许成功验证交易并将其提交到分类账。 |
 
 ##### 示例
 
@@ -400,7 +400,7 @@ chaincode_spec
 | args               | Array.&lt;string&gt;                                                                                                                                                                     | 可选。传递给 fcn 值所标识的函数的字符串参数数组。                                                                                                                                                                                                                                                                                                                                                                                                |
 | required           | Array.&lt;string&gt;                                                                                                                                                                     | 可选。字符串数组，表示背书所需的 peer 的名称。这些将是发送提案的唯一 peer。该列表仅适用于使用发现服务的背书。此属性由[DiscoveryEndorsementHandler](./DiscoveryEndorsementHandler.md使用。                                                                                                                                                                                                                                                                                         |
 | ignore             | Array.&lt;string&gt;                                                                                                                                                                     | 可选。字符串数组，表示背书应忽略的 peer 的名称。该列表仅适用于使用发现服务的背书。此属性由[DiscoveryEndorsementHandler](./DiscoveryEndorsementHandler.md使用。                                                                                                                                                                                                                        |
-| preferred          | Array.&lt;string&gt;                                                                                                                                                                     | 可选。字符串数组，代表应该由背书赋予优先级的 peer 的名称。优先级意味着当背书计划在组中有更多 peer，然后需要满足背书策略时，将首先选择这些 peer 进行背书。该列表仅适用于使用发现服务的认可。此属性由[DiscoveryEndorsementHandler](./DiscoveryEndorsementHandler.md使用。                                                                                                               |
+| preferred          | Array.&lt;string&gt;                                                                                                                                                                     | 可选。字符串数组，代表应该由背书赋予优先级的 peer 的名称。优先级意味着当背书计划在组中有更多 peer，然后需要满足背书策略时，将首先选择这些 peer 进行背书。该列表仅适用于使用发现服务的背书。此属性由[DiscoveryEndorsementHandler](./DiscoveryEndorsementHandler.md使用。                                                                                                               |
 | requiredOrgs       | Array.&lt;string&gt;                                                                                                                                                                     | 可选。字符串数组，表示背书所需的组织的 MSP ID。仅向这些组织中的 peer 发送提议。该列表仅适用于使用发现服务的背书。此属性由[DiscoveryEndorsementHandler](./DiscoveryEndorsementHandler.md使用。                                                                                                                                                                                         |
 | ignoreOrgs         | Array.&lt;string&gt;                                                                                                                                                                     | 可选。字符串数组，表示背书的组织应忽略的 MSP ID 的名称。在将组织中的 peer 添加到优先级列表之前，可以使用可选属性 preferredHeightGap 考虑其分类帐高度。该列表仅适用于使用发现服务的背书。此属性由[DiscoveryEndorsementHandler](./DiscoveryEndorsementHandler.md使用。                                                                                                                  |
 | preferredOrgs      | Array.&lt;string&gt;                                                                                                                                                                     | 可选。一组字符串，代表应由背书赋予优先级的组织的 MSP ID 的名称。在将组织中的 peer 添加到优先级列表之前，可以使用可选属性 preferredHeightGap 考虑其分类帐高度。该列表仅适用于使用发现服务的背书。此属性由[DiscoveryEndorsementHandler](./DiscoveryEndorsementHandler.md使用。                                                                                                          |
@@ -852,7 +852,7 @@ signatures -- {array}
 
 | 名称       | 类型                                                                                                                                 | 描述                                           |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------- |
-| chaincodes | Array.&lt;[DiscoveryChaincodeCall](#DiscoveryChaincodeCall)&gt; | 链码名称和集合将发送到发现服务以计算认可计划。 |
+| chaincodes | Array.&lt;[DiscoveryChaincodeCall](#DiscoveryChaincodeCall)&gt; | 链码名称和集合将发送到发现服务以计算背书计划。 |
 
 #### DiscoveryChaincodeQuery
 
@@ -1050,14 +1050,14 @@ signatures -- {array}
 | 名称              | 类型                                                                                                                                                 | 描述                    |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
 | msps              | Object.&lt;string, [DiscoveryResultMSPConfig](#DiscoveryResultMSPConfig)&gt;    | 可选。找到了 msp 配置。 |
-| orderers          | Object.&lt;string, [DiscoveryResultEndpoints](#DiscoveryResultEndpoints)&gt;    | 可选。找到订购者。      |
+| orderers          | Object.&lt;string, [DiscoveryResultEndpoints](#DiscoveryResultEndpoints)&gt;    | 可选。找到orderer。      |
 | peers_by_org      | Object.&lt;string, [DiscoveryResultPeers](#DiscoveryResultPeers)&gt;            | 可选。组织的同行发现。  |
 | endorsement_plans | Array.&lt;[DiscoveryResultEndorsementPlan](#DiscoveryResultEndorsementPlan)&gt; | 可选。                  |
 | timestamp         | number                                                                                                                                               | 发现结果更新的时间戳。  |
 
 #### Endorsement
 
-背书是背书人对提案回复的签名。通过产生认可消息，背书者会隐式“批准”提案响应及其中包含的操作。收集到足够的背书后，就可以从一组提案响应中生成交易。
+背书是背书人对提案回复的签名。通过产生背书消息，背书者会隐式“批准”提案响应及其中包含的操作。收集到足够的背书后，就可以从一组提案响应中生成交易。
 
 背书消息具有以下结构：
 
@@ -1456,7 +1456,7 @@ policies
 
 #### ProposalResponse
 
-Protobuf 消息，由提案请求的 peer 背书而返回。peer 节点运行提案指定的目标链码，并决定是否认可提案，并将认可结果以及提案响应消息中的 [读写集(read and write sets)](http://hyperledger-fabric.readthedocs.io/en/latest/arch-deep-dive.html?highlight=readset#the-endorsing-peer-simulates-a-transaction-and-produces-an-endorsement-signature) 发送回去。
+Protobuf 消息，由提案请求的 peer 背书而返回。peer 节点运行提案指定的目标链码，并决定是否背书提案，并将背书结果以及提案响应消息中的 [读写集(read and write sets)](http://hyperledger-fabric.readthedocs.io/en/latest/arch-deep-dive.html?highlight=readset#the-endorsing-peer-simulates-a-transaction-and-produces-an-endorsement-signature) 发送回去。
 
 - 类型
 
@@ -1729,7 +1729,7 @@ rule
 
 #### Transaction
 
-交易（或“背书人交易”）是调用链码以收集背书的结果，在渠道的上下文中进行全局排序，并在最终正式“提交”到区块内部的分类帐之前，被提交者 peer 作为区块的一部分进行验证。每笔交易都包含代表一系列执行交易的不同步骤的“动作”，这些步骤将被原子地处理，这意味着如果任何一个步骤失败，则整个交易将被标记为已拒绝。
+交易（或“背书人交易”）是调用链码以收集背书的结果，在通道的上下文中进行全局排序，并在最终正式“提交”到区块内部的分类帐之前，被提交者 peer 作为区块的一部分进行验证。每笔交易都包含代表一系列执行交易的不同步骤的“动作”，这些步骤将被原子地处理，这意味着如果任何一个步骤失败，则整个交易将被标记为已拒绝。
 
 "actions" 数组的每个条目都包含一个链码提议和相应的提议响应，这些响应封装了背书的 peer 关于该提议是否被视为有效的决定。请注意，即使背书的 peer 认为交易建议有效，提交人在交易验证期间仍可能拒绝交易建议。整个交易是否有效，并不反映在交易记录本身中，而是记录在区块元数据的单独字段中。
 
@@ -1821,8 +1821,8 @@ actions {array}
 | 名称              | 类型                                                                                                                     | 描述                                                                                                                                                                                                                                                |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | proposalResponses | Array.&lt;[ProposalResponse](#ProposalResponse)&gt; | 包含[endorsement](./Channel.html#sendTransactionProposal)调用响应的数组或单个[ProposalResponse](#ProposalResponse)对象 |
-| proposal          | Proposal                                                                                                                 | 包含原始认可请求的投标对象                                                                                                                                                                                                                          |
-| txID              | TransactionId                                                                                                            | 可选。 -必须是提案认可中使用的交易 ID 对象。 transactionID 将仅用于确定请求的签名是否应由管理员身份或分配给客户端实例的用户来完成。                                                                                                                 |
+| proposal          | Proposal                                                                                                                 | 包含原始背书请求的投标对象                                                                                                                                                                                                                          |
+| txID              | TransactionId                                                                                                            | 可选。 -必须是提案背书中使用的交易 ID 对象。 transactionID 将仅用于确定请求的签名是否应由管理员身份或分配给客户端实例的用户来完成。                                                                                                                 |
 | orderer           | [Orderer](./Orderer.md &#124; string                         | 可选。要操作的 orderer 实例或 orderer 的字符串名称。请参阅 Client.getTargetOrderer                                                                                                                                                                  |
 
 #### UserNamePasswordObject

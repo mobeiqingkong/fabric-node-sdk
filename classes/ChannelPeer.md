@@ -1,6 +1,6 @@
 # ChannelPeer
 
-ChannelPeer 类表示此通道上目标区块链网络中的对等方。
+ChannelPeer 类表示此通道上目标区块链网络中的peer。
 
 #### new ChannelPeer(mspid, channel, peer, roles)
 
@@ -105,7 +105,7 @@ ChannelPeer 类表示此通道上目标区块链网络中的对等方。
 
 #### isInRole()
 
-检查此 peer 是否处于指定角色。未定义传入角色时，默认值为 true。如果此对等方未定义角色，则默认值为 true。
+检查此 peer 是否处于指定角色。未定义传入角色时，默认值为 true。如果此peer未定义角色，则默认值为 true。
 
 返回结果
 

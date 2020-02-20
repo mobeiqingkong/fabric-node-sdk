@@ -2,7 +2,7 @@
 
 ## [fabric-network](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.html)~ Gateway
 
-网关对等方为应用程序访问 fabric 网络提供连接点。它使用默认构造函数实例化。然后，可以通过传递 CCP 定义或现有的 [Client](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html) 对象，使用 connect 方法将其连接到 fabric 网络。连接后，它便可以使用 getNetwork 方法访问各个网络实例（通道），该方法又可以访问安装在网络上的智能合约并将事务提交到分类账。
+网关peer为应用程序访问 fabric 网络提供连接点。它使用默认构造函数实例化。然后，可以通过传递 CCP 定义或现有的 [Client](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html) 对象，使用 connect 方法将其连接到 fabric 网络。连接后，它便可以使用 getNetwork 方法访问各个网络实例（通道），该方法又可以访问安装在网络上的智能合约并将事务提交到分类账。
 
 #### new Gateway()
 
@@ -218,9 +218,9 @@ await gateway.connect(ccp, {
 
 | 名称            | 类型     | 描述                                                                                                       |
 | --------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| startListening  | function | 异步函数，用于解析处理程序何时开始侦听事务提交事件。在交易建议被接受之后并且在将交易提交给订购者之前调用。 |
-| waitForEvents   | function | 当接收到适当的事务提交事件时解析（或拒绝）的异步功能。在将交易提交给订购者后调用。                         |
-| cancelListening | function | 取消收听。如果无法将交易提交给订购者，则调用。                                                             |
+| startListening  | function | 异步函数，用于解析处理程序何时开始侦听事务提交事件。在交易建议被接受之后并且在将交易提交给orderer之前调用。 |
+| waitForEvents   | function | 当接收到适当的事务提交事件时解析（或拒绝）的异步功能。在将交易提交给orderer后调用。                         |
+| cancelListening | function | 取消收听。如果无法将交易提交给orderer，则调用。                                                             |
 
 #### TxEventHandlerFactory(transaction, network)
 
