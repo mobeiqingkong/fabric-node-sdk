@@ -443,11 +443,11 @@ chaincode_spec
 
 通道配置记录将具有以下对象结构。
 
-```javascript
+```go
 version -- {int}
 mod_policy -- {string}
 groups
-	Orderer
+ Orderer
 		version -- {int}
 		groups
 			&lt;orderer_org_name&gt; -- {OrganizationConfigGroup}
