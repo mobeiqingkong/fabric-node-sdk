@@ -236,7 +236,7 @@ peers:
       path: test/fixtures/channel/c...
 ```
 
-在客户端实例加载连接配置文件后使用 client.getChannel()创建通道时，Fabric 客户端将创建 peer 并将其分配给该通道。 peer 和 orderer 将固有地分配给客户端实例的连接选项。 请参见 Client＃addConnectionOptions。在调用 channel.initialize()且未将任何 peer 作为目标传递时，将使用具有 Discover 角色的 peer。
+在客户端实例加载连接配置文件后使用 client.getChannel()创建通道时，Fabric 客户端将创建 peer 并将其分配给该通道。 peer 和 orderer 将固有地分配给客户端实例的连接选项。 请参见 Client#addConnectionOptions。在调用 channel.initialize()且未将任何 peer 作为目标传递时，将使用具有 Discover 角色的 peer。
 
 ```javascript
 const client = Client.loadFromConfig(...);

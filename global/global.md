@@ -1057,7 +1057,7 @@ signature -- {byte[]}
 | enrollmentID     | string                                                       | 用于注册的注册ID                                             |
 | enrollmentSecret | string                                                       | 与注册ID关联的secret                                         |
 | profile          | string                                                       | 配置文件名称。为TLS证书指定“ tls”配置文件；否则，将颁发入学证书。 |
-| csr              | string                                                       | 可选。 PEM编码的PKCS＃10证书签名请求。从客户端发送到Fabric-ca以获得数字身份证书的消息。 |
+| csr              | string                                                       | 可选。 PEM编码的PKCS#10证书签名请求。从客户端发送到Fabric-ca以获得数字身份证书的消息。 |
 | attr_reqs        | Array.&lt;[AttributeRequest](./global.html#AttributeRequest)&gt; | [AttributeRequest](./global.html#AttributeRequest)数组 |
 
 #### EnrollmentResponse
