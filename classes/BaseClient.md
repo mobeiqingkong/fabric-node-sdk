@@ -1,10 +1,10 @@
 # BaseClient
 
-## BaseClient
+## 说明
 
 使用 CryptoSuite 签名和哈希的客户端的基类。它还包含用于构造 [CryptoKeyStore](CryptoKeyStore.md), [CryptoSuite](module-api.CryptoSuite.md) and [KeyValueStore](module-api.KeyValueStore.md) 的新实例的实用程序方法。
 
-#### new BaseClient()
+### new BaseClient()
 
 ### Methods
 
@@ -26,11 +26,11 @@
 
 1. 内存:如果设置已添加如下:
 
-```shell
-Client.setConfigSetting('aa-bb', 'value')
-```
+   ```shell
+   Client.setConfigSetting('aa-bb', 'value')
+   ```
 
-2. 命令行参数，示例:
+2. 命令行参数，示例
 
    ```shell
    node app.js --aa-bb value
@@ -38,9 +38,9 @@ Client.setConfigSetting('aa-bb', 'value')
 
 3. 环境变量 :
 
-```shell
-AA_BB=value node app.js
-```
+   ```shell
+   AA_BB=value node app.js
+   ```
 
 4. 自定义文件:添加时用 addConfigFile(path)添加的所有文件将按添加顺序排序，其中，之后添加的文件中的设置将覆盖之前添加的那些相同的设置
 
@@ -65,7 +65,7 @@ AA_BB=value node app.js
 
 - 返回结果:
 
-  可以使用“ info()”，“ warn()”，“ error()”和“ debug()”方法记录整个日志的记录器，以标记日志条目的类型。
+  可以使用" info()"，" warn()"，" error()"和" debug()"方法记录整个日志的记录器，以标记日志条目的类型。
 
   - 类型
 
@@ -74,7 +74,6 @@ AA_BB=value node app.js
 #### &lt;static&gt; newCryptoKeyStore(KVSImplClass, opts)
 
 这是工厂方法。它返回 CryptoKeyStore 的新实例。当应用程序需要使用默认存储以外的其他密钥存储时，应创建一个新的 CryptoKeyStore 并将其设置在 CryptoSuite 上。
-
 **cryptosuite.setCryptoKeyStore(Client.newCryptoKeyStore(KVSImplClass, opts))**
 
 - 参数
@@ -94,7 +93,7 @@ AA_BB=value node app.js
 
 #### &lt;static&gt; newCryptoSuite(setting)
 
-这是工厂方法。它基于传入的“setting”(如果不存在，则基于 [CryptoSetting](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#CryptoSetting) 属性的默认值)返回 CryptoSuite API 实现的新实例。
+这是工厂方法。它基于传入的"setting"(如果不存在，则基于 [CryptoSetting](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#CryptoSetting) 属性的默认值)返回 CryptoSuite API 实现的新实例。
 
 - 参数
 
@@ -161,7 +160,7 @@ AA_BB=value node app.js
 
 给整个 SDK 配置一个日志记录器，以使用并覆盖默认日志记录器。除非调用此方法，否则 SDK 将使用基于 [winston](https://www.npmjs.com/package/winston) 的默认日志记录器。使用内置的基于 Winston 的记录器时，请使用配置设置 hfc-logging 以以下格式传递配置:
 
-```
+```javascript
 {
   'error': 'error.log', // 将'error'日志打印到与node.js当前工作目录相关的文件error.log
   'debug': '/tmp/myapp/debug.log',  // 'debug'和其他更关键的内容('info', 'warn', 'error')也可以是绝对路径

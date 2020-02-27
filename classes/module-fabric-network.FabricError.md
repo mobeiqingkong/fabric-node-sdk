@@ -4,7 +4,7 @@
 
 Fabric 的基本错误类型。
 
-#### new FabricError()
+### new FabricError()
 
 - 属性
 

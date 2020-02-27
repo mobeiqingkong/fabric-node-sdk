@@ -1,8 +1,8 @@
 # fabric-network:如何重播错过的事件(How to replay missed events)
 
-## fabric-network:如何重播错过的事件(How to replay missed events)
+## 说明
 
-# 事件检查点(Event Checkpointing)
+## 事件检查点(Event Checkpointing)
 
 本教程描述了 Fabric 网络模块的用户可以选择的方法，用于重播 Peer 发出的丢失事件。
 

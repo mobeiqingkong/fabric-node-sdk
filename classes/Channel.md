@@ -1,6 +1,6 @@
 # Channel
 
-## Channel
+## 说明
 
 Channel 为一组参与的组织提供了数据隔离。
 
@@ -10,7 +10,7 @@ Channel 对象捕获在通道上下文中与 fabric 后端交互所需的设置�
 
 Channel 对象还负责验证交易提议响应中的背书签名。在使用 peer 和 orderer 列表配置 Channel 对象之后，必须对其进行初始化。初始化将获取配置块请求发送到主 orderer ，以检索该通道的配置设置。
 
-#### new Channel(name, clientContext)
+### new Channel(name, clientContext)
 
 返回该类的新实例。仅客户端调用。要在 fabric 中创建新通道，请调用[createChannel()](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#createChannel)。
 
@@ -260,7 +260,7 @@ Channel 对象还负责验证交易提议响应中的背书签名。在使用 pe
 
 #### getGenesisBlock(request)
 
-通道的第一个块称为“创世块”。该块捕获了初始通道配置。为了使 peer 点加入通道，必须提供创世块。必须在调用[joinChannel()](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#joinChannel)之前调用此方法。
+通道的第一个块称为"创世块"。该块捕获了初始通道配置。为了使 peer 点加入通道，必须提供创世块。必须在调用[joinChannel()](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#joinChannel)之前调用此方法。
 
 - 参数
 
@@ -270,7 +270,7 @@ Channel 对象还负责验证交易提议响应中的背书签名。在使用 pe
 
 返回结果
 
-- 对编码的 protobuf“块”的 Promise
+- 对编码的 protobuf"块"的 Promise
 
   - 类型
 
@@ -392,7 +392,7 @@ Channel 对象还负责验证交易提议响应中的背书签名。在使用 pe
 
 用成员资格服务提供程序(MSP)初始化 channel 对象。通道的 MSP 对于为应用程序提供验证证书和验证从 fabric 网后端接收到的消息中的签名的能力至关重要。例如，在调用[sendTransactionProposal()](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html#sendTransactionProposal)之后，应用程序可以验证投标响应的背书中的签名，以确保它们未被篡改。
 
-如果未传入“ config”参数，则此方法从 orderer 那里检索配置。可以选择传入一个配置以初始化此通道，而无需调用orderer。
+如果未传入" config"参数，则此方法从 orderer 那里检索配置。可以选择传入一个配置以初始化此通道，而无需调用orderer。
 
 使用发现时，此方法还将自动加载代表 fabric 网络的 orderer 和 peer 实体。该应用程序必须提供一个运行 fabric 发现服务的 peer。
 
@@ -437,7 +437,7 @@ Channel 对象还负责验证交易提议响应中的背书签名。在使用 pe
 
 | 名称 | 类型                                                                                    | 描述                                                                                                    |
 | :--- | :-------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| peer | [Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)&#124;string | 可选。peer 实例或者已分配给该通道的 peer 名称。如果未提供，则 ChannelEventHub 必须与“target”peer 连接。 |
+| peer | [Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)&#124;string | 可选。peer 实例或者已分配给该通道的 peer 名称。如果未提供，则 ChannelEventHub 必须与"target"peer 连接。 |
 
 返回结果
 
@@ -455,7 +455,7 @@ Channel 对象还负责验证交易提议响应中的背书签名。在使用 pe
 
 | 名称        | 类型                                                                        | 描述                                                                                        |
 | :---------- | :-------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| blockNumber | number                                                                      | 有问题的块的编号。                                                                          |
+| blockNumber | number                                                                      | 所查询的块的编号。                                                                          |
 | target      | [Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html) | 可选。向其发送查询的 peer。如果未传递目标，则查询将发送到添加到 channel 对象的第一个 peer。 |
 | useAdmin    | boolean                                                                     | 可选。指示在向 peer 发出此呼叫时应使用管理员凭据。                                          |
 | skipDecode  | boolean                                                                     | 可选。如果为 true，则此函数返回一个编码块。                                                 |
@@ -512,7 +512,7 @@ Channel 对象还负责验证交易提议响应中的背书签名。在使用 pe
 
 #### &lt;async&gt; queryByChaincode(request, useAdmin)
 
-将提议发送给将由链码处理的一个或多个背书 peer。背书 peer 调用链码处理事务与调用链码进行查询没有什么不同。所有请求都将呈现给目标链码的“Invoke”方法，必须执行该方法才能从参数中了解这是一个查询请求。链码还必须以字节数组格式返回结果，并且调用方将必须能够解码这些结果。如果请求包含 txId 属性，则将使用该事务 ID，并将应用其管理特权。在这种情况下，此函数的 useAdmin 参数将被忽略。
+将提议发送给将由链码处理的一个或多个背书 peer。背书 peer 调用链码处理事务与调用链码进行查询没有什么不同。所有请求都将呈现给目标链码的"Invoke"方法，必须执行该方法才能从参数中了解这是一个查询请求。链码还必须以字节数组格式返回结果，并且调用方将必须能够解码这些结果。如果请求包含 txId 属性，则将使用该事务 ID，并将应用其管理特权。在这种情况下，此函数的 useAdmin 参数将被忽略。
 
 - 参数
 
@@ -593,7 +593,7 @@ for (let i = 0; i < responsePayloads.length; i++) {
 | 名称     | 类型                                                                        | 描述                                                                                                                           |
 | :------- | :-------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | target   | [Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html) | 可选。作为此查询目标的 peer。如果未传递目标，则查询将使用添加到 channel 对象的第一个 peer 对象。                               |
-| useAdmin | boolean                                                                     | 可选。指示在向 peer 发出此呼叫时应使用管理员凭据。必须通过通用连接配置文件或使用“ setAdminSigningIdentity”方法来加载管理标识。 |
+| useAdmin | boolean                                                                     | 可选。指示在向 peer 发出此呼叫时应使用管理员凭据。必须通过通用连接配置文件或使用" setAdminSigningIdentity"方法来加载管理标识。 |
 
 返回结果
 
@@ -626,7 +626,7 @@ for (let i = 0; i < responsePayloads.length; i++) {
 
 #### &lt;async&gt; refresh()
 
-刷新通道的配置。将使用发现服务从 peer 查询 MSP 配置，peer，orderer 和背书计划。如果未提供“ target”参数，将查询以前用于发现的 peer。
+刷新通道的配置。将使用发现服务从 peer 查询 MSP 配置，peer，orderer 和背书计划。如果未提供" target"参数，将查询以前用于发现的 peer。
 
 返回结果
 
@@ -718,7 +718,7 @@ for (let i = 0; i < responsePayloads.length; i++) {
 
 返回结果
 
-- orderer 返回的"BroadcastResponse"消息的Promise，其中包含一个用于标准[HTTP response code](https://github.com/hyperledger/fabric/blob/v1.0.0/protos/common/common.proto#L27)的“状态”字段。这将是成功提交交易的 orderer 的确认。
+- orderer 返回的"BroadcastResponse"消息的Promise，其中包含一个用于标准[HTTP response code](https://github.com/hyperledger/fabric/blob/v1.0.0/protos/common/common.proto#L27)的"状态"字段。这将是成功提交交易的 orderer 的确认。
 
   - 类型
 

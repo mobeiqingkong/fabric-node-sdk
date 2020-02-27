@@ -1,6 +1,6 @@
 # fabric-client:如何创建 Hyperledger Fabric 通道(How to create a Hyperledger Fabric channel)
 
-## fabric-client:如何创建 Hyperledger Fabric 通道(How to create a Hyperledger Fabric channel)
+## 说明
 
 本教程说明了如何使用 Node.js fabric-client SDK 创建 Hyperledger Fabric 通道。 它显示了如何使用初始(默认)通道定义以及如何从该定义开始构建自定义的定义。 创建网络和通道的过程还涉及创建和使用加密材料(cryptographic material)，这里将不再讨论。
 
@@ -79,7 +79,7 @@ export FABRIC_CFG_PATH=$PWD
 ../../../bin/configtxgen -channelID mychannel -outputCreateChannelTx mychannel.tx -profile TwoOrgsChannel
 ```
 
-该路径还必须包含二进制对象的类型，在第一种情况下，它是 common.Block。 可以对 fabric-client\lib\protos 目录 protobuf 文件中找到的任何 protobuf message 对象类型进行“解码(decode)”或“编码(encode)”。 首先从 fabric-samples/bin 目录启动 configtxlator 服务
+该路径还必须包含二进制对象的类型，在第一种情况下，它是 common.Block。 可以对 fabric-client\lib\protos 目录 protobuf 文件中找到的任何 protobuf message 对象类型进行"解码(decode)"或"编码(encode)"。 首先从 fabric-samples/bin 目录启动 configtxlator 服务
 
 ```shell
 ./configtxlator start

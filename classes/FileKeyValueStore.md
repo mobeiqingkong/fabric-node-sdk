@@ -1,10 +1,10 @@
 # FileKeyValueStore
 
-## FileKeyValueStore
+## 说明
 
 这是[KeyValueStore](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.KeyValueStore.html) API 的默认实现。它使用文件来存储键值。
 
-#### new FileKeyValueStore(options)
+### new FileKeyValueStore(options)
 
 constructor
 
@@ -63,7 +63,7 @@ constructor
 
 返回结果
 
-- 成功写入操作后“value”对象的 Promise。
+- 成功写入操作后"value"对象的 Promise。
 
   - 类型
 

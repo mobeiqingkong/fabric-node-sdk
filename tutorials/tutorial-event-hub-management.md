@@ -1,6 +1,6 @@
 # fabric-network:如何自动选择并重新连接到事件中心(How to automatically select and reconnect to event hubs)
 
-## fabric-network:如何自动选择并重新连接到事件中心(How to automatically select and reconnect to event hubs)
+## 说明
 
 本教程描述了如何定义事件中心断开连接或需要新的事件中心时使用的事件中心选择策略的行为。
 

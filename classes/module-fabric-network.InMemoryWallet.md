@@ -4,7 +4,7 @@
 
 内存钱包实现。请注意，在给定的 Node.js 进程中，此类的所有实例之间共享内存状态。
 
-#### new InMemoryWallet( [walletmixin])
+### new InMemoryWallet( [walletmixin])
 
 创建一个内存中钱包的实例。
 

@@ -4,7 +4,7 @@
 
 在每个事件侦听器的文件中创建检查点
 
-#### new FileSystemCheckpointer(channelName, listenerName [, options])
+### new FileSystemCheckpointer(channelName, listenerName [, options])
 
 - 参数
 

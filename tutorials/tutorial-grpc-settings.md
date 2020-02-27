@@ -1,6 +1,6 @@
 # fabric-common:如何设置 gRPC 设置(How to set gRPC settings)
 
-## fabric-common:如何设置 gRPC 设置(How to set gRPC settings)
+## 说明
 
 本教程说明了从 1.4 版本开始，通过 Hyperledger Fabric Node.js 客户端设置用于连接 Hyperledger Fabric 网络的 gRPC 设置的不同方法。
 
@@ -155,7 +155,7 @@ client:
       # connection options, typically these will be common GRPC settings,
       # 连接选项，通常是通用的GRPC设置，
       # overriding what has been set in the system config file "default.json"
-      # 覆盖已在系统配置文件“ default.json”中设置的内容
+      # 覆盖已在系统配置文件" default.json"中设置的内容
     options:
       grpc.keepalive_timeout_ms: 10000
 peers:

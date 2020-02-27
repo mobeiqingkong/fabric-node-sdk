@@ -1,6 +1,6 @@
 # 如何使用私人数据(How to use private data)
 
-## 如何使用私人数据(How to use private data)
+## 说明
 
 本教程说明了如何使用 Node.js SDK API 在 Hyperledger Fabric 网络中存储和检索私有数据。
 

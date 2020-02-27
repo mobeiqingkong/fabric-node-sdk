@@ -1,10 +1,10 @@
 # BlockDecoder
 
-## BlockDecoder
+## 说明
 
 实用程序类，用于将 Hyperledger Fabric 块消息的 protobuf 编码的字节数组转换为纯 Javascript 对象
 
-#### new BlockDecoder()
+### new BlockDecoder()
 
 ### Methods
 
@@ -28,7 +28,7 @@
 
 #### &lt;static&gt;decodeBlock(block_data)
 
-构造一个对象，该对象包含来自 protobuf 编码的“Block”对象的所有解码值
+构造一个对象，该对象包含来自 protobuf 编码的"Block"对象的所有解码值
 
 - 参数
 
@@ -46,13 +46,13 @@
 
 #### &lt;static&gt;decodeTransaction(processed_transaction_bytes)
 
-构造一个对象，该对象包含来自 protobuf 编码的“ ProcessedTransaction”字节的所有解码值
+构造一个对象，该对象包含来自 protobuf 编码的" ProcessedTransaction"字节的所有解码值
 
 - 参数
 
 | 名称                        | 类型               | 描述                                           |
 | --------------------------- | ------------------ | ---------------------------------------------- |
-| processed_transaction_bytes | Array.&lt;byte&gt; | Protobuf 消息“ ProcessedTransaction”的编码字节 |
+| processed_transaction_bytes | Array.&lt;byte&gt; | Protobuf 消息" ProcessedTransaction"的编码字节 |
 
 - 返回结果
 

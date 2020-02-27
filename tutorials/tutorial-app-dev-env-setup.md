@@ -1,6 +1,6 @@
 # 设置应用程序开发人员的环境(Setting up the Application Developer's Environment)
 
-## 设置应用程序开发人员的环境(Setting up the Application Developer's Environment)
+## 说明
 
 本教程描述了如何准备开发环境，以构建业务应用程序以使用基于 Hyperledger Fabric 的区块链网络。 从高层次上讲，运行在 Hyperledger Fabric 网络上的业务应用程序由两部分组成:在服务器([背书(endorser)](http://hyperledger-fabric.readthedocs.io/en/latest/arch-deep-dive.html#peer) 节点)中运行的链码和在 Node.js 应用程序中运行的客户端代码。
 

@@ -1,10 +1,10 @@
 # TransactionID
 
-## TransactionID
+## 说明
 
-代表交易标识符的类。提供在创建此对象的实例时自动创建“ nonce”值的功能。
+代表交易标识符的类。提供在创建此对象的实例时自动创建" nonce"值的功能。
 
-#### new TransactionID(signer_or_userContext, admin)
+### new TransactionID(signer_or_userContext, admin)
 
 根据用户的证书建立一个新的交易 ID，并自动生成一个现时值。
 

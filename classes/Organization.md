@@ -1,10 +1,10 @@
 # Organization
 
-## Organization
+## 说明
 
 Organization 类代表目标区块链网络中的组织。
 
-#### new Organization(name, mspid)
+### new Organization(name, mspid)
 
 构造组织对象
 

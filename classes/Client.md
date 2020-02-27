@@ -1,6 +1,6 @@
 # Client
 
-## Client
+## 说明
 
 客户端实例提供了主要的 API 表面，可以与peer和orderer的网络进行交互。使用 SDK 的应用程序可能需要与多个网络交互，每个网络都通过客户端的单独实例进行。
 
@@ -13,7 +13,7 @@
 
 客户端还通过 stateStore 支持持久性。状态存储区是一个简单的存储插件，可实现以下[module:api.KeyValueStore](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.KeyValueStore.html) 接口，这有助于 SDK 保存在服务器重新启动/崩溃时使用的关键信息。开箱即用，SDK 将签名身份(User 类的实例)保存在状态存储中。
 
-#### new Client()
+### new Client()
 
 ### 扩展
 
@@ -41,7 +41,7 @@
 
 #### &lt;async&gt; \_setUserFromConfig(opts)
 
-实用程序方法根据传入的用户名和密码以及通用连接配置文件设置的“客户端”部分中的组织来设置用户上下文。
+实用程序方法根据传入的用户名和密码以及通用连接配置文件设置的"客户端"部分中的组织来设置用户上下文。
 
 - 参数
 
@@ -51,7 +51,7 @@
 
 #### addConnectionOptions(options)
 
-向此客户端添加一组连接选项。 创建新的 Peer 和 Orderer 时，或者当通道使用发现功能自动在通道上创建peer和orderer时，这些将可合并到应用程序的选项中。 这将是一个方便的地方，可以存储影响该客户端的所有连接的通用 GRPC 设置。 当调用[Client#newPeer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#newPeer), [Client#getPeer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#getPeer), [Client#newOrderer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#newOrderer) 或 [Client#getOrderer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#getOrderer) 方法时，此客户端对象构建新的[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html) 或[Orderer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Orderer.html)实例时将使用这些设置。 加载公共连接配置文件时，选项将自动添加，并且客户端部分的“连接”部分带有“选项”属性。 默认连接选项将首先从系统配置的“连接选项”设置中加载。
+向此客户端添加一组连接选项。 创建新的 Peer 和 Orderer 时，或者当通道使用发现功能自动在通道上创建peer和orderer时，这些将可合并到应用程序的选项中。 这将是一个方便的地方，可以存储影响该客户端的所有连接的通用 GRPC 设置。 当调用[Client#newPeer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#newPeer), [Client#getPeer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#getPeer), [Client#newOrderer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#newOrderer) 或 [Client#getOrderer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#getOrderer) 方法时，此客户端对象构建新的[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html) 或[Orderer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Orderer.html)实例时将使用这些设置。 加载公共连接配置文件时，选项将自动添加，并且客户端部分的"连接"部分带有"选项"属性。 默认连接选项将首先从系统配置的"连接选项"设置中加载。
 
 - 参数
 
@@ -169,7 +169,7 @@
 
 #### getChannel(name, throwError)
 
-从客户端实例获取[Channel](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html)实例。 这是仅内存的查找。 如果加载的公共连接配置文件具有按“名称”命名的通道，则将创建一个新的通道实例，并使用在公共连接配置文件中定义的[Orderer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Orderer.html) 对象和[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)对象进行填充。
+从客户端实例获取[Channel](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html)实例。 这是仅内存的查找。 如果加载的公共连接配置文件具有按"名称"命名的通道，则将创建一个新的通道实例，并使用在公共连接配置文件中定义的[Orderer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Orderer.html) 对象和[Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)对象进行填充。
 
 - 参数
 
@@ -284,7 +284,7 @@
 
 #### getPeersForOrg(mspid)
 
-返回在当前加载的公共连接配置文件中定义的组织的 mspid 的 [Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)列表。如果未提供 ID，则将使用当前活动网络配置的“客户端”部分中命名的组织。
+返回在当前加载的公共连接配置文件中定义的组织的 mspid 的 [Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html)列表。如果未提供 ID，则将使用当前活动网络配置的"客户端"部分中命名的组织。
 
 - 参数
 
@@ -314,7 +314,7 @@
 
 #### &lt;async&gt; getUserContext(name, checkPersistence)
 
-通过给定名称返回用户。 这可以是同步调用，也可以是异步调用，具体取决于“ checkPersistent”是否正确。 如果为真，则该方法为异步方法并返回 Promise，否则为同步方法。 如上所述，客户端实例可以具有可选的状态存储。 SDK 将注册的用户保存在存储中，该存储可以由应用程序的授权用户访问(身份验证由 SDK 外部的应用程序完成)。 此函数尝试按名称从本地存储中加载用户(通过 KeyValueStore 接口)。 加载的用户对象必须代表具有由受信任的 CA(例如 CA 服务器)签名的有效注册证书的注册用户。
+通过给定名称返回用户。 这可以是同步调用，也可以是异步调用，具体取决于" checkPersistent"是否正确。 如果为真，则该方法为异步方法并返回 Promise，否则为同步方法。 如上所述，客户端实例可以具有可选的状态存储。 SDK 将注册的用户保存在存储中，该存储可以由应用程序的授权用户访问(身份验证由 SDK 外部的应用程序完成)。 此函数尝试按名称从本地存储中加载用户(通过 KeyValueStore 接口)。 加载的用户对象必须代表具有由受信任的 CA(例如 CA 服务器)签名的有效注册证书的注册用户。
 
 - 参数
 
@@ -347,7 +347,7 @@
 
 必须将 Chaincode 安装到 Peer 并在通道上实例化，然后才能调用它来处理事务。
 
-链码安装只是将链码源和依赖项上载到同级。 该操作是“与通道无关的”，并且是在 Peer 基础上执行的。 仅允许对等组织的 ADMIN 身份执行此操作。
+链码安装只是将链码源和依赖项上载到同级。 该操作是"与通道无关的"，并且是在 Peer 基础上执行的。 仅允许对等组织的 ADMIN 身份执行此操作。
 
 - 参数
 
@@ -483,7 +483,7 @@
 | 名称     | 类型                                                                        | 描述                                                                                                                             |
 | :------- | :-------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | peer     | [Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html) | 目标 Peer 发送查询                                                                                                               |
-| useAdmin | boolean                                                                     | 可选的。指示在向 Peer 发出此呼叫时应使用管理员凭据。必须通过通用连接配置文件或使用“ setAdminSigningIdentity”方法来加载管理标识。 |
+| useAdmin | boolean                                                                     | 可选的。指示在向 Peer 发出此呼叫时应使用管理员凭据。必须通过通用连接配置文件或使用" setAdminSigningIdentity"方法来加载管理标识。 |
 
 返回结果
 
@@ -502,7 +502,7 @@
 | 名称     | 类型                                                                        | 描述                                                                                                                             |
 | :------- | :-------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | peer     | [Peer](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Peer.html) | 目标 Peer                                                                                                                        |
-| useAdmin | boolean                                                                     | 可选的。指示在向 Peer 发出此呼叫时应使用管理员凭据。必须通过通用连接配置文件或使用“ setAdminSigningIdentity”方法来加载管理标识。 |
+| useAdmin | boolean                                                                     | 可选的。指示在向 Peer 发出此呼叫时应使用管理员凭据。必须通过通用连接配置文件或使用" setAdminSigningIdentity"方法来加载管理标识。 |
 
 返回结果
 
@@ -614,7 +614,7 @@ SDK 支持持久存储 [User](https://hyperledger.github.io/fabric-sdk-node/rele
 
 设置 User 类的实例作为此客户端实例的安全上下文。 该用户的签名身份(私钥及其相应的证书)将用于通过 Fabric 后端对所有请求进行签名。
 
-设置用户上下文后，如果已在客户端实例上设置了“状态存储”，则 SDK 会将对象保存在持久性缓存中。 如果未设置状态存储，则不会建立此缓存，并且如果应用程序崩溃并恢复，则应用程序负责再次设置用户上下文。
+设置用户上下文后，如果已在客户端实例上设置了"状态存储"，则 SDK 会将对象保存在持久性缓存中。 如果未设置状态存储，则不会建立此缓存，并且如果应用程序崩溃并恢复，则应用程序负责再次设置用户上下文。
 
 - 参数
 

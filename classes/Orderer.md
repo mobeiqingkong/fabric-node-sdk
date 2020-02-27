@@ -1,10 +1,10 @@
 # Orderer
 
-## Orderer
+## 说明
 
 Orderer 类封装了与目标区块链网络中的 Orderer 节点进行交互的客户端功能。orderer节点公开了两个 API: broadcast()和 deliver()。两者都是流 API，因此客户端和orderer之间存在持久的 grpc 流连接，在这两个方向上都可以交换消息。broadcast() API 用于将交易发送到orderer进行处理。 delivery() API 用于向orderer询问诸如通道配置之类的信息。
 
-#### new Orderer(url, opts)
+### new Orderer(url, opts)
 
 使用给定的 url 和 opts 构造一个 Orderer 对象。一个 Orderer 对象封装了 Orderer 节点的属性以及通过 grpc 流 API 与其交互的属性。 [Client](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html) 对象使用 Orderer 对象来广播创建和更新通道的请求。[Channel](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html)对象还使用它们来广播订购交易的请求。
 

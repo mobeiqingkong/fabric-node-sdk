@@ -1,16 +1,16 @@
 # BasicCommitHandler
 
-## BasicCommitHandler
+## 说明
 
-这是 [CommitHandler](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.CommitHandler.html) API 的实现。它将一次从提供的列表或当前分配给通道的列表中提交要提交给一个orderer的交易。
+这是 [CommitHandler](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.CommitHandler.html) API 的实现。它将一次从提供的列表或当前分配给通道的列表中提交要提交给一个 orderer 的交易。
 
-#### new BasicCommitHandler(channel)
+### new BasicCommitHandler(channel)
 
 - Constructor
 - 参数
 
-| 名称    | 类型                                                                               | 描述               |
-| ------- | ---------------------------------------------------------------------------------- | ------------------ |
+| 名称    | 类型                                                                              | 描述               |
+| ------- | --------------------------------------------------------------------------------- | ------------------ |
 | channel | [Channel](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html) | 此处理程序的通道。 |
 
 ### Extends
@@ -25,8 +25,8 @@
 
 - 参数
 
-| 名称    | 类型                                                                               | 描述                               |
-| ------- | ---------------------------------------------------------------------------------- | ---------------------------------- |
+| 名称    | 类型                                                                              | 描述                               |
+| ------- | --------------------------------------------------------------------------------- | ---------------------------------- |
 | channel | [Channel](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html) | 该提交处理程序将要服务的通道实例。 |
 
 - 返回结果
@@ -39,7 +39,7 @@
 
 #### commit(params)
 
-此方法将处理参数以确定orderer。处理程序将使用提供的orderer或使用分配给通道的orderer。处理程序应执行故障转移，并使用所有可用的订购程序发送已背书的交易。
+此方法将处理参数以确定 orderer。处理程序将使用提供的 orderer 或使用分配给通道的 orderer。处理程序应执行故障转移，并使用所有可用的订购程序发送已背书的交易。
 
 - 参数
 

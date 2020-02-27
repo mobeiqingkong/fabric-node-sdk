@@ -1,6 +1,6 @@
 # 使用离线私钥(Working with an offline private key)
 
-## 使用离线私钥(Working with an offline private key)
+## 说明
 
 本教程说明了如何通过 Hyperledger Fabric Node.js SDK(fabric-client 和 fabric-ca-client)API 使用脱机私钥。
 
@@ -55,24 +55,24 @@ Fabric-ca 具备注册 PKCS#10 标准 CSR 的能力，这意味着用户可以�
 
 1. 首先，使用身份证明生成未签名的交易建议
 
-```javascript
-const certPem = "<PEM encoded certificate content>";
-const mspId = "Org1MSP"; // the msp Id for this org // 该组织的msp ID
+   ```javascript
+   const certPem = "<PEM encoded certificate content>";
+   const mspId = "Org1MSP"; // the msp Id for this org // 该组织的msp ID
 
-const transactionProposal = {
-  fcn: "move",
-  args: ["a", "b", "100"],
-  chaincodeId: "mychaincodeId",
-  channelId: "mychannel"
-};
-const { proposal, txId } = channel.generateUnsignedProposal(
-  transactionProposal,
-  mspId,
-  certPem
-);
-// now we have the 'unsigned proposal' for this transaction
-// 现在我们已经为此交易提供了 '未签名的提案'
-```
+   const transactionProposal = {
+     fcn: "move",
+     args: ["a", "b", "100"],
+     chaincodeId: "mychaincodeId",
+     channelId: "mychannel"
+   };
+   const { proposal, txId } = channel.generateUnsignedProposal(
+     transactionProposal,
+     mspId,
+     certPem
+   );
+   // now we have the 'unsigned proposal' for this transaction
+   // 现在我们已经为此交易提供了 '未签名的提案'
+   ```
 
 2. 计算交易提议字节的哈希值。
 
@@ -82,19 +82,19 @@ const { proposal, txId } = channel.generateUnsignedProposal(
 
    用户可以使用替代实现
 
-```javascript
-// the proposal comes from step 1
-// 提案来自步骤1
-const proposalBytes = proposal.toBuffer();
+   ```javascript
+   // the proposal comes from step 1
+   // 提案来自步骤1
+   const proposalBytes = proposal.toBuffer();
 
-// A hash function by the user's desire
-// 用户期望的哈希函数
-const hashFunction = xxxx;
+   // A hash function by the user's desire
+   // 用户期望的哈希函数
+   const hashFunction = xxxx;
 
-// calculate the hash of the proposal bytes
-// 计算提议字节的哈希值
-const digest = hashFunction(proposalBytes);
-```
+   // calculate the hash of the proposal bytes
+   // 计算提议字节的哈希值
+   const digest = hashFunction(proposalBytes);
+   ```
 
 3. 计算此交易提议的签名
 
@@ -102,98 +102,98 @@ const digest = hashFunction(proposalBytes);
 
    默认情况下，Fabric 客户端将使用算法为"EC"的 ECDSA。
 
-```javascript
-// This is a sample code for signing the digest from step 2 with EC.
-// 这是一个示例代码，用于使用EC从第2步签名摘要。
-// Different signature algorithm may have different interfaces
-// 不同的签名算法可能具有不同的接口
-const elliptic = require("elliptic");
-const { KEYUTIL } = require("jsrsasign");
+   ```javascript
+   // This is a sample code for signing the digest from step 2 with EC.
+   // 这是一个示例代码，用于使用EC从第2步签名摘要。
+   // Different signature algorithm may have different interfaces
+   // 不同的签名算法可能具有不同的接口
+   const elliptic = require("elliptic");
+   const { KEYUTIL } = require("jsrsasign");
 
-const privateKeyPEM = "<The PEM encoded private key>";
-const { prvKeyHex } = KEYUTIL.getKey(privateKeyPEM); // convert the pem encoded key to hex encoded private key // 将Pem编码的密钥转换为十六进制编码的私有密钥
+   const privateKeyPEM = "<The PEM encoded private key>";
+   const { prvKeyHex } = KEYUTIL.getKey(privateKeyPEM); // convert the pem encoded key to hex encoded private key // 将Pem编码的密钥转换为十六进制编码的私有密钥
 
-const EC = elliptic.ec;
-const ecdsaCurve = elliptic.curves["p256"];
+   const EC = elliptic.ec;
+   const ecdsaCurve = elliptic.curves["p256"];
 
-const ecdsa = new EC(ecdsaCurve);
-const signKey = ecdsa.keyFromPrivate(prvKeyHex, "hex");
-const sig = ecdsa.sign(Buffer.from(digest, "hex"), signKey);
+   const ecdsa = new EC(ecdsaCurve);
+   const signKey = ecdsa.keyFromPrivate(prvKeyHex, "hex");
+   const sig = ecdsa.sign(Buffer.from(digest, "hex"), signKey);
 
-// now we have the signature, next we should send the signed transaction proposal to the peer
-// 现在我们已经有了签名，接下来我们应该向Peer发送已签名的交易建议
-const signature = Buffer.from(sig.toDER());
-const signedProposal = {
-  signature,
-  proposal_bytes: proposalBytes
-};
-```
+   // now we have the signature, next we should send the signed transaction proposal to the peer
+   // 现在我们已经有了签名，接下来我们应该向Peer发送已签名的交易建议
+   const signature = Buffer.from(sig.toDER());
+   const signedProposal = {
+     signature,
+     proposal_bytes: proposalBytes
+   };
+   ```
 
 4. 将已签署的交易提议发送给 Peer
 
-```javascript
-const sendSignedProposalReq = { signedProposal, targets };
-const proposalResponses = await channel.sendSignedProposal(
-  sendSignedProposalReq
-);
-// check the proposal responses, if all good, commit the transaction
-// 检查提案响应，如果一切都很好，请进行交易
-```
+   ```javascript
+   const sendSignedProposalReq = { signedProposal, targets };
+   const proposalResponses = await channel.sendSignedProposal(
+     sendSignedProposalReq
+   );
+   // check the proposal responses, if all good, commit the transaction
+   // 检查提案响应，如果一切都很好，请进行交易
+   ```
 
 5. 与步骤 1 相似，生成未签名的交易
 
-```javascript
-const commitReq = {
-  proposalResponses,
-  proposal
-};
+   ```javascript
+   const commitReq = {
+     proposalResponses,
+     proposal
+   };
 
-const commitProposal = await channel.generateUnsignedTransaction(commitReq);
-```
+   const commitProposal = await channel.generateUnsignedTransaction(commitReq);
+   ```
 
 6. 与步骤 3 相似，使用用户的私钥签署未签名的交易
 
-```javascript
-const signedCommitProposal = signProposal(commitProposal);
-```
+   ```javascript
+   const signedCommitProposal = signProposal(commitProposal);
+   ```
 
 7. 提交已签署的交易
 
-```javascript
-const response = await channel.sendSignedTransaction({
-  signedProposal: signedCommitProposal,
-  request: commitReq
-});
-// response.status should be 'SUCCESS' if the commit succeed
-//如果成功提交，则response.status应该为'SUCCESS'
-```
+   ```javascript
+   const response = await channel.sendSignedTransaction({
+     signedProposal: signedCommitProposal,
+     request: commitReq
+   });
+   // response.status should be 'SUCCESS' if the commit succeed
+   //如果成功提交，则response.status应该为'SUCCESS'
+   ```
 
 8. 与步骤 1 相似，为 ChannelEventHub 生成未签名的 eventhub 注册。
 
-```javascript
-const unsignedEvent = eh.generateUnsignedRegistration({
-  certificate: certPem,
-  mspId
-});
-```
+   ```javascript
+   const unsignedEvent = eh.generateUnsignedRegistration({
+     certificate: certPem,
+     mspId
+   });
+   ```
 
 9. 与第 3 步类似，使用用户的私钥对未签名的 eventhub 注册进行签名
 
-```javascript
-const signedProposal = signProposal(unsignedEvent);
-const signedEvent = {
-  signature: signedProposal.signature,
-  payload: signedProposal.proposal_bytes
-};
-```
+   ```javascript
+   const signedProposal = signProposal(unsignedEvent);
+   const signedEvent = {
+     signature: signedProposal.signature,
+     payload: signedProposal.proposal_bytes
+   };
+   ```
 
 10. 在 Peer 注册此 ChannelEventHub
 
-```javascript
-channelEventHub.connect({ signedEvent });
-```
+    ```javascript
+    channelEventHub.connect({ signedEvent });
+    ```
 
-完整测试可以在 fabric-sdk-node/test/integration/signTransactionOffline.js 中找到
+    完整测试可以在 fabric-sdk-node/test/integration/signTransactionOffline.js 中找到
 
 ## 如何注册 CSR
 
@@ -204,7 +204,7 @@ fabric-ca-client 提供了 API enroll()，它接受可选参数"CSR"。 如果�
 然后，我们应该创建 CSR。 一种常见的方法是使用 openssl 命令。
 
 ```NONE
-注意，在注册步骤中，CSR必须包含信息“common name(通用名称)”，并且“common name”必须与“enrollmentID”相同。
+注意，在注册步骤中，CSR必须包含信息"common name(通用名称)"，并且"common name"必须与"enrollmentID"相同。
 ```
 
 这是如何使用密钥算法 rsa 和密钥大小 2048 位创建 CSR 的示例

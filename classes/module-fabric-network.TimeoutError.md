@@ -4,7 +4,7 @@
 
 指示超时的错误。
 
-#### new TimeoutError()
+### new TimeoutError()
 
 ### 扩展
 

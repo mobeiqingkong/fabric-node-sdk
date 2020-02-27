@@ -1,10 +1,10 @@
 # CouchDBKeyValueStore
 
-## CouchDBKeyValueStore
+## 说明
 
 这是[KeyValueStore](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.KeyValueStore.html) API 的示例数据库实现。它使用本地或远程 CouchDB 数据库实例存储密钥。
 
-#### new CouchDBKeyValueStore(options)
+### new CouchDBKeyValueStore(options)
 
 constructor
 

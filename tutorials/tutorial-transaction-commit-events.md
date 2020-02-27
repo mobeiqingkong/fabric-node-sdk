@@ -1,6 +1,6 @@
 # fabric-network:如何等待将事务提交到分类帐(How to wait for transactions to be committed to the ledger)
 
-## fabric-network:如何等待将事务提交到分类帐(How to wait for transactions to be committed to the ledger)
+## 说明
 
 本教程描述了 Fabric 网络模块的用户可以选择的方法，以确保已提交的事务在 Peer 上提交。
 

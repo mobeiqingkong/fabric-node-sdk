@@ -1,10 +1,10 @@
 # NetworkConfig_1_0
 
-## NetworkConfig_1_0
+## 说明
 
 这是 NetworkConfig API 的实现。它将用于基于 JSON 的通用连接配置文件的 v1.0.1 版本。 (也称为网络配置)。
 
-#### new NetworkConfig_1_0(network_config)
+### new NetworkConfig_1_0(network_config)
 
 constructor
 

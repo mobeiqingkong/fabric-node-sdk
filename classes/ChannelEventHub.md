@@ -1,8 +1,8 @@
 # ChannelEventHub
 
-## ChannelEventHub
+## 说明
 
-#### new ChannelEventHub(channel, peer)
+### new ChannelEventHub(channel, peer)
 
 构造一个 ChannelEventHub 对象
 
@@ -29,24 +29,24 @@
 
 | 名称            | 类型    | 描述                                     |
 | :-------------- | :------ | ---------------------------------------- |
-| force_reconnect | boolean | 如果流不处于“ READY”状态，则尝试重新连接 |
+| force_reconnect | boolean | 如果流不处于" READY"状态，则尝试重新连接 |
 
 #### close()
 
-将 ChannelEventHub 与光纤对等服务断开连接。将关闭所有事件侦听器，并向提供“ onError”回调的所有侦听器发送带有消息“ ChannelEventHub 已关闭”的 EventHubDisconnectError 对象。
+将 ChannelEventHub 与光纤对等服务断开连接。将关闭所有事件侦听器，并向提供" onError"回调的所有侦听器发送带有消息" ChannelEventHub 已关闭"的 EventHubDisconnectError 对象。
 
-将 ChannelEventHub 与 fabric peer 服务断开连接。将关闭所有事件侦听器，并向提供“ onError”回调的所有侦听器发送带有消息“ ChannelEventHub 已关闭”的 EventHubDisconnectError 对象。
+将 ChannelEventHub 与 fabric peer 服务断开连接。将关闭所有事件侦听器，并向提供" onError"回调的所有侦听器发送带有消息" ChannelEventHub 已关闭"的 EventHubDisconnectError 对象。
 
 #### connect(options, connectCallback)
 
-与 fabric peer 服务建立连接。连接将异步建立。如果无法建立连接，则将通过提供的“ connectCallback”通知应用程序。另外，如果提供了来自 registerXXXEvent()方法的错误回调，则将得到通知。对于运行时连接问题，建议在“ connectCallback”上中继应用程序以确定连接状态，并在事件侦听器的“ errCallback”上中继。在调用 connect()之后，通过调用[registerBlockEvent](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelEventHub.html#registerBlockEvent), [registerTxEvent](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelEventHub.html#registerTxEvent) 或 [registerChaincodeEvent](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelEventHub.html#registerChaincodeEvent)方法中的任何一种来注册事件侦听器和错误回调。
+与 fabric peer 服务建立连接。连接将异步建立。如果无法建立连接，则将通过提供的" connectCallback"通知应用程序。另外，如果提供了来自 registerXXXEvent()方法的错误回调，则将得到通知。对于运行时连接问题，建议在" connectCallback"上中继应用程序以确定连接状态，并在事件侦听器的" errCallback"上中继。在调用 connect()之后，通过调用[registerBlockEvent](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelEventHub.html#registerBlockEvent), [registerTxEvent](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelEventHub.html#registerTxEvent) 或 [registerChaincodeEvent](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelEventHub.html#registerChaincodeEvent)方法中的任何一种来注册事件侦听器和错误回调。
 
 - 参数
 
 | 名称            | 类型                                                                                                                | 描述                                                                                                                                                                        |
 | :-------------- | :------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | options         | [ConnectOptions](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#ConnectOptions)&#124;boolean | 可选。如果类型为布尔值，则将假定如何连接以接收完整(true)或已过滤(false)块。                                                                                                 |
-| connectCallback | function                                                                                                            | 可选。该回调将报告与 peer 的连接完成，或报告与peer连接期间遇到的任何错误。发生错误时，此 ChannelEventHub 将关闭(disconnected)。回调函数应采用两个参数作为(error, value)。 |
+| connectCallback | function                                                                                                            | 可选。该回调将报告与 peer 的连接完成，或报告与 peer 连接期间遇到的任何错误。发生错误时，此 ChannelEventHub 将关闭(disconnected)。回调函数应采用两个参数作为(error, value)。 |
 
 #### disconnect()
 
@@ -99,9 +99,9 @@
 
 #### registerBlockEvent(onEvent, onError, options)
 
-注册一个侦听器以接收提交给该通道的所有块。在每个块到达时，将调用侦听器的“ onEvent”回调。
+注册一个侦听器以接收提交给该通道的所有块。在每个块到达时，将调用侦听器的" onEvent"回调。
 
-异步运行的连接建立中可能会发生错误。最佳实践是在此 ChannelEventHub 出现问题时提供“ onError”回调以通知。
+异步运行的连接建立中可能会发生错误。最佳实践是在此 ChannelEventHub 出现问题时提供" onError"回调以通知。
 
 - 参数
 
@@ -133,7 +133,7 @@
 | event_name   | string&#124;RegExp                                                                                         | 链码事件或正则表达式的确切名称，它将与目标链码的调用 stub.SetEvent(name, payload)的名称相匹配                                                                                                                                                                                                                                            |
 | onEvent      | function                                                                                                   | 匹配事件的回调函数。不使用"as_array"时将使用四个参数调用它。<br/>- ChaincodeEvent-链码产生的链码事件，<br/>- {Long}-包含此链码事件的块号<br/>- {string}-包含此 chaincode 事件的交易 ID<br/>- {string}-包含此 chaincode 事件的交易的交易状态<br/>当使用"as_array: true"选项时，事件对象数组的一个参数将具有上述值，可以在以下示例中使用。 |
 | onError      | function                                                                                                   | 关闭此 ChannelEventHub 时将通知的可选回调函数。关闭原因可能是网络连接错误，"disconnect()"方法的调用，或者 fabric 服务在此 ChannelEventHub 结束连接引起的。由于重播并请求 endBlock 为"newest"，则由于接收到最后一个块而关闭 ChannelEventHub 时，也会调用此回调。                                                                          |
-| options      | [RegistrationOpts](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#RegistrationOpts) | 注册选项允许开始和结束程序段号，自动注销并自动断开连接。链码事件侦听器也可以使用“ as_array”选项来表明，找到的所有与此定义匹配的链码事件都将作为数组发送到回调，或者分别为每个回调调用回调。                                                                                                                                              |
+| options      | [RegistrationOpts](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#RegistrationOpts) | 注册选项允许开始和结束程序段号，自动注销并自动断开连接。链码事件侦听器也可以使用" as_array"选项来表明，找到的所有与此定义匹配的链码事件都将作为数组发送到回调，或者分别为每个回调调用回调。                                                                                                                                              |
 
 返回结果
 

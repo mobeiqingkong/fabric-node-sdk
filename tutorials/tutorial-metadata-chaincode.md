@@ -1,6 +1,6 @@
 # fabric-client:如何在链码安装过程中添加 CouchDB 索引(How to add CouchDB indexes during chaincode installation)
 
-## fabric-client:如何在链码安装过程中添加 CouchDB 索引(How to add CouchDB indexes during chaincode installation)
+## 说明
 
 本教程说明了如何在链式代码安装中添加元数据。从 v1.1 开始，唯一的元数据就是可以添加到通道分类帐的 CouchDB 状态数据库中的索引。
 
@@ -21,7 +21,7 @@ Fabric 1.1 引入了在 CouchDB 状态数据库中定义索引的功能，以帮
 
 ### 安装链码
 
-以下示例将安装链码“ my_chaincode”并包括索引文件。
+以下示例将安装链码" my_chaincode"并包括索引文件。
 
 ```javascript
 let targets = buildTargets(); //build the list of peers that will require this chaincode // 建立将需要此链代码的Peer列表
@@ -63,7 +63,7 @@ client.installChaincode(request).then(
 );
 ```
 
-下面显示了用作上面的 metadataPath 的路径。 这是路径下所需的必需目录结构。 索引目录将保存带有索引定义的文件。 所需的目录结构和带有'json'扩展名的文件将包含在'META_INF'软件包目录下的 chaincode 安装软件包中。 “ META-INF”不应包含在本地目录结构中。
+下面显示了用作上面的 metadataPath 的路径。 这是路径下所需的必需目录结构。 索引目录将保存带有索引定义的文件。 所需的目录结构和带有'json'扩展名的文件将包含在'META_INF'软件包目录下的 chaincode 安装软件包中。 " META-INF"不应包含在本地目录结构中。
 
 ```shell
  ..

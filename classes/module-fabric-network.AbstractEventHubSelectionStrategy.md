@@ -4,7 +4,7 @@
 
 为其他选择策略提供接口的抽象选择策略
 
-#### new AbstractEventHubSelectionStrategy(peers)
+### new AbstractEventHubSelectionStrategy(peers)
 
 - 参数
 

@@ -1,10 +1,10 @@
 # FabricCAClient
 
-## (未完成)FabricCAClient
+## 说明
 
 与 Fabric CA API 通信的客户端
 
-#### new FabricCAClient(connect_opts)
+### new FabricCAClient(connect_opts)
 
 constructor
 
@@ -21,10 +21,10 @@ constructor
 | protocol   | string                                                                                         | 使用的协议(HTTP 或 HTTPS)                                                                                              |
 | hostname   | string                                                                                         | Fabric CA 服务器终结点的主机名                                                                                           |
 | port       | number                                                                                         | Fabric CA 服务器端点的端口                                                                                               |
-| tlsOptions | [TLSOptions](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#TLSOptions) | Fabric CA 端点使用“ https”时要使用的 TLS 设置                                                                            |
+| tlsOptions | [TLSOptions](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#TLSOptions) | Fabric CA 端点使用" https"时要使用的 TLS 设置                                                                            |
 | caname     | string                                                                                         | CA 的可选名称。 Fabric-ca 服务器从单个服务器支持多个证书颁发机构。如果省略，为 null 或为空字符串，则默认 CA 为请求的目标 |
 
-##### 抛出
+抛出
 
 如果连接选项丢失或无效，将引发错误
 
@@ -41,7 +41,7 @@ constructor
 | enrollmentID     | string                                                                                                                   | 用于注册的注册 ID                                                                                                |
 | enrollmentSecret | string                                                                                                                   | 与注册 ID 关联的 secret                                                                                          |
 | csr              | string                                                                                                                   | PEM 编码的 PKCS#10 证书签名请求                                                                                  |
-| profile          | string                                                                                                                   | 配置文件名称。为 TLS 证书指定“ tls”配置文件；否则，将颁发注册证书。                                              |
+| profile          | string                                                                                                                   | 配置文件名称。为 TLS 证书指定" tls"配置文件；否则，将颁发注册证书。                                              |
 | attr_reqs        | Array.&lt;[AttributeRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#AttributeRequest)&gt; | [AttributeRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#AttributeRequest)的数组 |
 
 抛出

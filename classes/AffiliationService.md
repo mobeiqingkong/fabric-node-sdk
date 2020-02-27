@@ -1,10 +1,10 @@
 # AffiliationService
 
-## AffiliationService
+## 说明
 
 这是从属关系的实现，该服务使用 Fabric CA 客户端 [FabricCAClient](FabricCAClient.md)与 Fabric CA 服务器进行通信。
 
-#### new AffiliationService()
+### new AffiliationService()
 
 ### Methods
 

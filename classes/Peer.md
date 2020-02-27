@@ -1,10 +1,10 @@
 # Peer
 
-## Peer
+## 说明
 
 Peer 类代表目标区块链网络中的一个对等体。该应用程序可以发送背书提议，并通过此类来查询请求。
 
-#### new Peer(url, opts)
+### new Peer(url, opts)
 
 使用给定的 url 和 opts 构造一个 Peer 对象。Peer 对象封装了背书 peer 的属性以及通过 grpc 服务 API 与其进行的交互。Peer 对象由[Client](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html) 对象用于发送与通道无关的请求，例如安装链码，查询 peer 以获取已安装的链码等。[Channel](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Channel.html) 对象还使用它们发送通道感知的请求，例如实例化链码和调用事务。
 

@@ -1,10 +1,10 @@
 # SigningIdentity
 
-## SigningIdentity
+## 说明
 
 SigningIdentity 是 Identity 的扩展，涵盖了签名功能。例如，如果客户希望签署提案答复和交易，则应要求签署身份
 
-#### new SigningIdentity(certificate, publicKey, mspId, cryptoSuite, signer)
+### new SigningIdentity(certificate, publicKey, mspId, cryptoSuite, signer)
 
 - 参数
 
@@ -27,6 +27,6 @@ SigningIdentity 是 Identity 的扩展，涵盖了签名功能。例如，如果
 | 名称 | 类型               | 描述                                                                                                                                         |
 | ---- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | msg  | Array.&lt;byte&gt; | 要签名的消息                                                                                                                                 |
-| opts | Object             | 用于签名的 Options 对象包含一个字段“ hashFunction”，该字段允许使用不同的哈希算法。如果不存在，则默认为为身份自己的加密套件对象配置的哈希函数 |
+| opts | Object             | 用于签名的 Options 对象包含一个字段" hashFunction"，该字段允许使用不同的哈希算法。如果不存在，则默认为为身份自己的加密套件对象配置的哈希函数 |
 
 ---

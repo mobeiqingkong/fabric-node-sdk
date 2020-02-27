@@ -4,7 +4,7 @@
 
 基本检查点为检查点提供接口
 
-#### new BaseCheckpointer(options)
+### new BaseCheckpointer(options)
 
 The constructor
 

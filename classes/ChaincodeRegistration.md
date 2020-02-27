@@ -1,8 +1,8 @@
 # ChaincodeRegistration
 
-## ChaincodeRegistration
+## 说明
 
-#### new ChaincodeRegistration(chaincode_id, event_name, event_reg, as_array)
+### new ChaincodeRegistration(chaincode_id, event_name, event_reg, as_array)
 
 构造一个 chaincode 回调条目
 

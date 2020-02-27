@@ -1,10 +1,10 @@
 # api.CryptoSuite
 
-## [api](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.html). CryptoSuite
+## 说明:[api](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.html). CryptoSuite
 
 SDK 使用的一组加密算法的抽象类，用于执行数字签名，加密/解密和安全哈希。一套完整的套件包括对非对称密钥(例如 ECDSA 或 RSA)，对称密钥(例如 AES)和安全哈希(例如 SHA2 / 3)的支持。该 SDK 提供了基于 ECDSA + SHA2 / 3 的默认实现。可以使用 "crypto-suite-software"配置设置来指定替代实现，该设置指向指向模块包的完整 require() 路径。
 
-#### new CryptoSuite( )
+### new CryptoSuite( )
 
 ### Methods
 
@@ -107,7 +107,7 @@ SDK 使用的一组加密算法的抽象类，用于执行数字签名，加密/
 
 #### getKey(ski)
 
-返回此实现关联到“主题密钥标识符”列表的密钥。
+返回此实现关联到"主题密钥标识符"列表的密钥。
 
 - 参数
 
@@ -132,7 +132,7 @@ SDK 使用的一组加密算法的抽象类，用于执行数字签名，加密/
 | 名称 | 类型   | 描述                                         |
 | ---- | ------ | -------------------------------------------- |
 | msg  | string | 哈希的源消息                                 |
-| opts | Object | algorithm:要使用的算法的标识符，例如“ SHA3” |
+| opts | Object | algorithm:要使用的算法的标识符，例如" SHA3" |
 
 返回结果
 
@@ -144,7 +144,7 @@ SDK 使用的一组加密算法的抽象类，用于执行数字签名，加密/
 
 #### importKey(pem, opts)
 
-使用 opts 从其原始表示形式导入密钥。如果 opts.ephemeral 参数为 false，则该方法除了返回导入的 Key 实例之外，还将导入的密钥保存为密钥库中的 PEM 文件，可以使用“ getKey()”方法进行检索
+使用 opts 从其原始表示形式导入密钥。如果 opts.ephemeral 参数为 false，则该方法除了返回导入的 Key 实例之外，还将导入的密钥保存为密钥库中的 PEM 文件，可以使用" getKey()"方法进行检索
 
 - 参数
 
@@ -155,7 +155,7 @@ SDK 使用的一组加密算法的抽象类，用于执行数字签名，加密/
 
 返回结果
 
-- 如果“ opts.ephemeral”为 true，则同步返回 Key 类。如果未设置“ opts.ephemeral”或为 false，则返回 Key 类实例的 Promise。
+- 如果" opts.ephemeral"为 true，则同步返回 Key 类。如果未设置" opts.ephemeral"或为 false，则返回 Key 类实例的 Promise。
 
   - 类型
 

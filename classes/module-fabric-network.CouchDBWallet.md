@@ -4,7 +4,7 @@
 
 此类定义了持久存储在 Couch DB 数据库中的 Identity 钱包的实现
 
-#### new CouchDBWallet(options [, mixin])
+### new CouchDBWallet(options [, mixin])
 
 创建 CouchDBWallet 的实例
 

@@ -1,10 +1,10 @@
 # FabricCAServices
 
-## FabricCAServices
+## 说明
 
 这是与 Fabric CA 服务器通信的成员服务客户端的实现。
 
-#### new FabricCAServices(url, tlsOptions, caName, cryptoSuite)
+### new FabricCAServices(url, tlsOptions, caName, cryptoSuite)
 
 constructor
 
@@ -13,7 +13,7 @@ constructor
 | 名称        | 类型                                                                                           | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | ----------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | url         | string &#124; object                                                                           | Fabric CA 服务的端点 URL，格式为:"<http://host:port"或"https://host:port"。如果此参数是一个对象，则它必须包括列为键值对的参数。>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| tlsOptions  | [TLSOptions](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#TLSOptions) | Fabric CA 服务端点使用“ https”时要使用的 TLS 设置                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| tlsOptions  | [TLSOptions](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#TLSOptions) | Fabric CA 服务端点使用" https"时要使用的 TLS 设置                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | caName      | string                                                                                         | CA 的可选名称。 Fabric-ca 服务器从单个服务器支持多个证书颁发机构。如果省略，为 null 或为空字符串，则默认 CA 为请求的目标                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | cryptoSuite | CryptoSuite                                                                                    | 如果需要除默认值以外的其他选项，则使用可选的 cryptoSuite 实例。如果未指定，则将基于当前配置设置构造 CryptoSuite 实例:<br>-crypto-hsm:使用硬件安全模块(如果设置为 true)或基于软件的密钥管理(如果设置为 false)的实现<br>-crypto-keysize:与数字签名公钥算法一起使用的安全级别或密钥大小。当前支持 ECDSA，有效密钥大小为 256 和 384<br> -crypto-hash-algo:哈希算法<br>-密钥值存储:某些 CryptoSuite 实现需要密钥存储来保留私钥。为此提供了一个[CryptoKeyStore](https://hyperledger.github.io/fabric-sdk-node/release-1.4/CryptoKeyStore.html)，它可以在 KeyValueStore 接口的任何实现之上使用，例如基于文件的存储或基于数据库的存储。具体的实现方式取决于此配置设置的值。 |
 
@@ -31,11 +31,11 @@ constructor
 
 | 名称 | 类型 | 描述                                                                                                                                                                                                                             |
 | ---- | ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| req  |      | [EnrollmentRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#EnrollmentRequest)，如果请求包含字段“ csr”，则此 csr 将用于从 Fabric-CA 获取证书。否则，将生成一个新的私钥，并在以后用于生成一个 csr。 |
+| req  |      | [EnrollmentRequest](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#EnrollmentRequest)，如果请求包含字段" csr"，则此 csr 将用于从 Fabric-CA 获取证书。否则，将生成一个新的私钥，并在以后用于生成一个 csr。 |
 
 返回结果
 
-- 如果请求不包含字段“ csr”，则返回的 Promise 将为新生成的私钥解析带有“ key”的[Enrollment](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#Enrollment) 对象。如果请求包含字段“ csr”，则解析的[Enrollment](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#Enrollment) 对象不包含属性“ key”。
+- 如果请求不包含字段" csr"，则返回的 Promise 将为新生成的私钥解析带有" key"的[Enrollment](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#Enrollment) 对象。如果请求包含字段" csr"，则解析的[Enrollment](https://hyperledger.github.io/fabric-sdk-node/release-1.4/global.html#Enrollment) 对象不包含属性" key"。
 
   - 类型
 
@@ -137,7 +137,7 @@ constructor
 
 返回结果
 
-- 一个对象的 Promise，其中“ key”代表私钥，“ certificate”代表签名证书
+- 一个对象的 Promise，其中" key"代表私钥，" certificate"代表签名证书
 
 #### register(req, registrar)
 

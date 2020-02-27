@@ -1,8 +1,8 @@
 # ECDSA_KEY
 
-## ECDSA_KEY
+## 说明
 
-#### new ECDSA_KEY()
+### new ECDSA_KEY()
 
 此模块为 ECDSA 实现 [module:api.Key](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.Key.html) 接口。
 

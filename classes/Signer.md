@@ -1,10 +1,10 @@
 # Signer
 
-## Signer
+## 说明
 
 签名者是不透明私钥的接口，可用于签名操作
 
-#### new Signer(cryptoSuite, key)
+### new Signer(cryptoSuite, key)
 
 - 参数
 

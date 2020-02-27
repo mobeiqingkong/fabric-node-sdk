@@ -4,7 +4,7 @@
 
 内置钱包实现的基类。仅限内部使用。
 
-#### new BaseWallet()
+### new BaseWallet()
 
 实现:
 

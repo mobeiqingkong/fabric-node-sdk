@@ -1,10 +1,10 @@
 # MSPManager
 
-## MSPManager
+## 说明
 
 MSPManager 是定义一个或多个 MSP 的管理器的接口。这实质上充当 MSP 调用的中介，并将 MSP 相关的调用路由到适当的 MSP。该对象是不可变的，它只初始化一次就不会更改。
 
-#### new MSPManager()
+### new MSPManager()
 
 ### Methods
 

@@ -1,10 +1,10 @@
 # CertificateAuthority
 
-## CertificateAuthority
+## 说明
 
 CertificateAuthority 类表示在连接配置文件中定义的证书颁发机构配置 。 当从 [Client#getCertificateAuthority](https://hyperledger.github.io/fabric-sdk-node/release-1.4/Client.html#getCertificateAuthority) 方法返回此类时，此类将作为 FabricCAServices 实例包装 FabricCAClientImpl fabric-ca-client 实现。此类具有与 [FabricCAServices](https://hyperledger.github.io/fabric-sdk-node/release-1.4/FabricCAServices.html) 相同的所有方法，因此可以直接使用此类，也可以使用此类的 [CertificateAuthority#getFabricCAServices](https://hyperledger.github.io/fabric-sdk-node/release-1.4/CertificateAuthority.html#getFabricCAServices) 方法来获取实际的 FabricCAServices 实例。
 
-#### new CertificateAuthority(name)
+### new CertificateAuthority(name)
 
 构造一个 CertificateAuthority 对象
 

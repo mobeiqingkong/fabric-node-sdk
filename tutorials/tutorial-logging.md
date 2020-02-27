@@ -1,6 +1,6 @@
 # fabric-common:如何使用日志记录(How to use logging)
 
-## fabric-common:如何使用日志记录(How to use logging)
+## 说明
 
 本教程说明了如何使用 Hyperledger Fabric Node.js 客户端日志记录功能。
 
@@ -8,7 +8,7 @@
 
 Hyperledger Fabric Node.js 客户端日志记录使用 Node.js "winston"包。 当 Node.js 应用程序首次加载 Hyperledger Fabric 软件包时，将初始化日志记录。 所有 Hyperledger Fabric 客户端对象将使用相同的设置(Peer,Orderer,ChannelEventHub)。
 
-```
+```javascript
 const Client = require('fabric-client');
 // the logging is now set
 // 已设置日志

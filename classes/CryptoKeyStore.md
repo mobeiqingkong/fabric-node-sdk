@@ -1,8 +1,8 @@
 # CryptoKeyStore
 
-## CryptoKeyStore
+## 说明
 
-#### new CryptoKeyStore(KVSImplClass, opts)
+### new CryptoKeyStore(KVSImplClass, opts)
 
 CryptoKeyStore 使用[module:api.KeyValueStore](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.KeyValueStore.html)实现的基础实例来保留加密密钥。
 

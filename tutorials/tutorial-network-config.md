@@ -1,6 +1,6 @@
 # fabric-client:如何使用公共连接配置文件(How to use a common connection profile)
 
-## fabric-client:如何使用公共连接配置文件(How to use a common connection profile)
+## 说明
 
 本教程说明了通用连接配置文件的用法。 从 1.1 开始，连接配置文件是 Hyperledger Fabric Node.js 客户端的一项新功能。 连接配置文件将向 Hyperledger Fabric Node.js 客户端(Fabric 客户端)描述 Hyperledger Fabric 网络。
 
@@ -202,7 +202,7 @@ client.setUserContext({username:'admin', password:'adminpw'})
 var fabric_ca_client = client.getCertificateAuthority();
 ```
 
-然后，一旦我们有了 fabric-ca-client，我们就可以注册新用户。 我们还可以使用 fabric-ca-client 来注册用户，并向 Fabric 客户端进行一些调用以创建用户对象，然后将该用户对象分配给 Fabric 客户端，但是使用便捷方法会容易得多。 Fabric 客户端实例的实例。 注意，我们必须如何使用从 client.setUserContext()返回的'admin'用户对象进行注册。 admin 用户对象具有注册所需的凭据。 然后注意，我们调用了与上述管理员相同的 setUserContext 方法，这将为 Fabric 客户端对象分配“ user1”用户上下文，从而提供与 Fabric 网络交互的凭据。 请注意，setUserContext 还存储了用户上下文，其中包含来自证书颁发机构的签名证书以及现在注册用户的新创建的公钥和私钥。
+然后，一旦我们有了 fabric-ca-client，我们就可以注册新用户。 我们还可以使用 fabric-ca-client 来注册用户，并向 Fabric 客户端进行一些调用以创建用户对象，然后将该用户对象分配给 Fabric 客户端，但是使用便捷方法会容易得多。 Fabric 客户端实例的实例。 注意，我们必须如何使用从 client.setUserContext()返回的'admin'用户对象进行注册。 admin 用户对象具有注册所需的凭据。 然后注意，我们调用了与上述管理员相同的 setUserContext 方法，这将为 Fabric 客户端对象分配" user1"用户上下文，从而提供与 Fabric 网络交互的凭据。 请注意，setUserContext 还存储了用户上下文，其中包含来自证书颁发机构的签名证书以及现在注册用户的新创建的公钥和私钥。
 
 ```javascript
 fabric_ca_client.register({enrollmentID: 'user1', affiliation: 'org1'}, admin)

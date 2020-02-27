@@ -1,6 +1,6 @@
 # fabric-common:如何使用背书，查询和提交处理程序(How to use the endorsement and commit handlers)
 
-## fabric-common:如何使用背书，查询和提交处理程序(How to use the endorsement and commit handlers)
+## 说明
 
 本教程从 1.3 版本开始说明 Hyperledger Fabric Node.js 客户端对处理程序的使用。
 

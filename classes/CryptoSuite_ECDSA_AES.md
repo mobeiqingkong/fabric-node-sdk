@@ -1,6 +1,6 @@
 # CryptoSuite_ECDSA_AES
 
-## CryptoSuite_ECDSA_AES
+## 说明
 
 [module:api.CryptoSuite](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.CryptoSuite.html)用于 ECDSA 的实现和使用软件密钥生成的 AES 算法。此类实现基于软件的密钥生成(与基于硬件安全模块的密钥管理相对)
 
@@ -101,7 +101,7 @@ constructor
 
 #### getKey(ski)
 
-返回实现关联到“主题密钥标识符”(Subject Key Identifier)列表的密钥。
+返回实现关联到"主题密钥标识符"(Subject Key Identifier)列表的密钥。
 
 - 参数
 

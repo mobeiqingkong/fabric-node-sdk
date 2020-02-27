@@ -1,8 +1,8 @@
 # fabric-network:如何监听事件(How to listen to events)
 
-## fabric-network:如何监听事件(How to listen to events)
+## 说明
 
-# 使用 Fabric Network 收听事件
+## 使用 Fabric Network 收听事件
 
 本教程描述了使用 Fabric-Network 模块侦听网络发出的事件的不同方法。
 

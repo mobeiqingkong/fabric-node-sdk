@@ -6,7 +6,7 @@
 
 此类的实例是有状态的。必须为每个事务调用创建一个新实例。
 
-#### new Transaction()
+### new Transaction()
 
 ### Methods
 
@@ -20,7 +20,7 @@
 | -------- | -------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | callback | function                                                                                           | 发出事务提交事件时将触发此回调。它包含错误，transactionId，交易状态和块编号的参数 |
 | options  | module:fabric-network.Network~ListenerOptions                                                      | 可选。注册选项允许起始和终止编号。                                                |
-| eventHub | [ ChannelEventHub](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelEventHub.html) | 可选。PEM 格式的私钥。用于覆盖事件中心选择                                        |
+| eventHub | [ChannelEventHub](https://hyperledger.github.io/fabric-sdk-node/release-1.4/ChannelEventHub.html) | 可选。PEM 格式的私钥。用于覆盖事件中心选择                                        |
 
 返回结果
 
@@ -116,7 +116,7 @@
 
     [module:fabric-network.TimeoutError](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.TimeoutError.html)
 
-- 如果发生基础基础结构故障。错误的“responses”属性包含来自背书peer的提议响应对象数组。
+- 如果发生基础基础结构故障。错误的"responses"属性包含来自背书peer的提议响应对象数组。
 
   - 类型
 

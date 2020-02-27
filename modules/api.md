@@ -33,7 +33,7 @@
 | 名称            | 类型   | 描述                                                                                                               |
 | --------------- | ------ | ------------------------------------------------------------------------------------------------------------------ |
 | request         | Object | [ChaincodeInvokeRequest](../global.md#ChaincodeInvokeRequest)                                                      |
-| signed_proposal | Object | 编码协议原型“ SignedProposal”在调用处理程序之前由 sendTransactionProposal 方法创建。将成为目标 peer 节点背书的对象 |
+| signed_proposal | Object | 编码协议原型" SignedProposal"在调用处理程序之前由 sendTransactionProposal 方法创建。将成为目标 peer 节点背书的对象 |
 | timeout         | Number | 由 sendTransaction 方法传递超时设置。                                                                              |
 
 ---

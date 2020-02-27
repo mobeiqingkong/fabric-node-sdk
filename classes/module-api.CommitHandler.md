@@ -1,10 +1,10 @@
 # api.CommitHandler
 
-## [api](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.html). CommitHandler
+## 说明:[api](https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-api.html). CommitHandler
 
 提交处理的基类
 
-#### new CommitHandler()
+### new CommitHandler()
 
 ### Methods
 

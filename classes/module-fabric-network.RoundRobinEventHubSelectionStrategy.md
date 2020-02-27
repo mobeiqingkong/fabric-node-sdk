@@ -4,7 +4,7 @@
 
 循环事件中心策略是一种基本的事件中心选择策略，用于将负载分散到不同的事件中心并跟踪事件中心的可用性
 
-#### new RoundRobinEventHubSelectionStrategy(peers)
+### new RoundRobinEventHubSelectionStrategy(peers)
 
 Constructor.
 

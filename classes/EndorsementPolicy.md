@@ -1,10 +1,10 @@
 # EndorsementPolicy
 
-## EndorsementPolicy
+## 说明
 
 控制背书策略的构造，以将其传递到实例化链码的调用中
 
-#### new EndorsementPolicy()
+### new EndorsementPolicy()
 
 ### Methods
 

@@ -1,8 +1,8 @@
 # InMemoryKVS
 
-## InMemoryKVS
+## 说明
 
-#### new InMemoryKVS(options)
+### new InMemoryKVS(options)
 
 constructor
 

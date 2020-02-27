@@ -1,10 +1,10 @@
 # Endpoint
 
-## Endpoint
+## 说明
 
 Endpoint 类代表一个远程 grpc 或 grpcs 目标
 
-#### new Endpoint(url, pem, clientKey, clientCert)
+### new Endpoint(url, pem, clientKey, clientCert)
 
 - 参数
 

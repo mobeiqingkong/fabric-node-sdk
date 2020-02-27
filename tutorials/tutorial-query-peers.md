@@ -1,6 +1,6 @@
 # fabric-network:如何选择 Peer 以评估交易(查询)(How to select peers for evaluating transactions (queries))
 
-## fabric-network:如何选择 Peer 以评估交易(查询)(How to select peers for evaluating transactions (queries))
+## 说明
 
 本教程描述了如何选择 Peer 来评估不会随后被写入分类帐的事务，也可以将其视为查询。
 

@@ -87,12 +87,12 @@ const result = await contract
 
 - 属性:
 
-| 名称                   | 类型 | 描述                                                                                                                                                 |
-| ---------------------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 名称                   | 类型 | 描述                                                                                                                                               |
+| ---------------------- | ---- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | MSPID_SCOPE_ALLFORTX   |      | 监听来自客户端身份组织中所有 peer 节点的事务提交事件。 SubmitTransaction 函数将等待，直到从当前连接的所有 peer 节点接收到成功事件为止(至少 1 个)。 |
-| MSPID_SCOPE_ANYFORTX   |      | 侦听来自客户端身份组织中所有 peer 节点的事务提交事件。 SubmitTransaction 函数将等待，直到从任何 peer 节点接收到成功事件为止。                        |
-| NETWORK_SCOPE_ALLFORTX |      | 侦听网络中所有peer的事务提交事件。 SubmitTransaction 函数将等待，直到从当前连接的所有 peer 节点接收到成功事件为止(至少 1 个)。                   |
-| NETWORK_SCOPE_ANYFORTX |      | 侦听网络中所有peer的事务提交事件。 SubmitTransaction 函数将等待，直到从任何 peer 节点接收到成功事件为止。                                          |
+| MSPID_SCOPE_ANYFORTX   |      | 侦听来自客户端身份组织中所有 peer 节点的事务提交事件。 SubmitTransaction 函数将等待，直到从任何 peer 节点接收到成功事件为止。                      |
+| NETWORK_SCOPE_ALLFORTX |      | 侦听网络中所有 peer 的事务提交事件。 SubmitTransaction 函数将等待，直到从当前连接的所有 peer 节点接收到成功事件为止(至少 1 个)。                   |
+| NETWORK_SCOPE_ANYFORTX |      | 侦听网络中所有 peer 的事务提交事件。 SubmitTransaction 函数将等待，直到从任何 peer 节点接收到成功事件为止。                                        |
 
 #### DefaultQueryHandlerStrategies
 
@@ -117,5 +117,6 @@ const result = await contract
 
 | 名称                    | 类型     | 描述                                                                               |
 | ----------------------- | -------- | ---------------------------------------------------------------------------------- |
-| MSPID_SCOPE_ROUND_ROBIN | function | 当出现连接断开时，会重新连接到组织中的任意一个事件发出端。以“循环”方式选择事件中心 |
+| MSPID_SCOPE_ROUND_ROBIN | function | 当出现连接断开时，会重新连接到组织中的任意一个事件发出端。以"循环"方式选择事件中心 |
+
 ---

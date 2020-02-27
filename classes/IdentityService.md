@@ -1,16 +1,16 @@
 # IdentityService
 
-## IdentityService
+## 说明
 
 这是身份服务的实现，该服务使用 fabric CA 客户端 [FabricCAClient](https://hyperledger.github.io/fabric-sdk-node/release-1.4/FabricCAClient.html)与 fabricCA 服务器进行通信。
 
-#### new IdentityService()
+### new IdentityService()
 
 ### Methods
 
 #### create(req, registrar)
 
-使用 Fabric CA 服务器创建新的标识。返回一个注册 secret，然后可以将其与注册 ID 一起用于注册新的身份。调用者必须具有“ hf.Registrar”权限。
+使用 Fabric CA 服务器创建新的标识。返回一个注册 secret，然后可以将其与注册 ID 一起用于注册新的身份。调用者必须具有" hf.Registrar"权限。
 
 - 参数
 
@@ -29,7 +29,7 @@
 
 #### delete(enrollmentID, registrar, force)
 
-删除现有身份。调用者必须具有“ hf.Registrar”权限。
+删除现有身份。调用者必须具有" hf.Registrar"权限。
 
 - 参数
 
@@ -67,7 +67,7 @@
 
 #### getOne(enrollmentID, registrar)
 
-获取身份。调用者必须具有“ hf.Registrar”权限。
+获取身份。调用者必须具有" hf.Registrar"权限。
 
 - 参数
 
@@ -86,7 +86,7 @@
 
 #### update(enrollmentID, req, registrar)
 
-更新现有身份。调用者必须具有“ hf.Registrar”权限。
+更新现有身份。调用者必须具有" hf.Registrar"权限。
 
 - 参数
 

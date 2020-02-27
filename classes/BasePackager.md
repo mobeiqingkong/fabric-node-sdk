@@ -1,8 +1,8 @@
 # BasePackager
 
-## BasePackager
+## 说明
 
-#### new BasePackager( [keep])
+### new BasePackager( [keep])
 
 - Constructor
 - 参数
@@ -20,7 +20,7 @@
 
 | 名称     | 类型 | 描述                                                             |
 | -------- | ---- | ---------------------------------------------------------------- |
-| filePath |      | 包含元数据描述符的顶级目录。结果中仅包含扩展名为“ .json”的文件。 |
+| filePath |      | 包含元数据描述符的顶级目录。结果中仅包含扩展名为" .json"的文件。 |
 
 - 返回结果
 
